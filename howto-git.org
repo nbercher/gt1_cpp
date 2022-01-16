@@ -1,4 +1,6 @@
-* Configuration de Git et du "Git workflow" (jeu Snake)
+* Howto Git & Github.com                                           :noexport:
+** Table of contents                                              :TOC:QUOTE:
+* Configuration de Git et du "Git workflow" (jeu Snake)                                  :TODOélèves:
 ** Hello Git!
 
 Avant d'utiliser Git, on se présente:
@@ -27,9 +29,9 @@ Exemple pour un binôme n°1 (codename: b01) avec élève1 et élève2
 
 ** Détail des étapes à réaliser
 
-Choisir qui sera élève1 et élève2
+Choisir qui sera élève1 et qui sera élève2.
 
-*** Étape 1: Initialisation du dépôt
+*** Étape 1: Init: Initialisation du dépôt sur Github.com
 
  1. élève1 se connecte sur Github.com
 
@@ -89,10 +91,10 @@ Choisir qui sera élève1 et élève2
 
    - Cf. la doc sur le site: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
-*** Étape 4: Cloner le dépôt Github en local sur sa machine (mode SSH)
+*** Étape 4: Clone: Cloner le dépôt Github en local sur sa machine (mode SSH)
 
  - Pour élève1 et élève2: je clone simplement le dépôt github.com sur ma machine @G.Tech1:
-   =mkdir -p ~/proj_c++/ && cd ~/proj_c++/=
+   =mkdir -p ~/proj7/ && cd ~/proj7/=
 
    Je clone mon dépôt Github:
    =git clone git@github.com:MON_COMPTE_GITHUB/gtech1-bXX-snake.git snake=
@@ -104,23 +106,23 @@ Choisir qui sera élève1 et élève2
 
    - La commande =git clone URL DOSSIER= *créé le clone dans un nouveau sous DOSSIER*.
 
-*** Étape 5: *Test 1* - Git pull & push sur mes dépôts à moi
+*** Étape 5: Push, pull: *Test 1* - Git pull & push sur mes dépôts à moi
 
 Pour tout le monde: depuis ma machine @G.Tech1:
 
  - *Je teste pull et push* entre mon dépôt local et son miroir Github.com:
 
-   =cd ~/proj_c++/snake/; git pull ; git push=
+   =cd ~/proj7/snake/; git pull ; git push=
 
    *Ces commandes ne doivent pas afficher d'erreurs.*
 
-*** Étape 6: Syncho croisée read-only =Git ← Github= autre élève (mode HTTPS)
+*** Étape 6: Pull: Syncho croisée read-only =Git ← Github= autre élève (mode HTTPS)
 
  - Je rajoute un point de synchronisation avec le dépôt github.com du/des autre(s) élève(s):
 
    - Pour *chacun de mes camarades du binôme* (= 1 pour les binômes, = 2 pour les trinômes):
 
-     =cd ~/proj_c++/snake/=
+     =cd ~/proj7/snake/=
      =git remote add ALIAS_AUTRE_ELEVE URL_HTTPS_AUTRE_ELEVE=
 
      Avec:
@@ -136,7 +138,7 @@ Pour tout le monde, depuis le PC @G.Tech1:
 
  - *Je teste pull* entre mon dépôt local et le dépôt Github.com des autres élèves:
 
-   =cd ~/proj_c++/snake/ ; git pull ALIAS_AUTRE_ELEVE main=
+   =cd ~/proj7/snake/ ; git pull ALIAS_AUTRE_ELEVE main=
 
    Notes:
    - Ces commandes (bien que inutiles à ce stade) ne doivent pas afficher d'erreurs.
