@@ -128,7 +128,7 @@ Pour tout le monde: depuis ma machine @G.Tech1:
      - =ALIAS_AUTRE_ELEVE=: donner un *nom court* en *miniscules* pour le *dépôt Github de votre camarade*
        Il sera utilisé pour faire: =git pull ALIAS_AUTRE_ELEVE main=
 
-     - URL_HTTPS_AUTRE_ELEVE=: du type =https://github.com/AUTRE_ÉLÈVE/gtech1-bXX-snake.git=
+     - URL_HTTPS_AUTRE_ELEVE=: du type =https://github.com/COMPTE_AUTRE_ÉLÈVE/gtech1-bXX-snake.git=
 
 *** Étape 7: *Test 2* - Git pull des modifs du dépôt Github de l'autre élève
 
