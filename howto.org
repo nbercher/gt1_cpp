@@ -2,23 +2,23 @@
 #+title: G.Tech 1A -- Projet#7 -- C++ sous Linux / Git
 
 * Mini "cheat sheet" Emacs (et Bash)
- C = Control ; M = Alt (Windows) ou Pomme (MacOSX)
+ =C= = Control ; =M= = Alt (Windows) ou Pomme (MacOSX)
 
- Quitter une commande en cours: C-g
+ Quitter une commande en cours: =C-g=
 
- Sauver: C-x C-s              Quitter: C-x C-c
+ Sauver: =C-x C-s=            Quitter: =C-x C-c=
 
- Couper à droite: C-k         Coller: C-y
+ Couper à droite: =C-k=       Coller: =C-y=
 
- Début sélection: C-Space     Copier sélection: M-x     Copier région: M-w
+ Début sélection: =C-Space=   Copier sélection: =M-w=  Couper sélection: =C-w=
 
- Undo: M-x ENTER puis undo ENTER (normalement C-_, mais Windows gobbe ce raccourci!!)
+ Undo: =M-x ENTER= puis =undo ENTER= (normalement =C-_=, mais Windows gobbe ce raccourci!!)
 
- Aller au début ou fin de ligne: C-a ou C-e
+ Aller en début / fin de ligne: =C-a= / =C-e=
 
- Rechercher: C-s
+ Rechercher: =C-s=
 
- Indenter le code: TAB
+ Indenter le code: =TAB=
 
 * Howto: Configuration de Git et du Git workflow (jeu Snake)
 ** Hello Git!
