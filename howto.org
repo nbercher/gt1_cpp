@@ -1,5 +1,4 @@
-<head><meta charset="UTF-8"></head><pre>
-#+title: G.Tech 1A -- Projet#7 -- C++ sous Linux / Git
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
 * Mini "cheat sheet" Emacs (et Bash)
  =C= = Control ; =M= = Alt (Windows) ou Pomme (MacOSX)
@@ -12,7 +11,7 @@
 
  Début sélection: =C-Space=   Copier sélection: =M-w=  Couper sélection: =C-w=
 
- Undo: =M-x ENTER= puis =undo ENTER= (normalement =C-_=, mais Windows gobbe ce raccourci!!)
+ Undo: =M-x ENTER= puis =undo ENTER= (normalement =C-_=, mais Windows/WSL gobbe ce raccourci!!)
 
  Aller en début / fin de ligne: =C-a= / =C-e=
 
