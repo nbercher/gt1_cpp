@@ -1,4 +1,8 @@
 * G.Tech1 / C++
 
-** [[file:howto-git.org][Howto Git & Github.com]]
-** [[file:howto-emacs.org][Howto Emacs]]
+** Coachings
+ - [[file:coaching_01.org][Coaching 1 / KO]]
+
+** Howto
+ - [[file:howto-git.org][Howto Git & Github.com]]
+ - [[file:howto-emacs.org][Howto Emacs]]
