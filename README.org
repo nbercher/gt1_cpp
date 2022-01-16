@@ -1,5 +1,3 @@
 * G.Tech1 / C++
 
-** Howto Git & Github.com
-
-[[file:howto.org]]
+** [[file:howto.org][Howto Git & Github.com]]
