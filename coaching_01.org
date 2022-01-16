@@ -1,7 +1,8 @@
 #+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
 * Projet #7
-** Table of Contents :TOC:
+** Table of Contents                                              :TOC:QUOTE:
+#+BEGIN_QUOTE
 - [[#projet-7][Projet #7]]
   - [[#introduction][Introduction]]
   - [[#organisation-générale-0][Organisation Générale]]
@@ -31,6 +32,7 @@
 - [[#objectifs-pour-coaching2][Objectifs pour coaching#2]]
 - [[#settings][settings]]
   - [[#local-variables][Local variables]]
+#+END_QUOTE
 
 ** Introduction
 
@@ -73,8 +75,8 @@
    https://github.com/nbercher/gt1_cpp (Fichier =01_ko_projet_c_linux.org=)
 
    Vous pouvez faire deux choses:
-   1. (Recommandé) Consulter ce fichier en ligne
-   2. Cloner le dépôt Git: =git clone https://github.com/nbercher/gt1_cpp=
+   1. (Recommandé) Consulter les fichiers en ligne
+   2. Cloner les fichiers avec Git: =git clone https://github.com/nbercher/gt1_cpp=
 
 ** Comment nous allons travailler
 
