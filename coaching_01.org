@@ -22,7 +22,7 @@
 * Introduction                                                   :noexport_1:
 ** Travail à réaliser durant le projet
 
- - Réalisation du *Jeux "Snake"*
+ - Réalisation du *Jeux Snake*
    - Un grand classique existant sur tout type de supports
    - À jouer au clavier dans une fenêtre en mode graphique
 
@@ -99,10 +99,10 @@
 
  - Semaine 3: Snake: Classes & objets pour gestion du ver et collisions
    - <2022-02-02 mer.> Gestion du ver fonctionnelle
-   - <2022-02-04 ven.> *Livrable: Version beta du jeu "Snake"*
+   - <2022-02-04 ven.> *Livrable: Version beta du jeu Snake*
 
  - Semaine 4: Finalisations du jeu Snake, Soutenances
-   - <2022-02-09 mer. 23:59> *Livrable: Version finale du jeu "Snake"*
+   - <2022-02-09 mer. 23:59> *Livrable: Version finale du jeu Snake*
    - <2022-02-10 jeu.> et <2022-02-11 ven.> *Soutenances*
 
 ** Notation & Soutenance
@@ -110,7 +110,7 @@
  - Notation:
    - *Évaluation Git*: Maîtrise Git + Github.com
    - Qualité de la soutenance
-   - Jeux "Snake":
+   - Jeux Snake:
      - Conforme aux demandes, jouable, sans bugs
      - Code lisible, propre et optimisé
      - Utilisation et maîtrise pour la création de: Langage C++, librarie SDL2
