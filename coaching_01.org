@@ -170,6 +170,17 @@ On va utiliser:
 
  - IMPORTANT: *Se familiariser les rudiments du Shell* (pwd, cd, mkdir, git ...)
 
+* Mise en place des fichiers de travail                          :noexport_1:
+** Création de l'espace de travail
+
+ 1. Créez votre dossier principal ~/proj7
+    :SOLUTION:
+    =mkdir ~/proj7=
+    #+BEGIN_SRC sh
+      mkdir ~/proj7
+    #+END_SRC
+    :END:
+
 * TODO Git basics                                                :noexport_1:
 ** TODO *REWORK ALL AS EXERCICES + ANSWERS*
 ** TODO Qu'est-ce que Git?
