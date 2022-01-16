@@ -5,11 +5,15 @@ Avant d'utiliser Git, on se présente:
 
  1. Configurer son prénom et son nom:
 
-    =git config --global user.name "PRÉNOM NOM"=
+    #+BEGIN_EXAMPLE
+    git config --global user.name "PRÉNOM NOM"
+    #+END_EXAMPLE
 
  2. Configurer son e-mail:
 
-    =git config --global user.email MON_EMAIL=
+    #+BEGIN_EXAMPLE
+    git config --global user.email MON_EMAIL
+    #+END_EXAMPLE
 
 ** Vue d'ensemble
 
@@ -34,7 +38,7 @@ Choisir qui sera élève1 et élève2
     - Cliquer sur "Repositories" (onglet en haut), puis sur le bouton "New" (en vert)
 
     - Remplir "Repository name" *avec un nom de dépôt de la forme*:
-      - =gtech1-bXX-snake=
+      =gtech1-bXX-snake=
 
     - Cliquer sur "Add a README file"
 
@@ -55,7 +59,7 @@ Choisir qui sera élève1 et élève2
 
       *J'ai maintenant un clone du dépôt de élève1 dans mon compte github.com*
 
- - Au final: *Chacun doit avoir les 1 dépôt "gtech1-bXX-snake" son compte Github*
+ - Au final: *Chacun doit avoir les 1 dépôt =gtech1-bXX-snake= son compte Github*
 
 *** Étape 3: Créer sa clé SSH
 
@@ -81,7 +85,7 @@ Choisir qui sera élève1 et élève2
 
    - Copier-coller le contenu de la clé publique:
      - Pour la copier: =cat ~/.ssh/id_ed25519.pub= puis copier toute la ligne avec Ctrl+Shift+C
-     - Pour la coller: dans Github.com, donner par exemple le nom "gtech1" à votre clé
+     - Pour la coller: dans Github.com, donner par exemple le nom =gtech1= à votre clé
 
    - Cf. la doc sur le site: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
@@ -166,4 +170,7 @@ En résumé:
  - Je récupère le travail de mon/mes binôme(s): =git pull ALIAS_AUTRE_ELEVE main=
  - Si j'ai plusieurs machines pour travailler, j'utiliserai =git pull=
    sur toutes mes machines si j'ai fait auparavant un =git push= depuis une autre machine
-   (Diagrame simplifié: machine1 <--push/pull--> Github <--push/pull--> machine2)
+
+   Diagrame simplifié:
+
+   =machine1 <- pull,push -> Github.com <- push,pull -> machine2=
