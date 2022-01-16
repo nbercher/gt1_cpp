@@ -1,7 +1,37 @@
-<head><meta charset="UTF-8"></head><pre>
 #+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
 * Projet #7
+** Table of Contents :TOC:
+- [[#projet-7][Projet #7]]
+  - [[#introduction][Introduction]]
+  - [[#organisation-générale-0][Organisation Générale]]
+  - [[#comment-nous-allons-travailler][Comment nous allons travailler]]
+  - [[#wip-planning-et-livrables][WIP Planning et Livrables]]
+  - [[#notation--soutenance][Notation & Soutenance]]
+  - [[#ressources-essentielles][Ressources essentielles]]
+- [[#environnement-linux][Environnement Linux]]
+  - [[#debian-gnulinux-sous-windows-10--wsl][Debian GNU/Linux sous Windows 10 / WSL]]
+  - [[#dans-la-pratique][Dans la pratique]]
+- [[#git-basics][Git basics]]
+  - [[#rework-all-as-exercices--answers][*REWORK ALL AS EXERCICES + ANSWERS*]]
+  - [[#quest-ce-que-git][Qu'est-ce que Git?]]
+  - [[#créer-ajouter-commiter][Créer, ajouter, commiter]]
+  - [[#voir-les-modifications][Voir les modifications]]
+  - [[#voir-lhistoire-du-dépôt-dun-fichier-et-survol-des-branches][Voir l'histoire du dépôt, d'un fichier (et survol des branches)]]
+  - [[#dépôts-nus-bare-clones][Dépôts nus (bare clones)]]
+  - [[#dépôt-nu-pousser-push-et-tirer-pull][Dépôt nu: Pousser (push) et tirer (pull)]]
+  - [[#à-savoir-pull--fetch--merge][(À savoir) Pull = fetch + merge]]
+- [[#shell--bash-basics][Shell & Bash basics]]
+  - [[#rework-all-as-exercices--answers-1][*REWORK ALL AS EXERCICES + ANSWERS*]]
+  - [[#commandes-dossiers--fichiers][Commandes: Dossiers & fichiers]]
+- [[#mise-en-place-des-fichiers-de-travail][Mise en place des fichiers de travail]]
+  - [[#contributions-individuelles-et-collective][Contributions *individuelles* et *collective*]]
+  - [[#mise-en-place-de-git--github][Mise en place de Git + Github]]
+  - [[#le-git-workflow-au-quotidien][Le Git workflow au quotidien]]
+- [[#objectifs-pour-coaching2][Objectifs pour coaching#2]]
+- [[#settings][settings]]
+  - [[#local-variables][Local variables]]
+
 ** Introduction
 
  - Développer en *Langage C++ dans un environnement Linux*
