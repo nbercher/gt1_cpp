@@ -1,33 +1,38 @@
-#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
+#+title: Projet#7 -- C++ sous Linux / Git
 
-* Projet #7                                                      :noexport:
-** Table of Contents                                              :TOC:QUOTE:
+* Table of Contents                                              :TOC:QUOTE:
 #+BEGIN_QUOTE
-- [[#environnement-linux][Environnement Linux]]
-- [[#git-basics][Git basics]]
-- [[#shell--bash-basics][Shell & Bash basics]]
-- [[#mise-en-place-des-fichiers-de-travail][Mise en place des fichiers de travail]]
-- [[#objectifs-pour-coaching2][Objectifs pour coaching#2]]
+- [[#introduction][Introduction]]
+- [[#mise-en-place-des-outils-wsl-vs-code][Mise en place des outils (WSL, VS Code)]]
+  - [[#environnement-de-travail][Environnement de travail]]
+  - [[#installer-wsldebian--outils-linux][Installer WSL/Debian + outils Linux]]
+  - [[#installer-vscode--extension-remote---wsl][Installer VSCode + extension "Remote - WSL"]]
+  - [[#installer-un-server-xorg][Installer un server Xorg]]
+- [[#mise-en-place-des-fichiers-de-travail-githubcom-et-git-local][Mise en place des fichiers de travail (Github.com et Git local)]]
+- [[#mise-en-place---épilogue][Mise en place - Épilogue]]
+- [[#programmation-orientée-objet][Programmation orientée objet]]
+  - [[#introduction-1][Introduction]]
+  - [[#exemple-de-classe][Exemple de classe]]
+  - [[#vie-et-mort-dun-object][Vie et mort d'un object]]
+  - [[#méthodes-spéciales-constructeur-et-destructeur][Méthodes spéciales: Constructeur et Destructeur]]
+  - [[#accès-aux-membres-et-méthodes-dun-objet][Accès aux membres et méthodes d'un objet]]
+- [[#objectifs-pour-le-prochain-coaching][Objectifs pour le prochain coaching]]
 #+END_QUOTE
 
-** Introduction
+* Introduction                                                   :noexport_1:
+** Travail à réaliser durant le projet
 
- - Développer en *Langage C++ dans un environnement Linux*
-   (sur machines Windows 10!)
-
-   - _Versionnement_ avec *Git* et _partage_ avec *Github.com*
-     (Ne pas confondre versionnement et partage!)
-
-   - Utilisation du Shell *Bash* et des outils en *ligne de commande*
-
- - Réalisation:
-
-   + Jeux "Snake"
-     - Un grand classique
-     - En mode graphique, à jouer au clavier dans une fenêtre graphique.
-     - Découverte de la librairie SDL2.
+ - Réalisation du *Jeux "Snake"*
+   - Un grand classique existant sur tout type de supports
+   - À jouer au clavier dans une fenêtre en mode graphique
 
    Note: Specs techniques du jeu fournies en temps voulu.
+
+ - Développement en *Langage C++ / Environnement Linux*
+
+   - _Versionnement_ avec *Git* et _partage_ avec *Github.com*
+
+   - Utilisation du Shell *Bash* et des outils en *ligne de commande*
 
 ** Organisation Générale [0%]                          :TODOélèves:TODOcoach:
 
@@ -47,66 +52,70 @@
 
  - *Discord*: communication écrite + F.A.Q.
 
- - *Nouveauté*: Ce document Org-Mode est dispo sur Github.com
-   https://github.com/nbercher/gt1_cpp (Fichier =01_ko_projet_c_linux.org=)
+ - *Nouveauté*: Mes documents dispos sur Github.com:
 
-   Vous pouvez faire deux choses:
-   1. (Recommandé) Consulter les fichiers en ligne
-   2. Cloner les fichiers avec Git: =git clone https://github.com/nbercher/gt1_cpp=
+   https://github.com/nbercher/gt1_cpp
+
+   Remarque: Vous pourrez également cloner mon dépôt avec Git:
+   #+BEGIN_SRC sh
+     git clone https://github.com/nbercher/gt1_cpp coach
+   #+END_SRC
+
+   Et vous mettre à jour à tout moment: =git pull=
 
 ** Comment nous allons travailler
 
  - Coachings présentiels
 
-   - Partie cours
+   - Partie cours (mais pas tout le temps)
 
-   - Beaucoup de pratique, entraide entre élèves (qque soit le binôme)
+   - Beaucoup de pratique, entraide entre élèves encouragée (qque soit le binôme)
 
    - *Objectifs pour le prochain coaching*
 
  - Entre les coachings
 
-   - Vous travaillez en autonomie à *atteindre les objectifs*
+   - *Vous travaillez en autonomie sur votre projet*
 
    - Vous vous entraidez pour cela (discutez de vos difficultés, vos solutions, etc.)
 
    - F.A.Q.: C'est la "Foire Aux Questions"
-     - *Aucune question n'est stupide*
-     - Ambiance "Happy Hacking": venez détendus et que l'on s'amuse!
+     - Venez avec vos questions, vos besoins, etc.
 
- - Dernier vendredi <2021-10-29 ven.>: Test de vos jeux et "Session Spécial Soutenance"
+** Planning et Livrables
 
-** WIP Planning et Livrables
-
- - Semaine 1:
-   - Mise en place WSL + VS Code, Git + Github.com
+ - Semaine 1: Mise en place, Bases C++ & POO
+   - Mise en place: WSL, VS Code, outils Linux, etc.
    - Bases du langage C++ et POO
-   - Snake: SDL2 clavier & affichage
+   - <2022-01-19 mer.> *Livrable: Dépôt Github.com* 
+   - <2022-01-21 ven.> Diagramme UML de vos classes d'objets
+     - BUG: Se fera plus tard!
+   - Si possible on commencera:
+     - Snake: SDL2 clavier & affichage
 
- - Semaine 2:
-   - Snake: SDL2 clavier & affichage, boucle du jeu, classes & objets
-   - *Évaluation Git* le <2022-01-26 mer.>
+ - Semaine 2: Snake: SDL2 clavier & affichage, boucle du jeu, classes & objets
+   - <2022-01-26 mer.> *Évaluation Git*
+   - <2022-01-28 ven.> *Livrable: "Déplacement d'un seul carré" (la tête du snake)*
 
- - Semaine 3:
-   - Snake: Classes & objets pour gestion du ver et collisions
-   - Livraison <2021-10-28 jeu. 23:59>
+ - Semaine 3: Snake: Classes & objets pour gestion du ver et collisions
+   - <2022-02-02 mer.> Gestion du ver fonctionnelle
+   - <2022-02-04 ven.> *Livrable: Version beta du jeu "Snake"*
 
- - Semaine 4:
-   - Finalisations du jeu Snake, Soutenances
-   - Soutenances les <2022-02-10 jeu.> et <2022-02-11 ven.>
+ - Semaine 4: Finalisations du jeu Snake, Soutenances
+   - <2022-02-09 mer. 23:59> *Livrable: Version finale du jeu "Snake"*
+   - <2022-02-10 jeu.> et <2022-02-11 ven.> *Soutenances*
 
 ** Notation & Soutenance
 
  - Notation:
-   - Évaluation Git: Maîtrise Git + Github.com
+   - *Évaluation Git*: Maîtrise Git + Github.com
    - Qualité de la soutenance
    - Jeux "Snake":
      - Conforme aux demandes, jouable, sans bugs
      - Code lisible, propre et optimisé
      - Utilisation et maîtrise pour la création de: Langage C++, librarie SDL2
-
      - Maîtrise des outils (environnement Langage C++, SDL2)
-     - 
+     - Bonus: Options rajoutées au jeu
 
  - Soutenances:
    - Dans la forme: ~15 minutes/binôme
@@ -118,49 +127,268 @@
      - Votre compréhension des potentiels problèmes non-résolus
      - Le point sur votre marge de progression et d'amélioration
 
-** Ressources essentielles                                        :TODOcoach:
+* Mise en place des outils (WSL, VS Code)       :noexport_2:
+** Environnement de travail
 
-(Rappels du CdC et compléments)
+ 1. WSL/Debian + g++ Linux = *Environnement obligatoire pour tous!*
 
- - Pour le langage C, nos références:
+    *Je veux que tout le monde utilise les mêmes outils*
 
-   - Cours Wikibook: https://fr.wikibooks.org/wiki/Programmation_C
+ 2. *Vous devrez écrire du code C++ pour Linux*
 
-   - Librairie de GCC:
-     https://www.gnu.org/software/libc/manual/html_node/index.html
-     - Liste des fonctions:
-       https://www.gnu.org/software/libc/manual/html_node/Function-Index.html
+    Je ne veux pas de code écrit pour Windows!
 
-     - =man 3 printf=: page de manuel (dans le Shell)
+ 3. *Votre code devra se compiler sous WSL et avec =g++=*
 
- - Gcc, Make: cf. CdC
- - Git: Cette présentation!
- - Bash: cf. CdC + Cette présentation!
+ 4. Utilisation de *VS Code en mode WSL* (ou Emacs)
 
-Tout cela est évolutif, nous amélioreront le tout ENSEMBLE:
+    Seul choix possible pour vous: l'éditeur "VS Code" ou "Emacs"
 
-            *Vos remarques et suggestions sont les bienvenues!*
+*ATTENTION: Pénalités pour les binômes qui ne respecteraient pas ces points*
 
-* Environnement Linux                                            :noexport_1:
-** Debian GNU/Linux sous Windows 10 / WSL
+** Installer WSL/Debian + outils Linux                           :TODOélèves:
 
- - WSL/Debian + gcc Linux = *Environnement obligatoire* pour tous!
+ 1. Depuis le menu Windows, lancez PowerShell en mode administrateur
 
- - Utilisation de *VS Code en mode WSL* (ou Emacs)
+ 2. Dans le terminal PowerShell, exécutez la commande:
+    =wsl --install -d debian=
 
- - *Vous devrez écrire du code C++ pour Linux et pas pour Windows!*
+ 3. WSL vous demande de créer votre compte Linux (avec un login et mot de passe)
+   - *Demande de créer un compte (login/username + password)*
+   - Rien n'apparaît quand on saisi le password, c'est normal! [=Ctrl+U= efface la saisie invisible]
 
-** Dans la pratique
+ 4. *Laissez WSL terminer son installation*
 
-On va utiliser:
+ 5. Relancez WSL: Vous devez utiliser votre compte utilisateur Linux fraîchement créé
 
- - Le *Shell Bash* comme environnement de développement
+    Note: Si la session Linux se lance avec "root@..." dans le prompteur, ce n'est pas bon: quittez WSL
+    et relancez.  Vérifiez que vous l'avez laissé s'installer (étape 4.)
 
- - VS Code pour éditer le code (ou Emacs)
+ 6. Dans WSL, installez les progammes nécessaire (Cf. CdC):
+
+    =sudo apt-get update=
+    =sudo apt-get install man make g++ git openssh-client libsdl2-dev=
+
+** Installer VSCode + extension "Remote - WSL"                   :TODOélèves:
+
+ 1. Si VS Code est déjà installé, *désinstallez-le*!
+
+ 2. *Sous Windows*, installez VS Code, *IMPORTANT*:
+    Dans la partie "Select Additional Tasks", prenez bien soin de *cocher la case "Add to PATH"*
+
+ 3. Lancez VS Code et installez l'extension "Remote - WSL" de Microsoft
+
+ 4. Dans WSL: testez VS Code:
+
+    =code .=
+
+    Si vous avez l'erreur "Command not found" c'est que vous n'avez pas fait correctement le
+    point 2. et/ou le point 3.
+
+    Au besoin, voir:
+    - https://code.visualstudio.com/docs/remote/wsl
+    - https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+
+** Installer un server Xorg                                      :TODOélèves:
+On utilisera le même serveur que pour le projet-2 "Langage C".
+
+
+ - Un serveur Xorg permet d'afficher une fenêtre graphique Linux sous Windows.
+
+ - Sous Windows, installation du server "Xorg" VcxSrv:
+
+   - Installer https://sourceforge.net/projects/vcxsrv/
+
+   - Lancez VcxSrv (cliquez sur "Suivant" à chaque étape, jusqu'à "Terminer").
+     - IMPORTANT: *Cette application est un service* et n'affiche donc plus de fenêtre une fois lancée.
+       (Vous constaterez cependant que le service est lancé grace à l'icone "X" près de l'horloge de
+       Windows.)
+
+ - Test: Il suffit de préfixer une commande lançant une aplpiqcation Linux graphique par =DISPLAY=:0=,
+   par exemple:
+
+   =DISPLAY=:0 emacs &=
+
+   Plus tard pour votre jeu:
+
+   =DISPLAY=:0 ./snake &=
+
+ - Configuration permamente, *à faire une seule fois*:
+
+   #+BEGIN_SRC sh
+     echo "export DISPLAY=:0" >> ~/.bashrc
+   #+END_SRC
+
+* Mise en place des fichiers de travail (Github.com et Git local) :noexport_1:
+** Contributions *individuelles* et contributions *collectives*
+
+ - Vous allez *commencer à développer en apprenant*:
+
+   1) Vous serez en phase d'apprentissage: *code testé individuellement et qui change souvent*
+
+   2) *Vous développerez* les fonctionnalités petit à petit, *par petits morceaux*
+
+   3) Quand un bout de code deviendra satisfaisant:
+
+      * Il sera commité avec Git et donc partagé avec son binôme
+
+      * Il faut être raisonnable et trouver son équilibre entre *committer trop souvent / trop peu souvent*
+
+** Structure des fichiers du projet
+
+ - Mise en place des fichiers: ***VOUS DEVEZ TOUS AVOIR LA MÊME STRUCTURE DE DOSSIERS***
+
+   #+BEGIN_EXAMPLE
+    ~/proj7/    <- Rappel: =~/= = =/home/eleveX/=
+      ├ coach/  <- =git clone https://github.com/nbercher/gt1_cpp= (Optionel)
+      └ snake/  <- =git clone git@github.com:MON_COMPTE_GITHUB/gtech1-bXX-snake.git snake= (Étape 4 du HowTo Git)
+        ├ ÉLÈVE1/        <- Fichiers de l'élève1 (=contributions individuelles)
+        │ ├ fichier.cpp
+        │ └ fichier.hpp
+        ├ ÉLÈVE2/        <- Fichiers de l'élève2 (=contributions individuelles)
+        │ ├ fichier.cpp
+        │ └ fichier.hpp
+        ├ fichier.cpp    <- Fichiers du jeu Snake en phase de construction (=contributions collectives)
+        ├ fichier.hpp
+        ├ Makefile
+        ├ ...
+   #+END_EXAMPLE
+
+   En résumé:
+   - =~/proj7/snake/ÉLÈVE1/= : fichiers d'élève1
+   - =~/proj7/snake/ÉLÈVE2/= : fichiers d'élève2
+   - =~/proj7/snake/= : fichiers du jeu
+   - =~/proj7/coach/= : fichiers du coach
+
+ - Fonctionnement et utilisation:
+
+   - Au début, *je développe dans mes fichier(s) individuel(s)*
+     - *Je commite mes fichiers* et ils sont partagés avec mon binôme
+
+   - Le code progresse et devient intéressant:
+     - Le binôme s'organise pour copier le code intéressant dans les fichiers du jeu
+
+** Rappels: Qu'est-ce que le Shell Bash?
+
+ - Le Shell Bash est souvent appelé par abus de langage un "Terminal"
+
+ - Pour y accéder, plusieurs choix:
+
+   1. *Lancer WSL*: la fenêtre de terminal ainsi lancée vous accueille avec le Shell Bash
+
+   2. Dans *VS code en mode WSL*: Créer un Terminal en mode "WSL/Debian"
+
+ - Les deux méthodes sont équivalentes dans le sens où *vous dialoguez avec le même environnement*
+
+** Création de l'espace de travail (et exercices Shell Bash) :TODOélèves:
+
+ 1. Lancez le Shell Bash de votre choix
+
+ 2. Avec =pwd=: Où suis-je? (pwd = Print Working Directory)
+    - Juste après le lancement d'un Shell, que cela donne-t-il?
+    :SOLUTION:
+    #+BEGIN_EXAMPLE
+    /home/MON_LOGIN/
+    #+END_EXAMPLE
+    :END:
+
+ 3. Avec =mkdir=: Créez votre dossier principal =~/proj7=
+    :SOLUTION:
+    #+BEGIN_SRC sh
+      mkdir ~/proj7
+    #+END_SRC
+    :END:
+
+ 4. Avec =ls=: Listez le contenu du dossier courant
+    - Liste simple
+    - Liste étendue (option =-l=)
+    - Liste des fichiers et dossiers cachés
+    :SOLUTION:
+    #+BEGIN_SRC sh
+    ls    # liste simple
+    ls -l # liste étendue (format long avec détails: permissions, ownership, taille, date)
+    ls -a # lister les fichiers cachés
+    #+END_SRC
+    :END:
+
+ 5. Avec =cd=: Changer de dossier: allez dans =~proj7/=
+     :SOLUTION:
+     #+BEGIN_SRC sh
+       cd ~/proj7 # Aller dans le sous-dossier proj7/ de mon 'home directory'
+       # Ou encore:
+       cd        # Aller dans mon 'home directory'
+       cd proj7/ # Aller dans le sous-dossier proj7/ qui s'y trouve
+     #+END_SRC
+     :END:
+
+ 6. Avec =ls=: Listez à nouveau le contenu du dossier courant
+
+ 7. Avec =cd=: Revenez dans votre 'home directory'
+    - En utilisant =~=
+    - En utilisant =..= (=dossier parent)
+    :SOLUTION:
+    #+BEGIN_SRC sh
+      cd ~/  # Aller mon 'home directory'
+      # Ou encore:
+      cd ..  # Aller le dossier parent (OK si je suis dans ~proj7/)
+    #+END_SRC
+    :END:
+
+ 8. Avec =cd=: Retournez dans =~proj7/=
+
+ 9. Avec =git=: Clonez le dépôt du coach sous le nom de dossier =coach=
+    Rappel commande: =git clone  URL_DEPOT_DISTANT  NOM_DOSSIER_LOCAL=
+    :SOLUTION:
+    #+BEGIN_SRC sh
+      git clone  https://github.com/nbercher/gt1_cpp  coach
+    #+END_SRC
+    :END:
+
+** Rappels: Qu'est-ce que Git?
+
+ - Outil créé par par Linus Torvalds en 2005, créateur de Linux, pour
+   continuer à développer Linux
+
+ - Grands principes:
+
+   - Git travaille à l'échelle d'un dossier de départ et se préoccupe uniquement de ses sous-dossiers et
+     sous-fichiers
+
+   - Git enregistre les changements des fichiers dans des "commits"
+
+   - Les commits s'enchainent (analogue à une blockchain), ils forment une histoire des fichiers
+     = "versionnement"
+
+   - Git permet de transférer les commits par le réseau et à des utilisateurs de synchoniser leur travail
+
+   - Git sait fusionner (merge) les codes sources édités par plusieurs personnes en même temps
+
+ - Usages de Git:
+
+   1. Versionner le code source: enregistrement des changements importants et à préserver
+
+   2. Synchroniser les dépôts (ex: avec Github.com)
+
+** Mise en place dépôts Git + Github                             :TODOélèves:
+
+ - Allez dans =~/proj7/= et continuez avec la mise en place du dépôt Github.com et Git local
+
+ - Ça se passe dans [[file:howto-git.org::#configuration-de-git-et-du-git-workflow-jeu-snake][howto-git.org]], section "Configuration de Git et du "Git workflow" (jeu Snake)"
+
+ - *Vous devez être rigoureux et suivre chacune des étapes!*
+
+* Mise en place - Épilogue
+
+Dans la pratique, vous allez utiliser:
+
+ - *VS Code* pour éditer le code (ou Emacs)
+
+ - Le "Terminal WSL" ou le "Terminal VS Code" (en mode WSL) pour:
+   - Compiler votre code (g++, make)
+   - Versionner votre code (Git)
 
  - *g++* pour *compiler* le code
-
- - *make* pour *automatiser* la compilation
+   - *make* pour *automatiser* la compilation
 
  - *git* pour *versionner* les codes sources
    (Mais aussi: le Makefile et tout autre fichier important)
@@ -168,261 +396,186 @@ On va utiliser:
  - *git* et *Github.com* pour partager les codes sources dans le binôme
    (Et avec le coach)
 
- - IMPORTANT: *Se familiariser les rudiments du Shell* (pwd, cd, mkdir, git ...)
+ - IMPORTANT: *Se familiariser les rudiments du Shell* (pwd, cd, mkdir, git, etc.)
 
-* Mise en place des fichiers de travail                          :noexport_1:
-** Création de l'espace de travail
+* Programmation orientée objet
+** Introduction
 
- 1. Créez votre dossier principal ~/proj7
-    :SOLUTION:
-    =mkdir ~/proj7=
-    #+BEGIN_SRC sh
-      mkdir ~/proj7
-    #+END_SRC
-    :END:
+ - C++ est une évolution du Langage C, il apporte la Programmation Orientée Objet (POO)
 
-* TODO Git basics                                                :noexport_1:
-** TODO *REWORK ALL AS EXERCICES + ANSWERS*
-** TODO Qu'est-ce que Git?
+   Note: On peut mélanger du code C et C++
 
- - Outil créé par par Linus Torvalds en 2005, créateur de Linux, pour
-   continuer à développer Linux
+ - En POO, le paradigme change:
 
- - Rôles de Git:
+   - On utilise des *classes* pour définir des types complexes, elles contiennent:
 
-   1. Versionner le code source: enregistrement des changements
-      importants et à préserver
+     - Des *membres* qui sont des variables, elles-même d'un certain type (classe, int, char, etc.)
 
-   2. Synchroniser les dépôts (ex: avec Github.com)
+     - Des *méthodes* qui sont des fonctions dédiées et s'appliquent aux objet de la classe ou à la
+       classe elle-même
 
- - Trois "univers" dans un dépôt Git:
+   - Les classes étant un type, elles permettent de créer des variables, on les appelle *objets*:
 
-   1. *working tree*: "Copie de travail" (ou "Dépôt local") = dossier
-      contenant vos fichiers (code source, etc.) + sous-dossier =.git/=
+     =MaClasse object;=
 
-   2. =.git/= ("dot git"): Sous-dossier contenant tout ce que Git doit
-      savoir sur votre dépôt: config et *histoire des fichiers*
+** Exemple de classe
 
-   3. *Index* (ou "staging" ou "cache"): Ceci est votre futur *commit*
+=MaClasse= contient:
+ - Un nombre entier =int a;=, il est privé (personne ne peut y accéder à part l'objet)
+ - Une méthode =int add(int b);= qui retourne =a + b=
 
-** Créer, ajouter, commiter
+   #+BEGIN_SRC C++
+     class MClasse {
+     public:
+       int add(int b)  // méthode publique car définie dans le bloc 'public:'
+       {
+         return this->a + b; // "this" est un pointeur sur l'objet lui-même, "->" permet d'accéder à ses membres
+       }
+     private:
+       int a;          // membre privé car défini dans le bloc 'private:'
+     }; // Ne pas oublier le ';' final !
+   #+END_SRC
 
- - Créer un dépôt tout neuf:
+Le parallèle entre C et C++ est relativement simple:
 
-   =git init= ou =git init [nom_dossier]=  -> Ce dépôt ne contient aucune histoire
+ - Type versus Classe:
 
- - Demander à Git de *suivre un fichier*:
+   =int x; // variable de type int=
 
-   =git add fichier=  -> Avant cela Git ne se préoccupait pas de ce fichier
-                      -> Rajoute le fichier à l'Index pour constituer le futur commit
+   =MaClasse object; object de type MaClasse=
 
- - *Sceller les modifications* par un commit (ou "Commiter"):
+ - Fonction versus Méthode:
 
-   =git commit=       -> Tout le contenu de l'Index est rajouté à l'histoire du dépôt
+   =void add(int a, int b) { return a + b; } // returne a + b=
 
-   Une fois un fichier suivi par Git (=git add=), on peut faire directement:
+   =object.add(int b); // retourne object.a + b=
 
-   =git commit fichier= -> Toutes les modifications depuis son dernier commit sont rajoutées
-                           à l'histoire du dépôt, cela "saute" l'étape de l'Index
+** Vie et mort d'un object
 
- - Mais alors pourquoi l'Index?  Car on peut y rajouter des modifications de plusieurs
-   fichiers et *vérifier son FUTUR commit* (avec =git diff --cached=)
+ - Les objets peuvent être crées comme des variables dynmaiques ou non:
 
-** Voir les modifications
+   #+BEGIN_SRC C++
+     void some_code(void) {
+       MaClasse obj1; // Objet "statique", il mourra en fin du bloc de code {}
 
- - Liste des modifications (non-commitées) faites sur le dépôt:
+       MaClasse *obj2 = new MaClasse(); // Objet dynamique qu'il faudra détruire
 
-   =git status=     -> Pas super lisible...
+       if (obj2 != NULL)
+         delete obj2;
+     } // <- Au delà de ce bloc, obj1 est détruit automatiquement car "statique", ce n'est pas le cas de obj2
+   #+END_SRC
 
-   =git status -s=  -> Super lisible, organisé en deux colonnes:
+ - Nous venons de voir les deux opérateurs:
 
-   A  Makefile                    _Légende_:
-    M puis4.c                     A pour Added
-   MM puis4.h                     M pour Modified
-    D puis4.o                     D pour Deleted (il en existe d'autres: U, T, etc.)
+   1. =new= permettant de créer un objet dynamiquement (donne un pointeur)
 
-   Colonne gauche: modifications qui *sont dans l'Index*
-   Colonne droite: modifications qui *ne sont PAS dans l'Index*
+   2. =delete= permettant de détruire un objet créé dynamiquement (via un pointeur seulement)
 
-   (On me demande de vous rappeler que l'Index EST le FUTUR commit.)
+** Méthodes spéciales: Constructeur et Destructeur
 
- - Voir les modifications (non-commitées) faites sur les fichiers:
+   #+BEGIN_SRC C++
+     class MClasse {
+     public:
 
-   =git diff=         -> Voir le =diff -Nu fichier1 fichier2= des fichiers par rapport au dernier commit
-   =git diff fichier= -> Restreindre le =diff= à un (ou plusieurs) fichier(s)
+       MClasse() {     // <- Constructeur, ici initialise le membre =a=
+         this->a = 0;
+       }
 
-** Voir l'histoire du dépôt, d'un fichier (et survol des branches)
+       ~MClasse() {     // <- Destructeur, ici ne fait rien...
+       }
 
- - Un dépôt Git est fait de branches, dont celle par défaut =main=
+     private:
+       int a;
+     };
+   #+END_SRC
 
-   (Nous n'utiliserons probablement pas les branches...)
+Simple et efficace:
+ - Le constructeur est appelé quand un objet est crée
+ - Le Destructeur est appelé quand un objet est détruit
 
-   (Néanmoins sachez que c'est très puissant et permet de travailler
-   sur plusieurs fonctionnalités d'un projet en parallèle.
-   Par ailleurs, passer d'une branche à l'autre dans votre "working
-   tree" modifie les fichiers de manière à ce qu'ils correspondent à
-   leur état dans la-dite branche, tout en s'assurant de rien casser.)
+Les deux permettent d'effectuer des opérations spécifique *après création* et *avant suppression*.
 
- - Histoire d'une branche du dépôt = *liste ordonnée de commits*
+** Accès aux membres et méthodes d'un objet
 
-   A---B---C---D---E = =main=
+#+BEGIN_SRC C++
+  class MClasse {
+  public:
+    int a;             // <- Maintenant publique!
+    int add(int b) {
+      return this->a + b;
+    }
+  };
 
-   =git log=         -> Affiche la liste des commits (de la branche courante)
+  // Cas avec objet "statique":
+  MaClasse obj1;
+  obj1.a = 1; // <- OK si a est publique dans la classe MaClasse
+  int c = obj1.add(5);
 
-   =git log fichier= -> Affiche la liste des commits concernant seulement =fichier=
+  // Cas avec objet "statique":
+  MaClasse *obj2 = new MaClasse();
+  obj2->a = 2;
+  int d = obj2->add(3);
 
-** Dépôts nus (bare clones)
+#+END_SRC
 
- - On créé toujours un dépôt avec =git init= (même si c'est Github qui le fait à votre place)
+* Objectifs pour le prochain coaching                            :TODOélèves:
 
-   - Un tel dépôt est un dossier avec un sous-dossier =.git/=
+ 1. ***Travaillez entre les séances!***
 
-   - Ce dossier =.git/= est (presque) un *dépôt nu* (à la config près)
+    Vous avez 10h/sem de C++ et 4h~8h de langues = 14h~18h/sem
 
- - Un dépôt nu n'est pas un espace de travail, mais *un point de synchronisation*
+    *Le reste du temps = travaillez sur votre projet autant que possible!*
 
- - Un dépôt hébergé sur Github.com est TOUJOURS un dépôt nu
+ 2. *IMPORTANT*: Dépôts Git (locaux) et Github.com (mirroirs) créés et fonctionnels
 
- - On peut créer un dépôt nu à partir d'un dépôt local:
+    1. Reportez-vous au [[file:howto-git.org][Howto Git]] en cas de besoin
 
-   =git clone --bare [dépôt]/ [dépôt].git= -> Ceci créé un dossier =[dépôt].git/=,
-                                              ça ne vous rappelle rien ce =.git/=?
+    2. *Chaque élève devra avoir configuré et testé ceci*:
 
-** Dépôt nu: Pousser (push) et tirer (pull)
+       - Test 1 du howto: Synchro entre votre *dépôt local* et son *miroir Github.com*
 
- - En général, tout dépôt Git local (working tree) à un *clone nu* quelque part
-   (autrement, il faudrait certainement en créer un)
+         =git pull= et =git push=
 
- - Envoyer ses modifications vers un dépôt nu:
+       - Test 2 du howto: =git pull= croisés entre élèves du binôme
 
-   =git push [dépôt] [branche]=
+         =git pull ALIAS_AUTRE_ELEVE main=
 
- - Recevoir les modifications depuis un dépôt nu:
+         Équivalent à: Mon PC <--pull-- Github.com "autre élève"
 
-   =git pull [dépôt] [branche]=
+       - Votre fichier =~/proj7/snake/.git/config= doit ressembler à ceci:
+         :GITCONFIG:
+         #+BEGIN_EXAMPLE
+         ...
+         [remote "origin"]
+                 url = git@github.com:MON_COMPTE_GITHUB/gtech1-bXX-snake.git
+                 fetch = +refs/heads/*:refs/remotes/origin/*
+         [branch "main"]
+                 remote = origin
+                 merge = refs/heads/main
+         [remote "ALIAS_AUTRE_ELEVE"]
+                 url = https://github.com/COMPTE_AUTRE_ÉLÈVE/gtech1-bXX-snake.git
+                 fetch = +refs/heads/*:refs/remotes/origin/*
+         #+END_EXAMPLE
+         :END:
 
- - Les éléments =[dépôt]= et =[branche]= sont définis dans la config du dépôt (=.git/config=)
+ 3. *Travaillez en autonomie* le C++, avec des ressources en ligne!
 
- - IMPORTANT: Quand on travaille à plusieurs, on procédera dans l'ordre suivant:
-   1. =git pull ...=
-   2. =git push ...=
+    Exemple: Compilation + exécution d'un [[https://fr.wikibooks.org/wiki/Programmation_C++/Un_premier_programme][code écrit en C++]] dans le fichier =hello.cpp=:
+    1. Coder =hello.cpp=:
+       #+BEGIN_SRC c++
+         #include <iostream>
+         using namespace std
 
-   De manière à récupérer le travail des autres AVANT de n'envoyer le sien.
-   Ceci permet d'effectuer une opération de =merge=...
+         int main(void) {
+             cout << "Hello!" << endl;
+             return 0;
+         }
+       #+END_SRC
+    2. Compiler: =g++ helloc.cpp -o hello=
+    3. Exécuter: =./hello=
 
-** (À savoir) Pull = fetch + merge
+ 4. *Familiarisez-vous* avec le Shell Bash, Git, etc.
 
- - L'opération =git pull ...= fait deux choses:
-
-   1. =git fetch ...= -> récupérer les modifications SANS les appliquer à votre histoire
-
-   2. =git merge=     -> appliquer les modifications en les fusionnant dans votre histoire
-
-   On imaginera aisément que =git merge= est très puissant...
-
-* TODO Shell & Bash basics                                       :noexport_1:
-** TODO *REWORK ALL AS EXERCICES + ANSWERS*
-** Commandes: Dossiers & fichiers
- - *LANCEZ Debian WSL depuis le menu démarrer*
- - Tester l'environnement Linux/WSL: Lancez le programme "Debian"
-   - Demande de créer un compte (username + password)
-   - Rien n'apparaît quand on saisi le password, c'est normal! [Ctrl+U efface la saisie invisible]
-
- - Où suis-je? =pwd= (Print Working Directory)
- - Créer un dossier: =mkdir proj_c= (Make Directory)
- - Changer de dossier: =cd proj_c/= (Change Directory)
- - Retourner dans le dossier parent: =cd ..= (=..= est le nom du dossier parent)
- - Supprimer un dossier vide: =rmdir proj_c/=
- - Aller directement dans son dossier utilisateur: =cd ~= (=~= est le nom du dossier utilisateur)
- - Imprimer le contenu d'un fichier: =cat hello.c= (Concatenate), le fichier doit exister!
-
- - Lister les dossiers & fichiers du dossier courant:
-   - =ls=: liste simple
-   - =ls -l=: liste étendue (format long avec détails: permissions, ownership, taille, date)
-   - =ls -d=: liste les dossiers eux-mêmes, pas leur contenu
-   - =ls -a=: lister les fichiers cachés (=ls -ald ~/.[^.]*=)
-
- - Supprimer un fichier: =rm fichier=
- - Supprimer récursivement un dossier: =rm -r dossier=
-* Mise en place des fichiers de travail                          :noexport_1:
-** Contributions *individuelles* et *collective*
-
-Fonctionnement:
- - Au début, *je développe dans mes fichier(s) individuel(s)*
-   - *Je commite mes fichiers* et ils sont partagés avec mon binôme
- - Le code progresse et devient intéressant:
-   - Le binôme s'organise pour copier le code intéressant dans les fichiers du jeu
-
-Mise en place des fichiers: ***VOUS DEVEZ TOUS AVOIR LA MÊME STRUCTURE DE DOSSIERS***
-   ~/proj7/    <- Rappel: =~/= = =/home/eleveX/=
-     ├ coach/  <- =git clone https://github.com/nbercher/gt1_cpp= (Optionel)
-     └ snake/  <- =git clone git@github.com:MON_COMPTE_GITHUB/gtech1-bXX-snake.git snake= (Étape 4 du HowTo Git)
-       ├ ÉLÈVE1/        <- Fichiers de l'élève1 (=contributions individuelles)
-       │ ├ fichier.cpp 
-       │ └ fichier.hpp
-       ├ ÉLÈVE2/        <- Fichiers de l'élève2 (=contributions individuelles)
-       │ ├ fichier.cpp
-       │ └ fichier.hpp
-       ├ fichier.cpp    <- Fichiers du jeu Snake en phase de construction (=contributions collectives)
-       ├ fichier.hpp
-       ├ Makefile
-       ├ ...
-
-Vous allez *commencer à développer en apprenant*:
- - Le code sera en phase d'apprenstissage: *code testé individuellement et qui change souvent*
- - *On va développer* les fonctionnalités petit à petit, *par petits morceaux*
- - Quand un bout de code devient satisfaisant, il sera commité avec Git et donc partagé avec son binôme
-   - Il faut être raisonnable et trouver son équilibre entre *committer trop souvent / trop peu souvent*
-
- - Il exister
-
-** Mise en place de Git + Github
-Voir le fichier [[howto-git.org]].
-
-** Le Git workflow au quotidien
-
- 1. élève2 se réveille (boit son café)
-
-    - *Premier réflexe*, récupérer le travail de ses binômes *si on lui a demandé* ("pull request"):
-
-      Sur sa machine: =git pull ALIAS_AUTRE_ELEVE main=
-
- 2. élève2 se met au boulot (un autre café?)
-
-    - élève2 modifie son code et il en est content!
-
-    - élève2 *communique avec ses binômes* sur son travail
-
-    - élève1 est enchanté par le travail de élève2 et le récupère au plus vite!
-
-      Sur sa machine: =git pull ALIAS_AUTRE_ELEVE main=
-
- 3. La journée continue et *ce cycle se reproduit aussi souvent que nécessaire*
-
-* Objectifs pour coaching#2                                      :noexport_1:TODOélèves:
-
- 1. Sur les machines G.Tech1 et dans votre compte: Installez les programmes mentionnés
-    dans le CdC, section "Pour ceux qui ont des PC sous Windows 10".
-
- 2. *IMPORTANT*: Dépôts Git (locaux) et Github.com (clones nus) créés et fonctionnels
-    1. Reportez-vous au "Howto" en fin dans ce fichier
-    2. Créez votre paire de clés SSH avec la commande =ssh-keygen= (infos dans ce fichier)
-    3. Vous avez configuré et testé ceci:
-       - (Test 1 du howto) chaque élève: =git pull= et =git push= entre votre Git local et le clone Github.com
-       - (Test 2 du howto) =git pull= croisés entre élèves du binôme:
-         1. élève1 sur son PC <--pull-- =git pull [github_élève2] main=
-         2. élève2 sur son PC <--pull-- =git pull [github_élève1] main=
-
- 3. Travaillez avec le cours Wikibook "Programmation_C":
-    https://fr.wikibooks.org/wiki/Programmation_C/
-    1. Lisez l'[[https://fr.wikibooks.org/wiki/Programmation_C/Introduction][Introduction]]
-    2. Lisez et exercez-vous avec la section "[[https://fr.wikibooks.org/wiki/Programmation_C/Bases_du_langage][Bases du langage]]"
-       Info: Exemple compilation + exécution d'un code en C écrit dans le fichier =hello.c=:
-       - Compiler: =gcc helloc.c -o hello=
-       - Exécuter: =./hello=
-    3. Lisez la section "[[https://fr.wikibooks.org/wiki/Programmation_C/Types_de_base][Types de base]]"
-
- 4. *Familiarisez-vous* avec le Shell Bash
 * settings                                                          :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables

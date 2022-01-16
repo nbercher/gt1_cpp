@@ -1,6 +1,25 @@
 * Howto Git & Github.com                                           :noexport:
 ** Table of contents                                              :TOC:QUOTE:
-* Configuration de Git et du "Git workflow" (jeu Snake)                                  :TODOélèves:
+#+BEGIN_QUOTE
+- [[#configuration-de-git-et-du-git-workflow-jeu-snake][Configuration de Git et du "Git workflow" (jeu Snake)]]
+  - [[#hello-git][Hello Git!]]
+  - [[#vue-densemble][Vue d'ensemble]]
+  - [[#détail-des-étapes-à-réaliser][Détail des étapes à réaliser]]
+  - [[#conclusion][Conclusion]]
+- [[#git-basics][Git basics]]
+  - [[#quest-ce-que-git][Qu'est-ce que Git?]]
+  - [[#créer-un-dépôt][Créer un dépôt]]
+  - [[#ajouter-commiter][Ajouter, commiter]]
+  - [[#voir-les-modifications][Voir les modifications]]
+  - [[#voir-lhistoire-du-dépôt-dun-fichier-et-survol-des-branches][Voir l'histoire du dépôt, d'un fichier (et survol des branches)]]
+  - [[#trois-univers-dans-un-dépôt-git-working-tree-git-et-index][Trois "univers" dans un dépôt Git: working tree, .git/ et index]]
+  - [[#dépôts-nus-bare-clones][Dépôts nus (bare clones)]]
+  - [[#dépôt-nu-pousser-push-et-tirer-pull][Dépôt nu: Pousser (push) et tirer (pull)]]
+  - [[#à-savoir-pull--fetch--merge][(À savoir) Pull = fetch + merge]]
+- [[#le-git-workflow-au-quotidien][Le Git workflow au quotidien]]
+#+END_QUOTE
+
+* Configuration de Git et du "Git workflow" (jeu Snake)          :TODOélèves:
 ** Hello Git!
 
 Avant d'utiliser Git, on se présente:
@@ -176,3 +195,178 @@ En résumé:
    Diagrame simplifié:
 
    =machine1 <- pull,push -> Github.com <- push,pull -> machine2=
+
+* Git basics
+** Qu'est-ce que Git?
+
+ - Outil créé par par Linus Torvalds en 2005, créateur de Linux, pour
+   continuer à développer Linux
+
+ - Grands principes:
+
+   - Git travaille à l'échelle d'un dossier de départ et se préoccupe uniquement de ses sous-dossiers et
+     sous-fichiers
+
+   - Git enregistre les changements des fichiers dans des "commits"
+
+   - Les commits s'enchainent (analogue à une blockchain), ils forment une histoire des fichiers =
+     versionnement
+
+   - Git permet de transférer les commits par le réseau et à des utilisateurs de synchoniser leur travail
+
+   - Git sait fusionner (merge) les codes sources édités par plusieurs personnes en même temps
+
+ - Usages de Git:
+
+   1. Versionner le code source: enregistrement des changements importants et à préserver
+
+   2. Synchroniser les dépôts (ex: avec Github.com)
+
+** Créer un dépôt
+
+ - INFO: Nous avons déjà crée notre dépôt via Github.com, mais nous aurions pu le faire en local:
+   - Créer un dépôt tout neuf:
+
+     =git init= ou =git init NOM_DOSSIER=  -> Ce dépôt ne contient aucune histoire
+
+** Ajouter, commiter
+
+ - Demander à Git de *suivre un fichier*:
+
+   =git add fichier=  -> Avant cela Git ne se préoccupait pas de ce fichier
+                      -> Rajoute le fichier à l'Index pour constituer le futur commit
+
+ - *Sceller les modifications* par un commit (ou "Commiter"):
+
+   =git commit=       -> Tout le contenu de l'Index est rajouté à l'histoire du dépôt
+
+   Une fois un fichier suivi par Git (=git add=), on peut faire directement:
+
+   =git commit fichier= -> Toutes les modifications depuis son dernier commit sont rajoutées
+                           à l'histoire du dépôt, cela "saute" l'étape de l'Index
+
+ - Mais alors pourquoi l'Index?  Car on peut y rajouter des modifications de plusieurs
+   fichiers et *vérifier son FUTUR commit* (avec =git diff --cached=)
+
+** Voir les modifications
+
+ - Liste des modifications (non-commitées) faites sur le dépôt:
+
+   =git status=     -> Pas super lisible...
+
+   =git status -s=  -> Super lisible, organisé en deux colonnes:
+
+   A  Makefile                    _Légende_:
+    M puis4.c                     A pour Added
+   MM puis4.h                     M pour Modified
+    D puis4.o                     D pour Deleted (il en existe d'autres: U, T, etc.)
+
+   Colonne gauche: modifications qui *sont dans l'Index*
+   Colonne droite: modifications qui *ne sont PAS dans l'Index*
+
+   (On me demande de vous rappeler que l'Index EST le FUTUR commit.)
+
+ - Voir les modifications (non-commitées) faites sur les fichiers:
+
+   =git diff=         -> Voir le =diff -Nu fichier1 fichier2= des fichiers par rapport au dernier commit
+   =git diff fichier= -> Restreindre le =diff= à un (ou plusieurs) fichier(s)
+
+** Voir l'histoire du dépôt, d'un fichier (et survol des branches)
+
+ - Un dépôt Git est fait de branches, dont celle par défaut =main=
+
+   (Nous n'utiliserons probablement pas les branches...)
+
+   (Néanmoins sachez que c'est très puissant et permet de travailler
+   sur plusieurs fonctionnalités d'un projet en parallèle.
+   Par ailleurs, passer d'une branche à l'autre dans votre "working
+   tree" modifie les fichiers de manière à ce qu'ils correspondent à
+   leur état dans la-dite branche, tout en s'assurant de rien casser.)
+
+ - Histoire d'une branche du dépôt = *liste ordonnée de commits*
+
+   A---B---C---D---E = =main=
+
+   =git log=         -> Affiche la liste des commits (de la branche courante)
+
+   =git log fichier= -> Affiche la liste des commits concernant seulement =fichier=
+
+** Trois "univers" dans un dépôt Git: working tree, .git/ et index
+
+   1. *working tree*: "Copie de travail" (ou "Dépôt local") = dossier contenant vos fichiers
+      + sous-dossier =.git/=
+
+   2. =.git/= ("dot git"): Sous-dossier contenant tout ce que Git doit savoir sur votre dépôt:
+      configuration et *histoire des fichiers*
+
+   3. *Index* (ou "staging" ou "cache"): Ceci est votre futur *commit*
+      (il est matérialisé quelque part dans =.git/=)
+
+** Dépôts nus (bare clones)
+
+ - On créé toujours un dépôt avec =git init= (même si c'est Github qui le fait à votre place)
+
+   - Un tel dépôt est un dossier avec un sous-dossier =.git/=
+
+   - Ce dossier =.git/= est (presque) un *dépôt nu* (à la config près)
+
+ - Un dépôt nu n'est pas un espace de travail, mais *un point de synchronisation*
+
+ - Un dépôt hébergé sur Github.com est TOUJOURS un dépôt nu
+
+ - On peut créer un dépôt nu à partir d'un dépôt local:
+
+   =git clone --bare DÉPÔT/ DÉPÔT.git= -> Ceci créé un dossier =DÉPÔT.git/=,
+                                          ça ne vous rappelle rien ce =.git/=?
+
+** Dépôt nu: Pousser (push) et tirer (pull)
+
+ - En général, tout dépôt Git local (working tree) à un *clone nu* quelque part
+   (autrement, il faudrait certainement en créer un)
+
+ - Envoyer ses modifications vers un dépôt nu:
+
+   =git push DÉPÔT BRANCHE=
+
+ - Recevoir les modifications depuis un dépôt nu:
+
+   =git pull DÉPÔT BRANCHE=
+
+ - Les éléments =DÉPÔT= et =BRANCHE= sont définis dans la config du dépôt (=.git/config=)
+
+ - IMPORTANT: Quand on travaille à plusieurs, on procédera dans l'ordre suivant:
+   1. =git pull ...=
+   2. =git push ...=
+
+   De manière à récupérer le travail des autres AVANT de n'envoyer le sien.
+   Ceci permet d'effectuer une opération de =merge=...
+
+** (À savoir) Pull = fetch + merge
+
+ - L'opération =git pull ...= fait deux choses:
+
+   1. =git fetch ...= -> récupérer les modifications SANS les appliquer à votre histoire
+
+   2. =git merge=     -> appliquer les modifications en les fusionnant dans votre histoire
+
+   On imaginera aisément que =git merge= est très puissant...
+* Le Git workflow au quotidien
+
+ 1. élève2 se réveille (boit son café)
+
+    - *Premier réflexe*, récupérer le travail de ses binômes *si on lui a demandé* ("pull request"):
+
+      Sur sa machine: =git pull ALIAS_AUTRE_ELEVE main=
+
+ 2. élève2 se met au boulot (un autre café?)
+
+    - élève2 modifie son code et il en est content!
+
+    - élève2 *communique avec ses binômes* sur son travail
+
+    - élève1 est enchanté par le travail de élève2 et le récupère au plus vite!
+
+      Sur sa machine: =git pull ALIAS_AUTRE_ELEVE main=
+
+ 3. La journée continue et *ce cycle se reproduit aussi souvent que nécessaire*
+
