@@ -1,37 +1,13 @@
 #+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
-* Projet #7
+* Projet #7                                                      :noexport:
 ** Table of Contents                                              :TOC:QUOTE:
 #+BEGIN_QUOTE
-- [[#projet-7][Projet #7]]
-  - [[#introduction][Introduction]]
-  - [[#organisation-générale-0][Organisation Générale]]
-  - [[#comment-nous-allons-travailler][Comment nous allons travailler]]
-  - [[#wip-planning-et-livrables][WIP Planning et Livrables]]
-  - [[#notation--soutenance][Notation & Soutenance]]
-  - [[#ressources-essentielles][Ressources essentielles]]
 - [[#environnement-linux][Environnement Linux]]
-  - [[#debian-gnulinux-sous-windows-10--wsl][Debian GNU/Linux sous Windows 10 / WSL]]
-  - [[#dans-la-pratique][Dans la pratique]]
 - [[#git-basics][Git basics]]
-  - [[#rework-all-as-exercices--answers][*REWORK ALL AS EXERCICES + ANSWERS*]]
-  - [[#quest-ce-que-git][Qu'est-ce que Git?]]
-  - [[#créer-ajouter-commiter][Créer, ajouter, commiter]]
-  - [[#voir-les-modifications][Voir les modifications]]
-  - [[#voir-lhistoire-du-dépôt-dun-fichier-et-survol-des-branches][Voir l'histoire du dépôt, d'un fichier (et survol des branches)]]
-  - [[#dépôts-nus-bare-clones][Dépôts nus (bare clones)]]
-  - [[#dépôt-nu-pousser-push-et-tirer-pull][Dépôt nu: Pousser (push) et tirer (pull)]]
-  - [[#à-savoir-pull--fetch--merge][(À savoir) Pull = fetch + merge]]
 - [[#shell--bash-basics][Shell & Bash basics]]
-  - [[#rework-all-as-exercices--answers-1][*REWORK ALL AS EXERCICES + ANSWERS*]]
-  - [[#commandes-dossiers--fichiers][Commandes: Dossiers & fichiers]]
 - [[#mise-en-place-des-fichiers-de-travail][Mise en place des fichiers de travail]]
-  - [[#contributions-individuelles-et-collective][Contributions *individuelles* et *collective*]]
-  - [[#mise-en-place-de-git--github][Mise en place de Git + Github]]
-  - [[#le-git-workflow-au-quotidien][Le Git workflow au quotidien]]
 - [[#objectifs-pour-coaching2][Objectifs pour coaching#2]]
-- [[#settings][settings]]
-  - [[#local-variables][Local variables]]
 #+END_QUOTE
 
 ** Introduction
@@ -165,7 +141,7 @@ Tout cela est évolutif, nous amélioreront le tout ENSEMBLE:
 
             *Vos remarques et suggestions sont les bienvenues!*
 
-* Environnement Linux
+* Environnement Linux                                            :noexport_1:
 ** Debian GNU/Linux sous Windows 10 / WSL
 
  - WSL/Debian + gcc Linux = *Environnement obligatoire* pour tous!
@@ -194,7 +170,7 @@ On va utiliser:
 
  - IMPORTANT: *Se familiariser les rudiments du Shell* (pwd, cd, mkdir, git ...)
 
-* TODO Git basics
+* TODO Git basics                                                :noexport_1:
 ** TODO *REWORK ALL AS EXERCICES + ANSWERS*
 ** TODO Qu'est-ce que Git?
 
@@ -333,7 +309,7 @@ On va utiliser:
 
    On imaginera aisément que =git merge= est très puissant...
 
-* TODO Shell & Bash basics
+* TODO Shell & Bash basics                                       :noexport_1:
 ** TODO *REWORK ALL AS EXERCICES + ANSWERS*
 ** Commandes: Dossiers & fichiers
  - *LANCEZ Debian WSL depuis le menu démarrer*
@@ -357,7 +333,7 @@ On va utiliser:
 
  - Supprimer un fichier: =rm fichier=
  - Supprimer récursivement un dossier: =rm -r dossier=
-* Mise en place des fichiers de travail
+* Mise en place des fichiers de travail                          :noexport_1:
 ** Contributions *individuelles* et *collective*
 
 Fonctionnement:
@@ -412,7 +388,7 @@ Voir le fichier [[howto-git.org]].
 
  3. La journée continue et *ce cycle se reproduit aussi souvent que nécessaire*
 
-* Objectifs pour coaching#2                                     :TODOélèves:
+* Objectifs pour coaching#2                                      :noexport_1:TODOélèves:
 
  1. Sur les machines G.Tech1 et dans votre compte: Installez les programmes mentionnés
     dans le CdC, section "Pour ceux qui ont des PC sous Windows 10".
@@ -436,7 +412,7 @@ Voir le fichier [[howto-git.org]].
     3. Lisez la section "[[https://fr.wikibooks.org/wiki/Programmation_C/Types_de_base][Types de base]]"
 
  4. *Familiarisez-vous* avec le Shell Bash
-* settings                                                          :ARCHIVE:
+* settings                                                          :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:
