@@ -1,6 +1,6 @@
 #+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
-* Mini "cheat sheet" Emacs (et Bash)
+* Emacs mini "cheat sheet"
  =C= = Control ; =M= = Alt (Windows) ou Pomme (MacOSX)
 
  Quitter une commande en cours: =C-g=
