@@ -1,0 +1,412 @@
+<head><meta charset="UTF-8"></head><pre>
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
+
+* Projet #7
+** Introduction
+
+ - Développer en *Langage C++ dans un environnement Linux*
+   (sur machines Windows 10!)
+
+   - _Versionnement_ avec *Git* et _partage_ avec *Github.com*
+     (Ne pas confondre versionnement et partage!)
+
+   - Utilisation du Shell *Bash* et des outils en *ligne de commande*
+
+ - Réalisation:
+
+   + Jeux "Snake"
+     - Un grand classique
+     - En mode graphique, à jouer au clavier dans une fenêtre graphique.
+     - Découverte de la librairie SDL2.
+
+   Note: Specs techniques du jeu fournies en temps voulu.
+
+** Organisation Générale [0%]                          :TODOélèves:TODOcoach:
+
+ - Classe découpée en Groupes A et B
+ - [ ] Constitution des binômes (voire trinômes, me contacter):
+   - [ ] Mettez à jour le fichier Google Drive "Constitution des binômes"
+     - [ ] Tout le monde est dans un binôme ?
+       - [ ] Groupe A
+       - [ ] Groupe B
+
+   - *IMPORTANT*: Binômes & Numéros des binômes *ne devront plus changer ensuite*!
+     (Si problème contacter Alain Simac ou moi-même)
+
+ - *Coachings* (présentiel): lundi, mercredi, vendredi (matin)
+ - *F.A.Q.* (distanciel): vendredi après-midi (sem. 1, 2 et 3)
+ - *Soutenances* les <2022-02-10 jeu.> et <2022-02-11 ven.>
+
+ - *Discord*: communication écrite + F.A.Q.
+
+ - *Nouveauté*: Ce document Org-Mode est dispo sur Github.com
+   https://github.com/nbercher/gt1_cpp (Fichier =01_ko_projet_c_linux.org=)
+
+   Vous pouvez faire deux choses:
+   1. (Recommandé) Consulter ce fichier en ligne
+   2. Cloner le dépôt Git: =git clone https://github.com/nbercher/gt1_cpp=
+
+** Comment nous allons travailler
+
+ - Coachings présentiels
+
+   - Partie cours
+
+   - Beaucoup de pratique, entraide entre élèves (qque soit le binôme)
+
+   - *Objectifs pour le prochain coaching*
+
+ - Entre les coachings
+
+   - Vous travaillez en autonomie à *atteindre les objectifs*
+
+   - Vous vous entraidez pour cela (discutez de vos difficultés, vos solutions, etc.)
+
+   - F.A.Q.: C'est la "Foire Aux Questions"
+     - *Aucune question n'est stupide*
+     - Ambiance "Happy Hacking": venez détendus et que l'on s'amuse!
+
+ - Dernier vendredi <2021-10-29 ven.>: Test de vos jeux et "Session Spécial Soutenance"
+
+** WIP Planning et Livrables
+
+ - Semaine 1:
+   - Mise en place WSL + VS Code, Git + Github.com
+   - Bases du langage C++ et POO
+   - Snake: SDL2 clavier & affichage
+
+ - Semaine 2:
+   - Snake: SDL2 clavier & affichage, boucle du jeu, classes & objets
+   - *Évaluation Git* le <2022-01-26 mer.>
+
+ - Semaine 3:
+   - Snake: Classes & objets pour gestion du ver et collisions
+   - Livraison <2021-10-28 jeu. 23:59>
+
+ - Semaine 4:
+   - Finalisations du jeu Snake, Soutenances
+   - Soutenances les <2022-02-10 jeu.> et <2022-02-11 ven.>
+
+** Notation & Soutenance
+
+ - Notation:
+   - Évaluation Git: Maîtrise Git + Github.com
+   - Qualité de la soutenance
+   - Jeux "Snake":
+     - Conforme aux demandes, jouable, sans bugs
+     - Code lisible, propre et optimisé
+     - Utilisation et maîtrise pour la création de: Langage C++, librarie SDL2
+
+     - Maîtrise des outils (environnement Langage C++, SDL2)
+     - 
+
+ - Soutenances:
+   - Dans la forme: ~15 minutes/binôme
+     - Préparer des slides
+     - Dans un binôme chaque élève doit présenter (présentation à répartir)
+     - Expression, vocabulaire, orthographe
+   - Dans le fond:
+     - Votre maîtrise du sujet
+     - Votre compréhension des potentiels problèmes non-résolus
+     - Le point sur votre marge de progression et d'amélioration
+
+** Ressources essentielles                                        :TODOcoach:
+
+(Rappels du CdC et compléments)
+
+ - Pour le langage C, nos références:
+
+   - Cours Wikibook: https://fr.wikibooks.org/wiki/Programmation_C
+
+   - Librairie de GCC:
+     https://www.gnu.org/software/libc/manual/html_node/index.html
+     - Liste des fonctions:
+       https://www.gnu.org/software/libc/manual/html_node/Function-Index.html
+
+     - =man 3 printf=: page de manuel (dans le Shell)
+
+ - Gcc, Make: cf. CdC
+ - Git: Cette présentation!
+ - Bash: cf. CdC + Cette présentation!
+
+Tout cela est évolutif, nous amélioreront le tout ENSEMBLE:
+
+            *Vos remarques et suggestions sont les bienvenues!*
+
+* Environnement Linux
+** Debian GNU/Linux sous Windows 10 / WSL
+
+ - WSL/Debian + gcc Linux = *Environnement obligatoire* pour tous!
+
+ - Utilisation de *VS Code en mode WSL* (ou Emacs)
+
+ - *Vous devrez écrire du code C++ pour Linux et pas pour Windows!*
+
+** Dans la pratique
+
+On va utiliser:
+
+ - Le *Shell Bash* comme environnement de développement
+
+ - VS Code pour éditer le code (ou Emacs)
+
+ - *g++* pour *compiler* le code
+
+ - *make* pour *automatiser* la compilation
+
+ - *git* pour *versionner* les codes sources
+   (Mais aussi: le Makefile et tout autre fichier important)
+
+ - *git* et *Github.com* pour partager les codes sources dans le binôme
+   (Et avec le coach)
+
+ - IMPORTANT: *Se familiariser les rudiments du Shell* (pwd, cd, mkdir, git ...)
+
+* TODO Git basics
+** TODO *REWORK ALL AS EXERCICES + ANSWERS*
+** TODO Qu'est-ce que Git?
+
+ - Outil créé par par Linus Torvalds en 2005, créateur de Linux, pour
+   continuer à développer Linux
+
+ - Rôles de Git:
+
+   1. Versionner le code source: enregistrement des changements
+      importants et à préserver
+
+   2. Synchroniser les dépôts (ex: avec Github.com)
+
+ - Trois "univers" dans un dépôt Git:
+
+   1. *working tree*: "Copie de travail" (ou "Dépôt local") = dossier
+      contenant vos fichiers (code source, etc.) + sous-dossier =.git/=
+
+   2. =.git/= ("dot git"): Sous-dossier contenant tout ce que Git doit
+      savoir sur votre dépôt: config et *histoire des fichiers*
+
+   3. *Index* (ou "staging" ou "cache"): Ceci est votre futur *commit*
+
+** Créer, ajouter, commiter
+
+ - Créer un dépôt tout neuf:
+
+   =git init= ou =git init [nom_dossier]=  -> Ce dépôt ne contient aucune histoire
+
+ - Demander à Git de *suivre un fichier*:
+
+   =git add fichier=  -> Avant cela Git ne se préoccupait pas de ce fichier
+                      -> Rajoute le fichier à l'Index pour constituer le futur commit
+
+ - *Sceller les modifications* par un commit (ou "Commiter"):
+
+   =git commit=       -> Tout le contenu de l'Index est rajouté à l'histoire du dépôt
+
+   Une fois un fichier suivi par Git (=git add=), on peut faire directement:
+
+   =git commit fichier= -> Toutes les modifications depuis son dernier commit sont rajoutées
+                           à l'histoire du dépôt, cela "saute" l'étape de l'Index
+
+ - Mais alors pourquoi l'Index?  Car on peut y rajouter des modifications de plusieurs
+   fichiers et *vérifier son FUTUR commit* (avec =git diff --cached=)
+
+** Voir les modifications
+
+ - Liste des modifications (non-commitées) faites sur le dépôt:
+
+   =git status=     -> Pas super lisible...
+
+   =git status -s=  -> Super lisible, organisé en deux colonnes:
+
+   A  Makefile                    _Légende_:
+    M puis4.c                     A pour Added
+   MM puis4.h                     M pour Modified
+    D puis4.o                     D pour Deleted (il en existe d'autres: U, T, etc.)
+
+   Colonne gauche: modifications qui *sont dans l'Index*
+   Colonne droite: modifications qui *ne sont PAS dans l'Index*
+
+   (On me demande de vous rappeler que l'Index EST le FUTUR commit.)
+
+ - Voir les modifications (non-commitées) faites sur les fichiers:
+
+   =git diff=         -> Voir le =diff -Nu fichier1 fichier2= des fichiers par rapport au dernier commit
+   =git diff fichier= -> Restreindre le =diff= à un (ou plusieurs) fichier(s)
+
+** Voir l'histoire du dépôt, d'un fichier (et survol des branches)
+
+ - Un dépôt Git est fait de branches, dont celle par défaut =main=
+
+   (Nous n'utiliserons probablement pas les branches...)
+
+   (Néanmoins sachez que c'est très puissant et permet de travailler
+   sur plusieurs fonctionnalités d'un projet en parallèle.
+   Par ailleurs, passer d'une branche à l'autre dans votre "working
+   tree" modifie les fichiers de manière à ce qu'ils correspondent à
+   leur état dans la-dite branche, tout en s'assurant de rien casser.)
+
+ - Histoire d'une branche du dépôt = *liste ordonnée de commits*
+
+   A---B---C---D---E = =main=
+
+   =git log=         -> Affiche la liste des commits (de la branche courante)
+
+   =git log fichier= -> Affiche la liste des commits concernant seulement =fichier=
+
+** Dépôts nus (bare clones)
+
+ - On créé toujours un dépôt avec =git init= (même si c'est Github qui le fait à votre place)
+
+   - Un tel dépôt est un dossier avec un sous-dossier =.git/=
+
+   - Ce dossier =.git/= est (presque) un *dépôt nu* (à la config près)
+
+ - Un dépôt nu n'est pas un espace de travail, mais *un point de synchronisation*
+
+ - Un dépôt hébergé sur Github.com est TOUJOURS un dépôt nu
+
+ - On peut créer un dépôt nu à partir d'un dépôt local:
+
+   =git clone --bare [dépôt]/ [dépôt].git= -> Ceci créé un dossier =[dépôt].git/=,
+                                              ça ne vous rappelle rien ce =.git/=?
+
+** Dépôt nu: Pousser (push) et tirer (pull)
+
+ - En général, tout dépôt Git local (working tree) à un *clone nu* quelque part
+   (autrement, il faudrait certainement en créer un)
+
+ - Envoyer ses modifications vers un dépôt nu:
+
+   =git push [dépôt] [branche]=
+
+ - Recevoir les modifications depuis un dépôt nu:
+
+   =git pull [dépôt] [branche]=
+
+ - Les éléments =[dépôt]= et =[branche]= sont définis dans la config du dépôt (=.git/config=)
+
+ - IMPORTANT: Quand on travaille à plusieurs, on procédera dans l'ordre suivant:
+   1. =git pull ...=
+   2. =git push ...=
+
+   De manière à récupérer le travail des autres AVANT de n'envoyer le sien.
+   Ceci permet d'effectuer une opération de =merge=...
+
+** (À savoir) Pull = fetch + merge
+
+ - L'opération =git pull ...= fait deux choses:
+
+   1. =git fetch ...= -> récupérer les modifications SANS les appliquer à votre histoire
+
+   2. =git merge=     -> appliquer les modifications en les fusionnant dans votre histoire
+
+   On imaginera aisément que =git merge= est très puissant...
+
+* TODO Shell & Bash basics
+** TODO *REWORK ALL AS EXERCICES + ANSWERS*
+** Commandes: Dossiers & fichiers
+ - *LANCEZ Debian WSL depuis le menu démarrer*
+ - Tester l'environnement Linux/WSL: Lancez le programme "Debian"
+   - Demande de créer un compte (username + password)
+   - Rien n'apparaît quand on saisi le password, c'est normal! [Ctrl+U efface la saisie invisible]
+
+ - Où suis-je? =pwd= (Print Working Directory)
+ - Créer un dossier: =mkdir proj_c= (Make Directory)
+ - Changer de dossier: =cd proj_c/= (Change Directory)
+ - Retourner dans le dossier parent: =cd ..= (=..= est le nom du dossier parent)
+ - Supprimer un dossier vide: =rmdir proj_c/=
+ - Aller directement dans son dossier utilisateur: =cd ~= (=~= est le nom du dossier utilisateur)
+ - Imprimer le contenu d'un fichier: =cat hello.c= (Concatenate), le fichier doit exister!
+
+ - Lister les dossiers & fichiers du dossier courant:
+   - =ls=: liste simple
+   - =ls -l=: liste étendue (format long avec détails: permissions, ownership, taille, date)
+   - =ls -d=: liste les dossiers eux-mêmes, pas leur contenu
+   - =ls -a=: lister les fichiers cachés (=ls -ald ~/.[^.]*=)
+
+ - Supprimer un fichier: =rm fichier=
+ - Supprimer récursivement un dossier: =rm -r dossier=
+* Mise en place des fichiers de travail
+** Contributions *individuelles* et *collective*
+
+Fonctionnement:
+ - Au début, *je développe dans mes fichier(s) individuel(s)*
+   - *Je commite mes fichiers* et ils sont partagés avec mon binôme
+ - Le code progresse et devient intéressant:
+   - Le binôme s'organise pour copier le code intéressant dans les fichiers du jeu
+
+Mise en place des fichiers: ***VOUS DEVEZ TOUS AVOIR LA MÊME STRUCTURE DE DOSSIERS***
+   ~/proj7/    <- Rappel: =~/= = =/home/eleveX/=
+     ├ coach/  <- =git clone https://github.com/nbercher/gt1_cpp= (Optionel)
+     └ snake/  <- =git clone git@github.com:MON_COMPTE_GITHUB/gtech1-bXX-snake.git snake= (Étape 4 du HowTo Git)
+       ├ ÉLÈVE1/        <- Fichiers de l'élève1 (=contributions individuelles)
+       │ ├ fichier.cpp 
+       │ └ fichier.hpp
+       ├ ÉLÈVE2/        <- Fichiers de l'élève2 (=contributions individuelles)
+       │ ├ fichier.cpp
+       │ └ fichier.hpp
+       ├ fichier.cpp    <- Fichiers du jeu Snake en phase de construction (=contributions collectives)
+       ├ fichier.hpp
+       ├ Makefile
+       ├ ...
+
+Vous allez *commencer à développer en apprenant*:
+ - Le code sera en phase d'apprenstissage: *code testé individuellement et qui change souvent*
+ - *On va développer* les fonctionnalités petit à petit, *par petits morceaux*
+ - Quand un bout de code devient satisfaisant, il sera commité avec Git et donc partagé avec son binôme
+   - Il faut être raisonnable et trouver son équilibre entre *committer trop souvent / trop peu souvent*
+
+ - Il exister
+
+** Mise en place de Git + Github
+Voir le fichier [[howto-git.org]].
+
+** Le Git workflow au quotidien
+
+ 1. élève2 se réveille (boit son café)
+
+    - *Premier réflexe*, récupérer le travail de ses binômes *si on lui a demandé* ("pull request"):
+
+      Sur sa machine: =git pull ALIAS_AUTRE_ELEVE main=
+
+ 2. élève2 se met au boulot (un autre café?)
+
+    - élève2 modifie son code et il en est content!
+
+    - élève2 *communique avec ses binômes* sur son travail
+
+    - élève1 est enchanté par le travail de élève2 et le récupère au plus vite!
+
+      Sur sa machine: =git pull ALIAS_AUTRE_ELEVE main=
+
+ 3. La journée continue et *ce cycle se reproduit aussi souvent que nécessaire*
+
+* Objectifs pour coaching#2                                     :TODOélèves:
+
+ 1. Sur les machines G.Tech1 et dans votre compte: Installez les programmes mentionnés
+    dans le CdC, section "Pour ceux qui ont des PC sous Windows 10".
+
+ 2. *IMPORTANT*: Dépôts Git (locaux) et Github.com (clones nus) créés et fonctionnels
+    1. Reportez-vous au "Howto" en fin dans ce fichier
+    2. Créez votre paire de clés SSH avec la commande =ssh-keygen= (infos dans ce fichier)
+    3. Vous avez configuré et testé ceci:
+       - (Test 1 du howto) chaque élève: =git pull= et =git push= entre votre Git local et le clone Github.com
+       - (Test 2 du howto) =git pull= croisés entre élèves du binôme:
+         1. élève1 sur son PC <--pull-- =git pull [github_élève2] main=
+         2. élève2 sur son PC <--pull-- =git pull [github_élève1] main=
+
+ 3. Travaillez avec le cours Wikibook "Programmation_C":
+    https://fr.wikibooks.org/wiki/Programmation_C/
+    1. Lisez l'[[https://fr.wikibooks.org/wiki/Programmation_C/Introduction][Introduction]]
+    2. Lisez et exercez-vous avec la section "[[https://fr.wikibooks.org/wiki/Programmation_C/Bases_du_langage][Bases du langage]]"
+       Info: Exemple compilation + exécution d'un code en C écrit dans le fichier =hello.c=:
+       - Compiler: =gcc helloc.c -o hello=
+       - Exécuter: =./hello=
+    3. Lisez la section "[[https://fr.wikibooks.org/wiki/Programmation_C/Types_de_base][Types de base]]"
+
+ 4. *Familiarisez-vous* avec le Shell Bash
+* settings                                                          :ARCHIVE:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:
