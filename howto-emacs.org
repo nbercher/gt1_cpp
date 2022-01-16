@@ -1,0 +1,28 @@
+* Emacs mini "cheat sheet"
+** Lancer Emacs
+
+ Lancer emacs en ouvrant des fichiers:
+
+ - Fenêtre graphique: =emacs file.cpp file.hpp=
+
+ - Terminal: =emacs -nw file.cpp file.hpp=
+
+** Commandes Emacs
+
+ =C= = Control ; =M= = Alt (Windows) ou Pomme (MacOSX)
+
+ Quitter une commande en cours: =C-g=
+
+ Sauver: =C-x C-s=            Quitter: =C-x C-c=
+
+ Couper à droite: =C-k=       Coller: =C-y=
+
+ Début sélection: =C-Space=   Copier sélection: =M-w=  Couper sélection: =C-w=
+
+ Undo: =M-x ENTER= puis =undo ENTER= (normalement =C-_=, mais Windows/WSL gobbe ce raccourci!!)
+
+ Aller en début / fin de ligne: =C-a= / =C-e=
+
+ Rechercher: =C-s=
+
+ Indenter le code: =TAB=
