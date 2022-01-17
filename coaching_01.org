@@ -50,7 +50,7 @@
  - *F.A.Q.* (distanciel): vendredi après-midi (sem. 1, 2 et 3)
  - *Soutenances* les <2022-02-10 jeu.> et <2022-02-11 ven.>
 
- - *Discord*: communication écrite + F.A.Q.
+ - Discord + *E-mail*: communication écrite + F.A.Q.
 
  - *Nouveauté*: Mes documents dispos sur Github.com:
 
@@ -154,8 +154,8 @@
     =wsl --install -d debian=
 
  3. WSL vous demande de créer votre compte Linux (avec un login et mot de passe)
-   - *Demande de créer un compte (login/username + password)*
-   - Rien n'apparaît quand on saisi le password, c'est normal! [=Ctrl+U= efface la saisie invisible]
+    - *Demande de créer un compte (login/username + password)*
+    - Rien n'apparaît quand on saisi le password, c'est normal! [=Ctrl+U= efface la saisie invisible]
 
  4. *Laissez WSL terminer son installation*
 
@@ -164,7 +164,9 @@
     Note: Si la session Linux se lance avec "root@..." dans le prompteur, ce n'est pas bon: quittez WSL
     et relancez.  Vérifiez que vous l'avez laissé s'installer (étape 4.)
 
- 6. Dans WSL, installez les progammes nécessaire (Cf. CdC):
+ 6. Testez =cat /etc/debian_version= et donnez-moi le numéro de version affiché
+
+ 7. Dans WSL, installez les progammes nécessaire (Cf. CdC):
 
     =sudo apt-get update=
     =sudo apt-get install man make g++ git openssh-client libsdl2-dev=
