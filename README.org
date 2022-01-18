@@ -20,5 +20,5 @@ Ces étapes sont à faire dans l'ordre:
 
 ** Aides diverses
  - [[file:howto-plantuml.org][PlantUML]]
- - [[file:howto-git-everyday.org][Git Everyday]]
+ - [[file:howto-git-everyday.org][Git everyday]]
  - [[file:howto-emacs.org][Emacs]]
