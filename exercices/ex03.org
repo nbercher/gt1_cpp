@@ -1,0 +1,97 @@
+* Exercice: Déplacer un carré avec le clavier en SDL2
+
+Nous allons repartir du code de l'[[file:ex01.org][exercice précédent]].
+
+Dans cet exerice, nous allons découvrir plusieurs aspects de la librairie SDL2:
+
+ - Dessiner un objet à l'écran (sur le fond noir du SDL_Renderer)
+
+ - Récupérer l'état des touches du clavier
+
+ - Gérer le "frame rate" afin que les images soient affichées à
+   intervalle fixe dans le temps
+
+Note: Un bon exemple de tout cela se trouve dans le code du jeu Pong,
+écrit en Langage C par le binome 23 du projet-2:
+https://github.com/joachim-gabin/gtech1-b23-pong
+
+** Dessiner à l'écran
+Voir:
+ - [[https://fr.wikibooks.org/wiki/Programmation_avec_la_SDL][fr.wikibooks.org:]] "Programmation avec la SDL"
+ - [[https://wiki.libsdl.org/][wiki.libsdl.org]]:
+   - [[https://wiki.libsdl.org/SDL_Rect][SDL_Rect]]: Structure C pour dessiner un rectangle
+   - [[https://wiki.libsdl.org/SDL_RenderDrawRect][SDL_RenderDrawRect]]: Fonction SDL2 pour dessiner un SDL_Rect
+
+** Récupérer l'état des touches du clavier
+Documentation: https://wiki.libsdl.org/SDL_GetKeyboardState
+
+Le principe est de:
+ 1. Récupérer la table d'état des touches du clavier:
+    (=SDL_GetKeyboardState()=):
+
+    #+BEGIN_SRC C
+      const Uint8 *keystates = SDL_GetKeyboardState(NULL);
+    #+END_SRC
+
+ 2. Vérifier si la touche qui nous intéresse est pressée ou non:
+
+    #+BEGIN_SRC C
+      keystates[SDL_SCANCODE_UP]
+    #+END_SRC
+
+    Dans cet exemple:
+    - =SDL_SCANCODE_UP= est le code de la touche "UP" (flèche ↑ des quatre touches ← → ↑ ↓ du clavier)
+    - =keystates[SDL_SCANCODE_UP]= s'évalue à VRAI si la touche est pressée, FAUX autrement
+
+*** Un exemple plus complet
+
+#+BEGIN_SRC C
+  #include <SDL2/SDL.h>
+
+  void keyboard() {
+    const Uint8 *keystates = SDL_GetKeyboardState(NULL);
+
+    if (keystates[SDL_SCANCODE_UP]) {
+       ...
+    }
+    if (keystates[SDL_SCANCODE_DOWN]) {
+      ...
+    }
+    if (keystates[SDL_SCANCODE_LEFT]) {
+      ...
+    }
+    if (keystates[SDL_SCANCODE_RIGHT]) {
+      ...
+    }
+  }
+#+END_SRC
+
+** Gestion du "frame rate"
+Voir:
+ - [[https://wiki.libsdl.org/][wiki.libsdl.org]]:
+   - [[https://wiki.libsdl.org/SDL_GetTicks][SDL_GetTicks]]: "Get the *number of milliseconds* since SDL library initialization."
+   - [[https://wiki.libsdl.org/SDL_Delay][SDL_Delay]]: "Wait a specified number of milliseconds before returning."
+
+Note: On pourra fixer le frame rate à 50 images/second (50Hz), soit 1/50 = 20ms.
+
+#+BEGIN_SRC C
+  // En début de programme, fixer le framrate désiré (en ms):
+  Uint32 frame_rate = ...;
+
+  // En début de frame:
+
+  // Récupérer le temps (en ms) depuis le démarrage de la SDL2:
+  Uint32 frame_time_start = SDL_GetTicks();
+
+  ...
+
+  // En fin de frame:
+
+  // Calcul de l'intervalle écoulé depuis frame_time_start:
+  frame_time_interval = SDL_GetTicks() - frame_time_start;
+
+  ...
+
+  // Attendre le temps nécessaire (si la frame a duré moins de =frame_rate= millisecondes):
+  SDL_Delay(...);
+#+END_SRC
