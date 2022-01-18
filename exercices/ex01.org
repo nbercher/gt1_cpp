@@ -1,4 +1,4 @@
-* Exercice 1: Premiers pas C++, SDL2
+* Exercice: Premiers pas C++, SDL2
 
 ** Consignes
 *** Ressources C++ et SDL2

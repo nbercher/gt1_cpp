@@ -1,4 +1,4 @@
-* Diagramme UML de la classe =MainSDLWindow=
+* Exercice: Diagramme UML de la classe =MainSDLWindow=
 
  1. Créez le diagramme UML de cette classe avec plantuml (en ligne pour
     commencer), *voir le [[file:howto-plantuml.org][howto-plantuml.org]]*.
