@@ -1,0 +1,17 @@
+* Diagramme UML de la classe =MainSDLWindow=
+
+ 1. Créez le diagramme UML de cette classe avec plantuml (en ligne pour
+    commencer), *voir le [[file:howto-plantuml.org][howto-plantuml.org]]*.
+
+ 2. Une fois satisfait avec le code PlantUML en ligne, copiez-le dans
+    le fichier =~/proj7/snake/uml/classes.puml=
+
+ 3. Versionnez-le avec Git, utilisez les commandes:
+
+    ÉLÈVE1 avec ÉLÈVE2:
+    - =git add=
+    - =git commit=
+    - =git push=
+
+    ÉLÈVE2:
+    - =git pull ALIAS_AUTRE_ELEVE main=

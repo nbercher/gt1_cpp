@@ -1,0 +1,36 @@
+* Exercice 1: Premiers pas C++, SDL2
+
+** Créer une classe =MainSDLWindow= en C++
+La classe doit permettre de:
+ 1. Créer une fenêtre SDL avec un fond noir
+ 2. Quitter la fenêtre SDL quand on clique sur la croix (ou =Alt+F4=)
+
+La classe doit comporter:
+
+ - Les méthodes suivantes:
+   - =public=:
+
+     - =MainSDLWindow(void)=: constructeur
+       - met les membres =window= et =renderer= à la valeur =NULL=
+
+     - =~MainSDLWindow(void)=: destructeur
+       - détruit proprement les objects =window= et =renderer=
+       - quitte la SDL
+
+     - =int Init(...)=: méthode
+       - prend en argument le nom de la fenêtre, sa lageur et sa hauteur
+       - créé les objets =window= et =renderer=
+       - si erreur SDL durnat la création des objets SDL:
+         - afficher des messages d'erreur pour avertir l'utilisateur
+         - retourner EXIT_FAILURE
+       - affecte le nom à la fenêtre
+       - dessine un fond noir dans le =renderer=
+       - si aucune erreur, retourner EXIT_SUCCESS
+
+     - =GetRenderer(void)=: méthode
+       - Retourne le pointeur sur l'objet =renderer=
+
+ - Les membres suivants:
+   - =private=:
+     - =window= de type =SDL_Window *= (pointeur)
+     - =renderer= de type =SDL_Renderer *= (pointeur)
