@@ -3,10 +3,17 @@
  1. Créez le diagramme UML de cette classe avec plantuml (en ligne pour
     commencer), *voir le [[file:howto-plantuml.org][howto-plantuml.org]]*.
 
+    Conseil:
+    1. Commencez par créer la classe
+    2. Puis rajoutez leurs membres et méthodes.
+    3. Enfin, rajoutez les attributs =public=, =protected= ou
+       =private= nécessaires aux membres de la classe
+
  2. Une fois satisfait avec le code PlantUML en ligne, copiez-le dans
     le fichier =~/proj7/snake/uml/classes.puml=
 
- 3. Versionnez-le avec Git, utilisez les commandes:
+ 3. Versionnez-le avec Git, utilisez les commandes *en les complétant*
+    si nécessaire:
 
     ÉLÈVE1 avec ÉLÈVE2:
     - =git add=
