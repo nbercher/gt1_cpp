@@ -3,23 +3,25 @@
 * Projet #7 - Coaching 2                                           :noexport:
 ** Table of Contents                                      :TOC:QUOTE:
 #+BEGIN_QUOTE
-- [[#urgence-absolue-élèves-bloqués-avec-leur-compte-windows-non-admin][*URGENCE ABSOLUE*: Élèves bloqués avec leur compte Windows non-admin]]
-- [[#pour-bien-travailler-tous-ensemble][Pour bien travailler tous ensemble]]
+- [[#organisation][Organisation]]
+  - [[#urgence-absolue-élèves-bloqués-avec-leur-compte-windows-non-admin][*URGENCE ABSOLUE*: Élèves bloqués avec leur compte Windows non-admin]]
   - [[#votre-espace-de-travail-dans-wsl][Votre espace de travail dans WSL]]
   - [[#githubcom-en-mode-privé][Github.com en mode privé]]
-- [[#c-programmation-orientée-objet][C++: Programmation orientée objet]]
+- [[#cours-c--programmation-orientée-objet][Cours: C++ & Programmation orientée objet]]
   - [[#introduction][Introduction]]
   - [[#exemple-de-classe][Exemple de classe]]
   - [[#méthodes-spéciales-constructeur-et-destructeur][Méthodes spéciales: Constructeur et Destructeur]]
   - [[#vie-et-mort-dun-object][Vie et mort d'un object]]
   - [[#accès-aux-membres-et-méthodes-dun-objet][Accès aux membres et méthodes d'un objet]]
-- [[#révision-git-add-commit-push-etc][Révision Git (add, commit, push, etc.)]]
+  - [[#droits-daccès-public-et-private][Droits d'accès: =public= et =private=]]
+- [[#cours-révision-git-add-commit-push-etc][Cours: Révision Git (add, commit, push, etc.)]]
 - [[#exercices][Exercices]]
 - [[#objectifs-pour-le-prochain-coaching][Objectifs pour le prochain coaching]]
 - [[#ressources][Ressources:]]
 #+END_QUOTE
 
-* *URGENCE ABSOLUE*: Élèves bloqués avec leur compte Windows non-admin :TODOélèves:
+* Organisation                                                   :TODOélèves:
+** *URGENCE ABSOLUE*: Élèves bloqués avec leur compte Windows non-admin
 *Groupe A seulement*
 
 Complétez le fichier "Consitution des binômes" avec votre login Windows
@@ -27,8 +29,7 @@ et le nom de votre machine Windows sous la forme =LOGIN@MACHINE=.
 
 On ne pourra pas avancer tant que cela ne sera pas réglé!
 
-* Pour bien travailler tous ensemble                             :TODOélèves:
-** Votre espace de travail dans WSL
+** Votre espace de travail dans WSL                              :TODOélèves:
 
 Votre espace de travail dans WSL doit être comme ceci:
 
@@ -49,7 +50,7 @@ Si ce n'est pas le cas, *corrigez-le sans délai*.
 
 (Si vous avez des soucis pour renommer un dossier sous le Terminal VS Code, essayer avec le terminal WSL/Debian!)
 
-** Github.com en mode privé
+** Github.com en mode privé                                      :TODOélèves:
 
  - *Mon dépôt Github.com* va passer en mode privé
 
@@ -60,7 +61,7 @@ Si ce n'est pas le cas, *corrigez-le sans délai*.
    Binômes/Trinômes: Complétez les colonnes "Account 1" à "Account 3"
    avec le nom de votre compte Github.com, merci!
 
-* C++: Programmation orientée objet
+* Cours: C++ & Programmation orientée objet
 ** Introduction
 
  - C++ est une évolution du Langage C, il apporte la Programmation Orientée Objet (POO)
@@ -69,16 +70,22 @@ Si ce n'est pas le cas, *corrigez-le sans délai*.
 
  - En POO, le paradigme change:
 
-   - On utilise des *classes* pour définir des types complexes, elles contiennent:
+   - On utilise des *classes* pour définir des types complexes.
 
-     - Des *membres* qui sont des variables, elles-même d'un certain type (classe, int, char, etc.)
+   - Analogie: Moule permettant de créer des objets semblables, mais chaque objet aura sa propre vie
 
-     - Des *méthodes* qui sont des fonctions dédiées et s'appliquent aux objet de la classe ou à la
-       classe elle-même
+ - Les classes contiennent:
 
-   - Les classes étant un type, elles permettent de créer des variables, on les appelle *objets*:
+   - Des *membres* qui sont des variables, elles-même d'un certain type (classe, int, char, etc.)
 
-     =MaClasse object;=
+   - Des *méthodes* qui sont des fonctions dédiées et s'appliquent aux objet de la classe ou à la
+     classe elle-même
+
+ - Les classes étant un type, elles permettent de créer des variables, on les appelle *objets*:
+
+   =MaClasse mon_object;=
+
+ - Les Noms Des Classes Sont Prennent En Général Une Majuscule, Tout Comme Un Nom Propre.
 
 ** Exemple de classe
 
@@ -102,15 +109,19 @@ Le parallèle entre C et C++ est relativement simple:
 
  - Type versus Classe:
 
-   =int x; // variable de type int=
+   #+BEGIN_SRC C++
+     int x; // variable de type int
 
-   =MaClasse object; object de type MaClasse=
+     MaClasse object; object de type MaClasse
+   #+END_SRC
 
  - Fonction versus Méthode:
 
-   =void add(int a, int b) { return a + b; } // returne a + b=
+   #+BEGIN_SRC C++
+     void add(int a, int b) { return a + b; } // returne a + b
 
-   =object.add(int b); // retourne object.a + b=
+     object.add(int b); // retourne object.a + b
+   #+END_SRC
 
 ** Méthodes spéciales: Constructeur et Destructeur
 
@@ -186,7 +197,26 @@ Les deux permettent d'effectuer des opérations spécifique *après création* e
 
 #+END_SRC
 
-* Révision Git (add, commit, push, etc.)
+** Droits d'accès: =public= et =private=
+
+Dans une classe C++, on peut définir les droits d'accès aux membres et méthodes:
+
+#+BEGIN_SRC C++
+  class MClasse {
+  public:
+    int add(int b) {  // Cette méthode est publique et utilisable par n'importe quel code
+      return this->a + b;
+    }
+
+  private:
+    int a;  // Ce membre n'est accessible que par l'objet lui-même
+  };
+#+END_SRC
+
+Note: Il existe également =protected= qui s'utilise prend son sens lorsqu'il y a héritage de classes,
+nous le verrons plus tard.
+
+* Cours: Révision Git (add, commit, push, etc.)
 Voir fichier [[file:howto-git-everyday.org::*Git%20basics][howto-git-everyday.org]].
 
 * Exercices                                                      :TODOélèves:
