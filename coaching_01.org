@@ -194,26 +194,41 @@
 ** Installer un server Xorg                                      :TODOélèves:
 On utilisera le même serveur que pour le projet-2 "Langage C".
 
-
  - Un serveur Xorg permet d'afficher une fenêtre graphique Linux sous Windows.
 
  - Sous Windows, installation du server "Xorg" VcxSrv:
 
-   - Installer https://sourceforge.net/projects/vcxsrv/
+   - Installer https://sourceforge.net/projects/vcxsrv/ en cliquant sur "Suivant" à chaque étape.
 
    - Lancez VcxSrv (cliquez sur "Suivant" à chaque étape, jusqu'à "Terminer").
-     - IMPORTANT: *Cette application est un service* et n'affiche donc plus de fenêtre une fois lancée.
-       (Vous constaterez cependant que le service est lancé grace à l'icone "X" près de l'horloge de
-       Windows.)
+     - IMPORTANT: *Cette application n'affiche pas de fenêtre une fois lancée.* Vous constaterez
+       cependant que le service est lancé grace à l'icone "X" près de l'horloge de Windows.
 
- - Test: Il suffit de préfixer une commande lançant une aplpiqcation Linux graphique par =DISPLAY=:0=,
-   par exemple:
+ - Test:
 
-   =DISPLAY=:0 emacs &=
+   1. Vérifiez que VcxSrv est bien lancé: son icone doit apparaître à côté de l'horologe de Windows.
 
-   Plus tard pour votre jeu:
+   2. Affichez une fenêtre minimaliste avec =xmessage=:
 
-   =DISPLAY=:0 ./snake &=
+   #+BEGIN_SRC sh
+     sudo apt update
+     sudo apt install xmessage
+     DISPLAY=:0 xmessage 'Hello!'
+   #+END_SRC
+
+ - Utilisation:
+
+   Il suffit de préfixer les commandes lançant une application Linux graphique par
+
+   #+BEGIN_SRC sh
+     DISPLAY=:0
+   #+END_SRC
+
+   Plus tard pour votre jeu Snake:
+
+   #+BEGIN_SRC sh
+     DISPLAY=:0 ./snake &
+   #+END_SRC
 
  - Configuration permamente, *à faire une seule fois*:
 
