@@ -3,7 +3,7 @@
  1. Créez le diagramme UML de cette classe avec plantuml (en ligne pour
     commencer), *voir le [[file:howto-plantuml.org][howto-plantuml.org]]*.
 
-    Conseil:
+    Conseils:
     1. Commencez par créer la classe
     2. Puis rajoutez leurs membres et méthodes.
     3. Enfin, rajoutez les attributs =public=, =protected= ou
