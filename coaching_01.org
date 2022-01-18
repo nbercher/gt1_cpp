@@ -10,12 +10,6 @@
   - [[#installer-un-server-xorg][Installer un server Xorg]]
 - [[#mise-en-place-des-fichiers-de-travail-githubcom-et-git-local][Mise en place des fichiers de travail (Github.com et Git local)]]
 - [[#mise-en-place---épilogue][Mise en place - Épilogue]]
-- [[#programmation-orientée-objet][Programmation orientée objet]]
-  - [[#introduction-1][Introduction]]
-  - [[#exemple-de-classe][Exemple de classe]]
-  - [[#vie-et-mort-dun-object][Vie et mort d'un object]]
-  - [[#méthodes-spéciales-constructeur-et-destructeur][Méthodes spéciales: Constructeur et Destructeur]]
-  - [[#accès-aux-membres-et-méthodes-dun-objet][Accès aux membres et méthodes d'un objet]]
 - [[#objectifs-pour-le-prochain-coaching][Objectifs pour le prochain coaching]]
 #+END_QUOTE
 
@@ -334,126 +328,6 @@ Dans la pratique, vous allez utiliser:
 
  - IMPORTANT: *Se familiariser les rudiments du Shell* (pwd, cd, mkdir, git, etc.)
 
-* Programmation orientée objet
-** Introduction
-
- - C++ est une évolution du Langage C, il apporte la Programmation Orientée Objet (POO)
-
-   Note: On peut mélanger du code C et C++
-
- - En POO, le paradigme change:
-
-   - On utilise des *classes* pour définir des types complexes, elles contiennent:
-
-     - Des *membres* qui sont des variables, elles-même d'un certain type (classe, int, char, etc.)
-
-     - Des *méthodes* qui sont des fonctions dédiées et s'appliquent aux objet de la classe ou à la
-       classe elle-même
-
-   - Les classes étant un type, elles permettent de créer des variables, on les appelle *objets*:
-
-     =MaClasse object;=
-
-** Exemple de classe
-
-=MaClasse= contient:
- - Un nombre entier =int a;=, il est privé (personne ne peut y accéder à part l'objet)
- - Une méthode =int add(int b);= qui retourne =a + b=
-
-   #+BEGIN_SRC C++
-     class MClasse {
-     public:
-       int add(int b)  // méthode publique car définie dans le bloc 'public:'
-       {
-         return this->a + b; // "this" est un pointeur sur l'objet lui-même, "->" permet d'accéder à ses membres
-       }
-     private:
-       int a;          // membre privé car défini dans le bloc 'private:'
-     }; // Ne pas oublier le ';' final !
-   #+END_SRC
-
-Le parallèle entre C et C++ est relativement simple:
-
- - Type versus Classe:
-
-   =int x; // variable de type int=
-
-   =MaClasse object; object de type MaClasse=
-
- - Fonction versus Méthode:
-
-   =void add(int a, int b) { return a + b; } // returne a + b=
-
-   =object.add(int b); // retourne object.a + b=
-
-** Vie et mort d'un object
-
- - Les objets peuvent être crées comme des variables dynmaiques ou non:
-
-   #+BEGIN_SRC C++
-     void some_code(void) {
-       MaClasse obj1; // Objet "statique", il mourra en fin du bloc de code {}
-
-       MaClasse *obj2 = new MaClasse(); // Objet dynamique qu'il faudra détruire
-
-       if (obj2 != NULL)
-         delete obj2;
-     } // <- Au delà de ce bloc, obj1 est détruit automatiquement car "statique", ce n'est pas le cas de obj2
-   #+END_SRC
-
- - Nous venons de voir les deux opérateurs:
-
-   1. =new= permettant de créer un objet dynamiquement (donne un pointeur)
-
-   2. =delete= permettant de détruire un objet créé dynamiquement (via un pointeur seulement)
-
-** Méthodes spéciales: Constructeur et Destructeur
-
-   #+BEGIN_SRC C++
-     class MClasse {
-     public:
-
-       MClasse() {     // <- Constructeur, ici initialise le membre =a=
-         this->a = 0;
-       }
-
-       ~MClasse() {     // <- Destructeur, ici ne fait rien...
-       }
-
-     private:
-       int a;
-     };
-   #+END_SRC
-
-Simple et efficace:
- - Le constructeur est appelé quand un objet est crée
- - Le Destructeur est appelé quand un objet est détruit
-
-Les deux permettent d'effectuer des opérations spécifique *après création* et *avant suppression*.
-
-** Accès aux membres et méthodes d'un objet
-
-#+BEGIN_SRC C++
-  class MClasse {
-  public:
-    int a;             // <- Maintenant publique!
-    int add(int b) {
-      return this->a + b;
-    }
-  };
-
-  // Cas avec objet "statique":
-  MaClasse obj1;
-  obj1.a = 1; // <- OK si a est publique dans la classe MaClasse
-  int c = obj1.add(5);
-
-  // Cas avec objet "statique":
-  MaClasse *obj2 = new MaClasse();
-  obj2->a = 2;
-  int d = obj2->add(3);
-
-#+END_SRC
-
 * Objectifs pour le prochain coaching                            :TODOélèves:
 
  1. ***Travaillez entre les séances!***
@@ -500,7 +374,7 @@ Les deux permettent d'effectuer des opérations spécifique *après création* e
     1. Coder =hello.cpp=:
        #+BEGIN_SRC c++
          #include <iostream>
-         using namespace std
+         using namespace std;
 
          int main(void) {
              cout << "Hello!" << endl;
