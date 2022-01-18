@@ -1,0 +1,61 @@
+* Créer des diagrammes de classes UML avec PlantUML
+
+PlantUML est un mini-langage et un programme permettant de créer des
+figures de diagrammes UML sous la forme d'images (=.png=, =.svg= par
+exemple).
+
+** Tutoriel mini-langage PlantUML
+Famliliariez-vous avec le mini-langage de PlantUML:
+https://plantuml.com/fr/class-diagram
+
+Un exemple simple:
+
+#+BEGIN_EXAMPLE
+  @startuml
+  skinparam classAttributeIconSize 0
+
+  class A {
+  int x, y;
+  B b;
+  void : SetXY(x, y)
+  B : GetB()
+  A()
+  ~A()
+  }
+  A o-- B
+
+  class B {
+  int value;
+  }
+  @enduml
+#+END_EXAMPLE
+
+Qui donne ceci:
+
+[[file:img/plantuml_simple_example.png]]
+
+** Outil de création de diagrammes UML en ligne
+Le plus simple pour bien débuter avec PlantUML est d'utiliser l'[[http://www.plantuml.com/plantuml/uml/][outil mis à disposition en ligne]]
+tout en apprenant avec le [[https://plantuml.com/fr/class-diagram][tutoriel]].
+
+** Outil PlantUML en local (sous WSL)
+
+*** Installation
+#+BEGIN_SRC sh
+  sudo apt update
+  sudo apt install plantuml
+#+END_SRC
+
+*** Utilisation
+
+ 1. Créez un dossier =~/proj7/uml/= pour stocker vos fichiers PlantUML
+
+ 2. Écrivez votre script PlantUML dans un fichier texte avec extension en =.puml=
+
+ 3. Exécutez =plantuml= sur votre fichier, par exemple:
+
+    #+BEGIN_SRC sh
+    plantuml uml/classes.puml
+    #+END_SRC
+
+ 4. Ceci génère le fichier =uml/classes.png= au format image =.png=
