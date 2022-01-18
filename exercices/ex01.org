@@ -1,6 +1,44 @@
 * Exercice 1: Premiers pas C++, SDL2
 
-** Créer une classe =MainSDLWindow= en C++
+** Consignes
+*** Ressources C++ et SDL2
+Pour cet exercice, vous pourrez vous appuyer sur:
+ - C++: https://www.w3schools.com/cpp/
+ - SDL2: https://fr.wikibooks.org/wiki/Programmation_avec_la_SDL/Initialisation_de_la_SDL
+
+*** Fichiers =exercice1.cpp= et =exercice1.hpp=
+Éclatez votre code en deux fichiers:
+
+ 1. Fichier =exercice1.hpp= pour les définitions:
+    - La classe avec ses membres et méthodes *sans code*
+
+ 2. Fichier =exercice1.cpp= pour:
+    - Le code des méthodes de la classe =MainSDLWindow=, ex:
+      #+BEGIN_SRC C++
+      int MainSDLWindow::Init(...) {
+      // Code ici
+      }
+      #+END_SRC
+
+    - La fonction =main()=, il faudra créer une fonction =main()= dans
+      votre code pour le complier et le tester:
+
+      #+BEGIN_SRC C++
+      #include "exercice1.hpp"
+
+      int main(void) {
+          MainSDLWindow main_window;
+          main_window.Init(...);
+      }
+      #+END_SRC
+
+Rappels:
+
+ - Compiler: =g++ exercice1.cpp -lSDL2 -o exercice1=
+
+ - Tester: =./exercice1=
+
+** Exercice: Créer une classe =MainSDLWindow= en C++
 La classe doit permettre de:
  1. Créer une fenêtre SDL avec un fond noir
  2. Quitter la fenêtre SDL quand on clique sur la croix (ou =Alt+F4=)
@@ -18,7 +56,7 @@ La classe doit comporter:
        - quitte la SDL
 
      - =int Init(...)=: méthode
-       - prend en argument le nom de la fenêtre, sa lageur et sa hauteur
+       - prend en argument le nom de la fenêtre, sa largeur et sa hauteur
        - créé les objets =window= et =renderer=
        - si erreur SDL durnat la création des objets SDL:
          - afficher des messages d'erreur pour avertir l'utilisateur
