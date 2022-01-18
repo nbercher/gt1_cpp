@@ -1,0 +1,45 @@
+* Installation d'un Xserver sous Windows (pour WSL)
+
+On utilisera le même serveur que pour le projet-2 "Langage C".
+
+ - Un serveur Xorg permet d'afficher une fenêtre graphique Linux sous Windows.
+
+ - Sous Windows, installation du server "Xorg" VcxSrv:
+
+   - Installer https://sourceforge.net/projects/vcxsrv/ en cliquant sur "Suivant" à chaque étape.
+
+   - Lancez VcxSrv (cliquez sur "Suivant" à chaque étape, jusqu'à "Terminer").
+     - IMPORTANT: *Cette application n'affiche pas de fenêtre une fois lancée.* Vous constaterez
+       cependant que le service est lancé grace à l'icone "X" près de l'horloge de Windows.
+
+ - Test:
+
+   1. Vérifiez que VcxSrv est bien lancé: son icone doit apparaître à côté de l'horologe de Windows.
+
+   2. Affichez une fenêtre minimaliste avec =xmessage=:
+
+   #+BEGIN_SRC sh
+     sudo apt update
+     sudo apt install xmessage
+     DISPLAY=:0 xmessage 'Hello!'
+   #+END_SRC
+
+ - Utilisation:
+
+   Il suffit de préfixer les commandes lançant une application Linux graphique par
+
+   #+BEGIN_SRC sh
+     DISPLAY=:0
+   #+END_SRC
+
+   Plus tard pour votre jeu Snake:
+
+   #+BEGIN_SRC sh
+     DISPLAY=:0 ./snake &
+   #+END_SRC
+
+ - Configuration permamente, *à faire une seule fois*:
+
+   #+BEGIN_SRC sh
+     echo "export DISPLAY=:0" >> ~/.bashrc
+   #+END_SRC

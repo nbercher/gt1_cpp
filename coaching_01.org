@@ -127,7 +127,7 @@
      - Votre compréhension des potentiels problèmes non-résolus
      - Le point sur votre marge de progression et d'amélioration
 
-* Mise en place des outils (WSL, VS Code)       :noexport_2:
+* Mise en place des outils (WSL, VS Code)                        :noexport_2:
 ** Environnement de travail
 
  1. WSL/Debian + g++ Linux = *Environnement obligatoire pour tous!*
@@ -147,94 +147,13 @@
 *ATTENTION: Pénalités pour les binômes qui ne respecteraient pas ces points*
 
 ** Installer WSL/Debian + outils Linux                           :TODOélèves:
-
- 1. Depuis le menu Windows, lancez PowerShell en mode administrateur
-
- 2. Dans le terminal PowerShell, exécutez la commande:
-    =wsl --install -d debian=
-
- 3. WSL vous demande de créer votre compte Linux (avec un login et mot de passe)
-    - *Demande de créer un compte (login/username + password)*
-    - Rien n'apparaît quand on saisi le password, c'est normal! [=Ctrl+U= efface la saisie invisible]
-
- 4. *Laissez WSL terminer son installation*
-
- 5. Relancez WSL: Vous devez utiliser votre compte utilisateur Linux fraîchement créé
-
-    Note: Si la session Linux se lance avec "root@..." dans le prompteur, ce n'est pas bon: quittez WSL
-    et relancez.  Vérifiez que vous l'avez laissé s'installer (étape 4.)
-
- 6. Testez =cat /etc/debian_version= et donnez-moi le numéro de version affiché
-
- 7. Dans WSL, installez les progammes nécessaire (Cf. CdC):
-
-    =sudo apt-get update=
-    =sudo apt-get install man make g++ git openssh-client libsdl2-dev=
+Voir le fichier [[file:howto-wsl-env.org][howto-wsl-env.org]].
 
 ** Installer VSCode + extension "Remote - WSL"                   :TODOélèves:
-
- 1. Si VS Code est déjà installé, *désinstallez-le*!
-
- 2. *Sous Windows*, installez VS Code, *IMPORTANT*:
-    Dans la partie "Select Additional Tasks", prenez bien soin de *cocher la case "Add to PATH"*
-
- 3. Lancez VS Code et installez l'extension "Remote - WSL" de Microsoft
-
- 4. Dans WSL: testez VS Code:
-
-    =code .=
-
-    Si vous avez l'erreur "Command not found" c'est que vous n'avez pas fait correctement le
-    point 2. et/ou le point 3.
-
-    Au besoin, voir:
-    - https://code.visualstudio.com/docs/remote/wsl
-    - https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+Voir le fichier [[file:howto-vscode+wsl.org][howto-vscode+wsl.org]].
 
 ** Installer un server Xorg                                      :TODOélèves:
-On utilisera le même serveur que pour le projet-2 "Langage C".
-
- - Un serveur Xorg permet d'afficher une fenêtre graphique Linux sous Windows.
-
- - Sous Windows, installation du server "Xorg" VcxSrv:
-
-   - Installer https://sourceforge.net/projects/vcxsrv/ en cliquant sur "Suivant" à chaque étape.
-
-   - Lancez VcxSrv (cliquez sur "Suivant" à chaque étape, jusqu'à "Terminer").
-     - IMPORTANT: *Cette application n'affiche pas de fenêtre une fois lancée.* Vous constaterez
-       cependant que le service est lancé grace à l'icone "X" près de l'horloge de Windows.
-
- - Test:
-
-   1. Vérifiez que VcxSrv est bien lancé: son icone doit apparaître à côté de l'horologe de Windows.
-
-   2. Affichez une fenêtre minimaliste avec =xmessage=:
-
-   #+BEGIN_SRC sh
-     sudo apt update
-     sudo apt install xmessage
-     DISPLAY=:0 xmessage 'Hello!'
-   #+END_SRC
-
- - Utilisation:
-
-   Il suffit de préfixer les commandes lançant une application Linux graphique par
-
-   #+BEGIN_SRC sh
-     DISPLAY=:0
-   #+END_SRC
-
-   Plus tard pour votre jeu Snake:
-
-   #+BEGIN_SRC sh
-     DISPLAY=:0 ./snake &
-   #+END_SRC
-
- - Configuration permamente, *à faire une seule fois*:
-
-   #+BEGIN_SRC sh
-     echo "export DISPLAY=:0" >> ~/.bashrc
-   #+END_SRC
+Voir le fichier [[file:howto-xserver.org][howto-xserver.org]].
 
 * Mise en place des fichiers de travail (Github.com et Git local) :noexport_1:
 ** Contributions *individuelles* et contributions *collectives*
@@ -390,7 +309,7 @@ On utilisera le même serveur que pour le projet-2 "Langage C".
 
  - Allez dans =~/proj7/= et continuez avec la mise en place du dépôt Github.com et Git local
 
- - Ça se passe dans [[file:howto-git.org::#configuration-de-git-et-du-git-workflow-jeu-snake][howto-git.org]], section "Configuration de Git et du "Git workflow" (jeu Snake)"
+ - Voir le fichier [[file:howto-git-workflow.org][howto-git-workflow.org]]
 
  - *Vous devez être rigoureux et suivre chacune des étapes!*
 
@@ -545,7 +464,7 @@ Les deux permettent d'effectuer des opérations spécifique *après création* e
 
  2. *IMPORTANT*: Dépôts Git (locaux) et Github.com (mirroirs) créés et fonctionnels
 
-    1. Reportez-vous au [[file:howto-git.org][Howto Git]] en cas de besoin
+    1. Reportez-vous au fichier [[file:howto-git-workflow.org][howto-git-workflow.org]] en cas de besoin
 
     2. *Chaque élève devra avoir configuré et testé ceci*:
 

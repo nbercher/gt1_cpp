@@ -1,0 +1,19 @@
+* Installer VSCode + extension "Remote - WSL"
+
+ 1. Si VS Code est déjà installé, *désinstallez-le*!
+
+ 2. *Sous Windows*, installez VS Code, *IMPORTANT*:
+    Dans la partie "Select Additional Tasks", prenez bien soin de *cocher la case "Add to PATH"*
+
+ 3. Lancez VS Code et installez l'extension "Remote - WSL" de Microsoft
+
+ 4. Dans WSL: testez VS Code:
+
+    =code .=
+
+    Si vous avez l'erreur "Command not found" c'est que vous n'avez pas fait correctement le
+    point 2. et/ou le point 3.
+
+    Au besoin, voir:
+    - https://code.visualstudio.com/docs/remote/wsl
+    - https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl

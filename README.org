@@ -3,6 +3,14 @@
 ** Coachings
  - [[file:coaching_01.org][Coaching 1 / KO]]
 
-** Howto
- - [[file:howto-git.org][Howto Git & Github.com]]
- - [[file:howto-emacs.org][Howto Emacs]]
+** Installation de votre environnement de travail
+Ces étapes sont à faire dans l'ordre:
+
+ 1. [[file:howto-wsl-env.org][Howto install WSL/Debian]]
+ 2. [[file:howto-vscode+wsl.org][Howto install VS Code for WSL]]
+ 3. [[file:howto-git-workflow.org][Howto setup your Git Workflow]]
+ 4. [[file:howto-xserver.org][Howto instal XServer]]
+
+** Aides diverses
+ - [[file:howto-git-everyday.org][Git Everyday]]
+ - [[file:howto-emacs.org][Emacs]]
