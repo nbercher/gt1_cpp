@@ -1,0 +1,266 @@
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
+
+* Projet #7 - Coaching 2                                           :noexport:
+** Table of Contents                                      :TOC:QUOTE:
+#+BEGIN_QUOTE
+- [[#urgence-absolue-élèves-bloqués-avec-leur-compte-windows-non-admin][*URGENCE ABSOLUE*: Élèves bloqués avec leur compte Windows non-admin]]
+- [[#pour-bien-travailler-tous-ensemble][Pour bien travailler tous ensemble]]
+  - [[#votre-espace-de-travail-dans-wsl][Votre espace de travail dans WSL]]
+  - [[#githubcom-en-mode-privé][Github.com en mode privé]]
+- [[#c-programmation-orientée-objet][C++: Programmation orientée objet]]
+  - [[#introduction][Introduction]]
+  - [[#exemple-de-classe][Exemple de classe]]
+  - [[#méthodes-spéciales-constructeur-et-destructeur][Méthodes spéciales: Constructeur et Destructeur]]
+  - [[#vie-et-mort-dun-object][Vie et mort d'un object]]
+  - [[#accès-aux-membres-et-méthodes-dun-objet][Accès aux membres et méthodes d'un objet]]
+- [[#révision-git-add-commit-push-etc][Révision Git (add, commit, push, etc.)]]
+- [[#exercices][Exercices]]
+- [[#objectifs-pour-le-prochain-coaching][Objectifs pour le prochain coaching]]
+- [[#ressources][Ressources:]]
+#+END_QUOTE
+
+* *URGENCE ABSOLUE*: Élèves bloqués avec leur compte Windows non-admin :TODOélèves:
+*Groupe A seulement*
+
+Complétez le fichier "Consitution des binômes" avec votre login Windows
+et le nom de votre machine Windows sous la forme =LOGIN@MACHINE=.
+
+On ne pourra pas avancer tant que cela ne sera pas réglé!
+
+* Pour bien travailler tous ensemble                             :TODOélèves:
+** Votre espace de travail dans WSL
+
+Votre espace de travail dans WSL doit être comme ceci:
+
+Préférez des noms de dossiers/fichiers *en minuscules*!
+
+#+BEGIN_EXAMPLE
+# Liste des dossiers INDISPENSABLES:
+~/proj7/
+~/proj7/snake/
+~/proj7/snake/ÉLÈVE1/
+~/proj7/snake/ÉLÈVE2/
+
+# Optionnel:
+~/proj7/coach/
+#+END_EXAMPLE
+
+Si ce n'est pas le cas, *corrigez-le sans délai*.
+
+(Si vous avez des soucis pour renommer un dossier sous le Terminal VS Code, essayer avec le terminal WSL/Debian!)
+
+** Github.com en mode privé
+
+ - *Mon dépôt Github.com* va passer en mode privé
+
+ - Travailler avec un dépôt en mode publique est trop limitant: il va passer en mode privé
+
+ - Vous allez être invités à utiliser mon dépôt, pour cela:
+
+   Binômes/Trinômes: Complétez les colonnes "Account 1" à "Account 3"
+   avec le nom de votre compte Github.com, merci!
+
+* C++: Programmation orientée objet
+** Introduction
+
+ - C++ est une évolution du Langage C, il apporte la Programmation Orientée Objet (POO)
+
+   Note: On peut mélanger du code C et C++
+
+ - En POO, le paradigme change:
+
+   - On utilise des *classes* pour définir des types complexes, elles contiennent:
+
+     - Des *membres* qui sont des variables, elles-même d'un certain type (classe, int, char, etc.)
+
+     - Des *méthodes* qui sont des fonctions dédiées et s'appliquent aux objet de la classe ou à la
+       classe elle-même
+
+   - Les classes étant un type, elles permettent de créer des variables, on les appelle *objets*:
+
+     =MaClasse object;=
+
+** Exemple de classe
+
+=MaClasse= contient:
+ - Un nombre entier =int a;=, il est privé (personne ne peut y accéder à part l'objet)
+ - Une méthode =int add(int b);= qui retourne =a + b=
+
+   #+BEGIN_SRC C++
+     class MClasse {
+     public:
+       int add(int b)  // méthode publique car définie dans le bloc 'public:'
+       {
+         return this->a + b; // "this" est un pointeur sur l'objet lui-même, "->" permet d'accéder à ses membres
+       }
+     private:
+       int a;          // membre privé car défini dans le bloc 'private:'
+     }; // Ne pas oublier le ';' final !
+   #+END_SRC
+
+Le parallèle entre C et C++ est relativement simple:
+
+ - Type versus Classe:
+
+   =int x; // variable de type int=
+
+   =MaClasse object; object de type MaClasse=
+
+ - Fonction versus Méthode:
+
+   =void add(int a, int b) { return a + b; } // returne a + b=
+
+   =object.add(int b); // retourne object.a + b=
+
+** Méthodes spéciales: Constructeur et Destructeur
+
+   #+BEGIN_SRC C++
+     class MClasse {
+     public:
+
+       MClasse() {     // <- Constructeur, ici initialise le membre =a=
+         this->a = 0;
+       }
+
+       ~MClasse() {     // <- Destructeur, ici ne fait rien...
+       }
+
+     private:
+       int a;
+     };
+   #+END_SRC
+
+Simple et efficace:
+ - Le constructeur est appelé quand un objet est crée
+ - Le Destructeur est appelé quand un objet est détruit
+
+Les deux permettent d'effectuer des opérations spécifique *après création* et *avant suppression*.
+
+** Vie et mort d'un object
+
+ - Les objets peuvent être crées comme des variables dynamiques ou non:
+
+   #+BEGIN_SRC C++
+     void some_code(void) {
+       MaClasse obj1a; // Objet "statique", il mourra en fin du bloc de code {}
+       // Notez comme ce constructeur ne prend pas de "()"
+
+       // Variante avec arguments dans l'appel au constructeur:
+       int valeur = 5;
+       MaClasse obj1b(valeur);
+
+       MaClasse *obj2 = new MaClasse(); // Objet dynamique qu'il faudra détruire
+
+       if (obj2 != NULL)
+         delete obj2;
+     } // <- Au delà de ce bloc, obj1a et obj1b sont détruits
+       // automatiquement car "statiques", ce n'est pas le cas de obj2
+   #+END_SRC
+
+ - Nous venons de voir les deux opérateurs:
+
+   1. =new= permettant de créer un objet dynamiquement (donne un pointeur)
+
+   2. =delete= permettant de détruire un objet créé dynamiquement (via un pointeur seulement)
+
+** Accès aux membres et méthodes d'un objet
+
+#+BEGIN_SRC C++
+  class MClasse {
+  public:
+    int a;             // <- Maintenant publique!
+    int add(int b) {
+      return this->a + b;
+    }
+  };
+
+  // Cas avec objet "statique":
+  MaClasse obj1;
+  obj1.a = 1; // <- OK si a est publique dans la classe MaClasse
+  int c = obj1.add(5);
+
+  // Cas avec objet "statique":
+  MaClasse *obj2 = new MaClasse();
+  obj2->a = 2;
+  int d = obj2->add(3);
+
+#+END_SRC
+
+* Révision Git (add, commit, push, etc.)
+Voir fichier [[file:howto-git-everyday.org::*Git%20basics][howto-git-everyday.org]].
+
+* Exercices                                                      :TODOélèves:
+Faites les exercices 1 et 2:
+ - [[file:exercices/ex01.org][Exercice 1]]
+ - [[file:exercices/ex02.org][Exercice 2]]
+
+* Objectifs pour le prochain coaching                            :TODOélèves:
+
+ 1. ***Travaillez entre les séances!***
+
+    Vous avez 10h/sem de C++ et 4h~8h de langues = 14h~18h/sem
+
+    *Le reste du temps = travaillez sur votre projet autant que possible!*
+
+ 2. *IMPORTANT*: Dépôts Git (locaux) et Github.com (mirroirs) créés et fonctionnels
+
+    1. Reportez-vous au fichier [[file:howto-git-workflow.org][howto-git-workflow.org]] en cas de besoin
+
+    2. *Chaque élève devra avoir configuré et testé ceci*:
+
+       - Test 1 du howto: Synchro entre votre *dépôt local* et son *miroir Github.com*
+
+         =git pull= et =git push=
+
+       - Test 2 du howto: =git pull= croisés entre élèves du binôme
+
+         =git pull ALIAS_AUTRE_ELEVE main=
+
+         Équivalent à: Mon PC <--pull-- Github.com "autre élève"
+
+       - Votre fichier =~/proj7/snake/.git/config= doit ressembler à ceci:
+         :GITCONFIG:
+         #+BEGIN_EXAMPLE
+         ...
+         [remote "origin"]
+                 url = git@github.com:MON_COMPTE_GITHUB/gtech1-bXX-snake.git
+                 fetch = +refs/heads/*:refs/remotes/origin/*
+         [branch "main"]
+                 remote = origin
+                 merge = refs/heads/main
+         [remote "ALIAS_AUTRE_ELEVE"]
+                 url = https://github.com/COMPTE_AUTRE_ÉLÈVE/gtech1-bXX-snake.git
+                 fetch = +refs/heads/*:refs/remotes/origin/*
+         #+END_EXAMPLE
+         :END:
+
+ 3. *Travaillez en autonomie* le C++, avec des ressources en ligne!
+
+    Exemple: Compilation + exécution d'un [[https://fr.wikibooks.org/wiki/Programmation_C++/Un_premier_programme][code écrit en C++]] dans le fichier =hello.cpp=:
+    1. Coder =hello.cpp=:
+       #+BEGIN_SRC c++
+         #include <iostream>
+         using namespace std;
+
+         int main(void) {
+             cout << "Hello!" << endl;
+             return 0;
+         }
+       #+END_SRC
+    2. Compiler: =g++ helloc.cpp -o hello=
+    3. Exécuter: =./hello=
+
+ 4. *Familiarisez-vous* avec le Shell Bash, Git, etc.
+
+* Ressources:
+   - C++
+     - Basics: https://www.w3schools.com/cpp/
+   - SDL:
+     - https://lazyfoo.net/tutorials/SDL/
+
+* settings                                                          :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:
