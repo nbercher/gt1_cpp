@@ -34,14 +34,14 @@
 
    - Utilisation du Shell *Bash* et des outils en *ligne de commande*
 
-** Organisation Générale [0%]                          :TODOélèves:TODOcoach:
+** Organisation Générale [100%]                        :TODOélèves:TODOcoach:
 
  - Classe découpée en Groupes A et B
- - [ ] Constitution des binômes (voire trinômes, me contacter):
-   - [ ] Mettez à jour le fichier Google Drive "Constitution des binômes"
-     - [ ] Tout le monde est dans un binôme ?
-       - [ ] Groupe A
-       - [ ] Groupe B
+ - [X] Constitution des binômes (voire trinômes, me contacter):
+   - [X] Mettez à jour le fichier Google Drive "Constitution des binômes"
+     - [X] Tout le monde est dans un binôme ?
+       - [X] Groupe A
+       - [X] Groupe B
 
    - *IMPORTANT*: Binômes & Numéros des binômes *ne devront plus changer ensuite*!
      (Si problème contacter Alain Simac ou moi-même)
