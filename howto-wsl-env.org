@@ -10,7 +10,9 @@
  2. Depuis le menu Windows, lancez *PowerShell en mode administrateur*
 
  3. Dans le terminal PowerShell, exécutez la commande:
-    =wsl --install -d debian=
+    #+BEGIN_SRC sh
+      wsl --install -d debian
+    #+END_SRC
 
  4. WSL vous demande de créer votre compte Linux (avec un login et mot de passe)
     - *Demande de créer un compte (login/username + password)*
@@ -27,6 +29,7 @@
 
  8. Dans WSL, installez les progammes nécessaire (Cf. CdC):
 
-    =sudo apt-get update=
-    =sudo apt-get install man make g++ git openssh-client libsdl2-dev=
-
+    #+BEGIN_SRC sh
+      sudo apt-get update
+      sudo apt-get install man make g++ git openssh-client libsdl2-dev
+    #+END_SRC
