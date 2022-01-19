@@ -1,7 +1,7 @@
 * Exercice: Diagramme UML de la classe =MainSDLWindow=
 
  1. Créez le diagramme UML de cette classe avec plantuml (en ligne pour
-    commencer), *voir le [[file:howto-plantuml.org][howto-plantuml.org]]*.
+    commencer), *voir le [[file:../howto-plantuml.org][howto-plantuml.org]]*.
 
     Conseils:
     1. Commencez par créer la classe
