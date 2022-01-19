@@ -17,13 +17,12 @@
 * Git basics
 ** Qu'est-ce que Git?
 
- - Outil créé par par Linus Torvalds en 2005, créateur de Linux, pour
-   continuer à développer Linux
+ - Outil créé par par Linus Torvalds en 2005, créateur de Linux, pour continuer à développer Linux
 
  - Grands principes:
 
-   - Git travaille à l'échelle d'un dossier de départ et se préoccupe uniquement de ses sous-dossiers et
-     sous-fichiers
+   - Git travaille à l'échelle d'un dossier de départ (ex: "snake/") et se préoccupe uniquement de ses
+     sous-dossiers et sous-fichiers
 
    - Git enregistre les changements des fichiers dans des "commits"
 
@@ -36,9 +35,11 @@
 
  - Usages de Git:
 
-   1. Versionner le code source: enregistrement des changements importants et à préserver
+   1. En local: Versionner le code source: enregistrement des changements importants et à préserver
+      Commandes Git: add, commit, log, diff, merge, etc.
 
-   2. Synchroniser les dépôts (ex: avec Github.com)
+   2. En interaction avec d'autres dépôts (réseau ou local): Synchroniser les dépôts (ex: avec Github.com)
+      Commandes Git: clone, push, pull (=fetch+merge), fetch, etc.
 
 ** Créer un dépôt
 
@@ -51,12 +52,12 @@
 
  - Demander à Git de *suivre un fichier*:
 
-   =git add fichier=  -> Avant cela Git ne se préoccupait pas de ce fichier
-                      -> Rajoute le fichier à l'Index pour constituer le futur commit
+   =git add fichier=  -> 1. Avant cela Git ne se préoccupait pas de ce fichier
+                      -> 2. Rajoute le fichier à l'Index *pour constituer le futur commit*
 
  - *Sceller les modifications* par un commit (ou "Commiter"):
 
-   =git commit=       -> Tout le contenu de l'Index est rajouté à l'histoire du dépôt
+   =git commit=       -> Tout le contenu de l'Index est rajouté à l'histoire du dépôt *dans un nouveau commit*
 
    Une fois un fichier suivi par Git (=git add=), on peut faire directement:
 
@@ -83,6 +84,11 @@
    Colonne droite: modifications qui *ne sont PAS dans l'Index*
 
    (On me demande de vous rappeler que l'Index EST le FUTUR commit.)
+
+   Alias Bash recommandé:
+   #+BEGIN_SRC sh
+     alias gm='git status -s' # À rajouter dans votre fichier ~/.bashrc
+   #+END_SRC
 
  - Voir les modifications (non-commitées) faites sur les fichiers:
 
@@ -168,6 +174,7 @@
    2. =git merge=     -> appliquer les modifications en les fusionnant dans votre histoire
 
    On imaginera aisément que =git merge= est très puissant...
+
 * Le Git workflow au quotidien
 
  1. élève2 se réveille (boit son café)
@@ -188,3 +195,9 @@
 
  3. La journée continue et *ce cycle se reproduit aussi souvent que nécessaire*
 
+* settings                                                          :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:
