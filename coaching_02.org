@@ -38,7 +38,7 @@ Préférez des noms de dossiers/fichiers *en minuscules*!
 #+BEGIN_EXAMPLE
 # Liste des dossiers INDISPENSABLES:
 ~/proj7/
-~/proj7/snake/
+~/proj7/snake/         <- Résultat de la commande =cd ~/proj7/ ; git clone URL snake=
 ~/proj7/snake/ÉLÈVE1/
 ~/proj7/snake/ÉLÈVE2/
 
@@ -48,7 +48,10 @@ Préférez des noms de dossiers/fichiers *en minuscules*!
 
 Si ce n'est pas le cas, *corrigez-le sans délai*.
 
-(Si vous avez des soucis pour renommer un dossier sous le Terminal VS Code, essayer avec le terminal WSL/Debian!)
+Pour corriger, utiliser les commandes =mv OLD_NAME NEW_NAME=.
+
+(Si vous avez des soucis pour renommer un dossier sous le Terminal VS Code, essayer avec le terminal
+WSL/Debian!)
 
 ** Github.com en mode privé                                      :TODOélèves:
 
@@ -86,7 +89,7 @@ Si ce n'est pas le cas, *corrigez-le sans délai*.
    =MaClasse mon_object;=
 
  - Les Noms Des Classes Sont Prennent En Général Une Majuscule, Tout Comme Un Nom Propre.
-
+   Ex: =MaClasse=, =Animal=, etc.
 ** Exemple de classe
 
 =MaClasse= contient:
@@ -94,7 +97,7 @@ Si ce n'est pas le cas, *corrigez-le sans délai*.
  - Une méthode =int add(int b);= qui retourne =a + b=
 
    #+BEGIN_SRC C++
-     class MClasse {
+     class MaClasse {
      public:
        int add(int b)  // méthode publique car définie dans le bloc 'public:'
        {
@@ -103,6 +106,11 @@ Si ce n'est pas le cas, *corrigez-le sans délai*.
      private:
        int a;          // membre privé car défini dans le bloc 'private:'
      }; // Ne pas oublier le ';' final !
+
+     MaClasse obj;
+     int c = obj.add(5);
+
+     // Ici: on ne peut pas accéder à =add()= directement mais à =obj.add()=:
    #+END_SRC
 
 Le parallèle entre C et C++ est relativement simple:
@@ -112,7 +120,7 @@ Le parallèle entre C et C++ est relativement simple:
    #+BEGIN_SRC C++
      int x; // variable de type int
 
-     MaClasse object; object de type MaClasse
+     MaClasse object; // object de type MaClasse
    #+END_SRC
 
  - Fonction versus Méthode:
@@ -133,7 +141,12 @@ Le parallèle entre C et C++ est relativement simple:
          this->a = 0;
        }
 
+       MClasse(int a_) { // Second constructeur
+         this->a = a_;
+       }
+
        ~MClasse() {     // <- Destructeur, ici ne fait rien...
+         printf("Détruit!");
        }
 
      private:
@@ -142,10 +155,10 @@ Le parallèle entre C et C++ est relativement simple:
    #+END_SRC
 
 Simple et efficace:
- - Le constructeur est appelé quand un objet est crée
+ - Le Constructeur est appelé quand un objet est créé
  - Le Destructeur est appelé quand un objet est détruit
 
-Les deux permettent d'effectuer des opérations spécifique *après création* et *avant suppression*.
+Les deux permettent d'effectuer des opérations spécifique *juste après création* et *juste avant suppression*.
 
 ** Vie et mort d'un object
 
@@ -158,12 +171,12 @@ Les deux permettent d'effectuer des opérations spécifique *après création* e
 
        // Variante avec arguments dans l'appel au constructeur:
        int valeur = 5;
-       MaClasse obj1b(valeur);
+       MaClasse obj1b(valeur); // Fait ceci: "obj1b.a = 5";
 
        MaClasse *obj2 = new MaClasse(); // Objet dynamique qu'il faudra détruire
 
        if (obj2 != NULL)
-         delete obj2;
+         delete obj2;  // <- Appelle le Destructeur de l'objet
      } // <- Au delà de ce bloc, obj1a et obj1b sont détruits
        // automatiquement car "statiques", ce n'est pas le cas de obj2
    #+END_SRC
@@ -171,22 +184,23 @@ Les deux permettent d'effectuer des opérations spécifique *après création* e
  - Nous venons de voir les deux opérateurs:
 
    1. =new= permettant de créer un objet dynamiquement (donne un pointeur)
+      Symboliquement équivalent à:
+      1. =obj2 = malloc(sizeof(MaClasse))=
+      2. puis appelle du Constructeur =MaClasse()=
 
    2. =delete= permettant de détruire un objet créé dynamiquement (via un pointeur seulement)
-
+      1. Appelle le Destructeur =~MaClasse()=
 ** Accès aux membres et méthodes d'un objet
 
 #+BEGIN_SRC C++
   class MClasse {
   public:
     int a;             // <- Maintenant publique!
-    int add(int b) {
-      return this->a + b;
-    }
+    int add(int b) { return this->a + b; }
   };
 
   // Cas avec objet "statique":
-  MaClasse obj1;
+  MaClasse obj1();
   obj1.a = 1; // <- OK si a est publique dans la classe MaClasse
   int c = obj1.add(5);
 
@@ -195,6 +209,9 @@ Les deux permettent d'effectuer des opérations spécifique *après création* e
   obj2->a = 2;
   int d = obj2->add(3);
 
+  // Remarques:
+  // objDyn->objStatique.a
+  // objDyn->objDyn->a
 #+END_SRC
 
 ** Droits d'accès: =public= et =private=
@@ -207,10 +224,29 @@ Dans une classe C++, on peut définir les droits d'accès aux membres et méthod
     int add(int b) {  // Cette méthode est publique et utilisable par n'importe quel code
       return this->a + b;
     }
+    int GetA() {  // "Getter"
+      return this->a;
+    }
+    int SetA(int a_) { // "Setter"
+      if (a_ < 0 ){
+        // ERREUR
+        int BAD;
+      }
+      else
+        this->a = a_;
+    }
 
   private:
     int a;  // Ce membre n'est accessible que par l'objet lui-même
   };
+
+  // Illégal:
+  MClasse obj1;
+  int valeur = obj1.a; // ERREUR de compilation!!
+
+  MClasse *obj2 = new MClasse();
+  int valeur = obj2->a; // ERREUR de compilation!!
+
 #+END_SRC
 
 Note: Il existe également =protected= qui s'utilise prend son sens lorsqu'il y a héritage de classes,
@@ -223,6 +259,7 @@ Voir fichier [[file:howto-git-everyday.org::*Git%20basics][howto-git-everyday.or
 Faites les exercices 1 et 2:
  - [[file:exercices/ex01.org][Exercice 1]]
  - [[file:exercices/ex02.org][Exercice 2]]
+ - [[file:exercices/ex03.org][Exercice 3]]
 
 * Objectifs pour le prochain coaching                            :TODOélèves:
 
