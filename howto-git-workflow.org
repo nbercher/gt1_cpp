@@ -158,7 +158,7 @@ Pour tout le monde, depuis le PC @G.Tech1:
 
 Une fois vos dépôts Github.com et Git locaux en place:
 
-Complétez le Fichier Google *"URL dépôts Github"* avec vos 2 URL (1 colonne URL par jeu).
+Complétez le Fichier Google *"URL dépôts Github"* avec votre URL.
 
 ** Conclusion
 Si les tests "Test 1" et "Test 2" ont fonctionné, alors vous avez mis
