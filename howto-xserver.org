@@ -42,4 +42,5 @@ On utilisera le même serveur que pour le projet-2 "Langage C".
 
    #+BEGIN_SRC sh
      echo "export DISPLAY=:0" >> ~/.bashrc
+     source ~/.bashrc
    #+END_SRC
