@@ -15,6 +15,17 @@ Avant d'utiliser Git, on se présente:
     git config --global user.email MON_EMAIL
     #+END_EXAMPLE
 
+ 3. Choix de la méthode de merging par défault (évite le warning imprimé en orange après chaque =git pull=):
+
+    #+BEGIN_EXAMPLE
+    git config --global pull.rebase false
+    #+END_EXAMPLE
+
+Notes:
+ - L'option =--global= écrit ces éléments de configuration dans le fichier =~/.gitconfig=.
+   Cette config globale est utilisée par tous les dépôts Git de votre compte sous WSL.
+ - Sans l'option =--global=, les réglages sont à faire depuis le dossier d'un dépôt local et la configuration sera écrite dans .git/config de ce dépôt.
+
 ** Vue d'ensemble
 
 Exemple pour un binôme n°1 (codename: b01) avec élève1 et élève2
