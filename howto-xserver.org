@@ -20,7 +20,7 @@ On utilisera le même serveur que pour le projet-2 "Langage C".
 
    #+BEGIN_SRC sh
      sudo apt update
-     sudo apt install xmessage
+     sudo apt install x11-utils
      DISPLAY=:0 xmessage 'Hello!'
    #+END_SRC
 
