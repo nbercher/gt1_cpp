@@ -3,6 +3,8 @@
  1. En premier lieu, vérifiez que la fonctionnalité "WSL" est bien activée sur votre Windows:
     1. Sur le claiver: =Windows+R= puis tapez =optionalfeatures.exe= et validez
     2. Vérifiez que la case "Windows Subsystem for Linux" est bien cochée:
+
+       Si votre Windows est en français la case est: "Sous-système Windows pour Linux"
        [[file:img/wsl_enable_in_windows_features.png]]
 
  2. Depuis le menu Windows, lancez *PowerShell en mode administrateur*
