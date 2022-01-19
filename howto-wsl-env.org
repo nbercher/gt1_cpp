@@ -1,24 +1,29 @@
 * Installer WSL/Debian + outils Linux
 
- 1. Depuis le menu Windows, lancez PowerShell en mode administrateur
+ 1. En premier lieu, vérifiez que la fonctionnalité "WSL" est bien activée sur votre Windows:
+    1. Sur le claiver: =Windows+R= puis tapez =optionalfeatures.exe= et validez
+    2. Vérifiez que la case "Windows Subsystem for Linux" est bien cochée:
+       [[file:img/wsl_enable_in_windows_features.png]]
 
- 2. Dans le terminal PowerShell, exécutez la commande:
+ 2. Depuis le menu Windows, lancez *PowerShell en mode administrateur*
+
+ 3. Dans le terminal PowerShell, exécutez la commande:
     =wsl --install -d debian=
 
- 3. WSL vous demande de créer votre compte Linux (avec un login et mot de passe)
+ 4. WSL vous demande de créer votre compte Linux (avec un login et mot de passe)
     - *Demande de créer un compte (login/username + password)*
     - Rien n'apparaît quand on saisi le password, c'est normal! [=Ctrl+U= efface la saisie invisible]
 
- 4. *Laissez WSL terminer son installation*
+ 5. *Laissez WSL terminer son installation*
 
- 5. Relancez WSL: Vous devez utiliser votre compte utilisateur Linux fraîchement créé
+ 6. Relancez WSL: Vous devez utiliser votre compte utilisateur Linux fraîchement créé
 
     Note: Si la session Linux se lance avec "root@..." dans le prompteur, ce n'est pas bon: quittez WSL
-    et relancez.  Vérifiez que vous l'avez laissé s'installer (étape 4.)
+    et relancez.  Vérifiez que vous l'avez laissé s'installer (étape 5.)
 
- 6. Testez =cat /etc/debian_version= et donnez-moi le numéro de version affiché
+ 7. Testez =cat /etc/debian_version= et donnez-moi le numéro de version affiché
 
- 7. Dans WSL, installez les progammes nécessaire (Cf. CdC):
+ 8. Dans WSL, installez les progammes nécessaire (Cf. CdC):
 
     =sudo apt-get update=
     =sudo apt-get install man make g++ git openssh-client libsdl2-dev=
