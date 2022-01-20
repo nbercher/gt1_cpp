@@ -16,7 +16,6 @@
 - [[#cours-révision-git-add-commit-push-etc][Cours: Révision Git (add, commit, push, etc.)]]
 - [[#exercices][Exercices]]
 - [[#objectifs-pour-le-prochain-coaching][Objectifs pour le prochain coaching]]
-- [[#ressources][Ressources:]]
 #+END_QUOTE
 
 * Organisation                                                   :TODOélèves:
@@ -60,8 +59,8 @@ WSL/Debian!)
 
  - Vous allez être invités à utiliser mon dépôt, pour cela:
 
-   Binômes/Trinômes: Complétez les colonnes "Account 1" à "Account 3"
-   avec le nom de votre compte Github.com, merci!
+   Binômes/Trinômes: Dans le fichier "URL dépôts Github" du Drive: complétez les colonnes "Account 1" à
+   "Account 3" avec le *nom exact de votre compte Github.com*, merci!
 
 * Cours: C++ & Programmation orientée objet
 ** Introduction
@@ -108,8 +107,6 @@ WSL/Debian!)
 
      MaClasse obj;
      int c = obj.add(5);
-
-     // Ici: on ne peut pas accéder à =add()= directement mais à =obj.add()=:
    #+END_SRC
 
 Le parallèle entre C et C++ est relativement simple:
@@ -125,9 +122,29 @@ Le parallèle entre C et C++ est relativement simple:
  - Fonction versus Méthode:
 
    #+BEGIN_SRC C++
-     void add(int a, int b) { return a + b; } // returne a + b
+     int add(int a, int b) { return a + b; } // retourne a + b
 
      object.add(int b); // retourne object.a + b
+   #+END_SRC
+
+ - Exemple concrêt: (Vu avec Groupe A seulement)
+   #+BEGIN_SRC C++
+   class Rect {
+   public:
+     void move(int horiz, int vert) {
+       this->c += horiz;
+       this->l += vert;
+       if (this->l <0) {
+         ...;
+       }
+     };
+   private:
+     int l, c; // coordonnées ligne, colonne
+     uint8 R, V, B, ALPHA;
+   };
+
+   Rect r;
+   r.move(5, 3);
    #+END_SRC
 
 ** Méthodes spéciales: Constructeur et Destructeur
@@ -136,7 +153,7 @@ Le parallèle entre C et C++ est relativement simple:
      class MClasse {
      public:
 
-       MClasse() {     // <- Constructeur, ici initialise le membre =a=
+       MClasse() {   // <- Constructeur, ici initialise le membre =a=
          this->a = 0;
        }
 
@@ -188,7 +205,8 @@ Les deux permettent d'effectuer des opérations spécifique *juste après créat
       2. puis appelle du Constructeur =MaClasse()=
 
    2. =delete= permettant de détruire un objet créé dynamiquement (via un pointeur seulement)
-      1. Appelle le Destructeur =~MaClasse()=
+      1. Appelle le Destructeur =~MaClasse()= et =free(obj2)=
+
 ** Accès aux membres et méthodes d'un objet
 
 #+BEGIN_SRC C++
@@ -228,8 +246,8 @@ Dans une classe C++, on peut définir les droits d'accès aux membres et méthod
     }
     int SetA(int a_) { // "Setter"
       if (a_ < 0 ){
-        // ERREUR
-        int BAD;
+        // ERREUR:
+        return ...;
       }
       else
         this->a = a_;
@@ -260,69 +278,15 @@ Faites les exercices 1 et 2:
  - [[file:exercices/ex02.org][Exercice 2]]
  - [[file:exercices/ex03.org][Exercice 3]]
 
+Voir les [[file:README.org::*Ressources][Ressources]].
+
 * Objectifs pour le prochain coaching                            :TODOélèves:
 
- 1. ***Travaillez entre les séances!***
+ 1. Terminez votre installation (machine G.Tech1 ou perso)
 
-    Vous avez 10h/sem de C++ et 4h~8h de langues = 14h~18h/sem
+    Au besoin, consultez les divers Howto et la [[file:howto-problems.org][résolution des problèmes]]
 
-    *Le reste du temps = travaillez sur votre projet autant que possible!*
-
- 2. *IMPORTANT*: Dépôts Git (locaux) et Github.com (mirroirs) créés et fonctionnels
-
-    1. Reportez-vous au fichier [[file:howto-git-workflow.org][howto-git-workflow.org]] en cas de besoin
-
-    2. *Chaque élève devra avoir configuré et testé ceci*:
-
-       - Test 1 du howto: Synchro entre votre *dépôt local* et son *miroir Github.com*
-
-         =git pull= et =git push=
-
-       - Test 2 du howto: =git pull= croisés entre élèves du binôme
-
-         =git pull ALIAS_AUTRE_ELEVE main=
-
-         Équivalent à: Mon PC <--pull-- Github.com "autre élève"
-
-       - Votre fichier =~/proj7/snake/.git/config= doit ressembler à ceci:
-         :GITCONFIG:
-         #+BEGIN_EXAMPLE
-         ...
-         [remote "origin"]
-                 url = git@github.com:MON_COMPTE_GITHUB/gtech1-bXX-snake.git
-                 fetch = +refs/heads/*:refs/remotes/origin/*
-         [branch "main"]
-                 remote = origin
-                 merge = refs/heads/main
-         [remote "ALIAS_AUTRE_ELEVE"]
-                 url = https://github.com/COMPTE_AUTRE_ÉLÈVE/gtech1-bXX-snake.git
-                 fetch = +refs/heads/*:refs/remotes/origin/*
-         #+END_EXAMPLE
-         :END:
-
- 3. *Travaillez en autonomie* le C++, avec des ressources en ligne!
-
-    Exemple: Compilation + exécution d'un [[https://fr.wikibooks.org/wiki/Programmation_C++/Un_premier_programme][code écrit en C++]] dans le fichier =hello.cpp=:
-    1. Coder =hello.cpp=:
-       #+BEGIN_SRC c++
-         #include <iostream>
-         using namespace std;
-
-         int main(void) {
-             cout << "Hello!" << endl;
-             return 0;
-         }
-       #+END_SRC
-    2. Compiler: =g++ helloc.cpp -o hello=
-    3. Exécuter: =./hello=
-
- 4. *Familiarisez-vous* avec le Shell Bash, Git, etc.
-
-* Ressources:
-   - C++
-     - Basics: https://www.w3schools.com/cpp/
-   - SDL:
-     - https://lazyfoo.net/tutorials/SDL/
+ 2. *Terminez les exercices 1 à 3*
 
 * settings                                                          :ARCHIVE:noexport:
 #+startup: overview
