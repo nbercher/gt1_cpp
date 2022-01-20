@@ -1,0 +1,64 @@
+* Configuration nominale
+Idéalement, vous avez configuré l'environnement suivant:
+
+ - Versions des éléments de WSL:
+
+   PowerShell: =wsl --status=
+
+   #+BEGIN_EXAMPLE
+     Version par défaut : 2
+     Version du noyau : 5.10.60.1
+   #+END_EXAMPLE
+
+ - Version de WSL utilisée par Debian:
+
+   PowerShell: =wsl -l -v=
+
+   - Idéalement: Debian utilise la version WSL2
+   - Autrement, Debian utilise la version WSL1
+
+   Notes: WSL2 est plus rapide, mais nécessite un processeur capable
+   de virtualisation et que ceci soit [[*Utiliser WSL2 pour Debian (EXPERIMENTAL)][activé dans le BIOS]].
+
+ - Version Debian:
+
+   Mettez votre Debian à jour:
+   #+BEGIN_SRC sh
+     sudo apt update
+     sudo apt upgrade
+   #+END_SRC
+
+   Terminal WSl: =cat /etc/debian_version=
+   #+BEGIN_EXAMPLE
+   11.2
+   #+END_EXAMPLE
+
+ - Version noyau Linux utilisé par Debian:
+
+   Terminal WSl: =uname -r=
+
+   Si vous utilisez WSL2:
+   #+BEGIN_EXAMPLE
+   5.10.60.1
+   #+END_EXAMPLE
+
+   Si vous utilisez WSL1:
+   #+BEGIN_EXAMPLE
+   4.4.0-19041-Microsoft
+   #+END_EXAMPLE
+
+* Configuration avancée
+** Utiliser WSL2 pour Debian (EXPERIMENTAL)
+
+ 1. Ceci nécessite d'avoir activié la virtualisation dans le BIOS du PC:
+    - Pour les processeurs Intel: VT-x
+    - Pour les processeurs AMD: AMD-V
+
+ 2. Configurer WSL2 pour Debian:
+
+    PowerShell Administrateur: =wsl --set-version Debian 2=
+
+    Vérifiez que cela a bien été effectué: =wsl -l -v=
+
+    La ligne mentionnant "Debian" doit indiquer la version 2.
+
