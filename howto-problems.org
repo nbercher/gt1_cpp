@@ -47,3 +47,12 @@
 
    2. Vérifiez que vous avez lancé la commande Linux avec la variable
       d'environnement =DISPLAY= [[file:howto-xserver.org][correctement réglée]].
+
+   3. Si vous avez vérifié les étapes 1. et 2., alors effectuez ceci:
+
+      #+BEGIN_SRC sh
+        export DISPLAY=$(cat /etc/resolv.conf | grep "^nameserver" | awk 'NR == 1 {print $2}'):0
+      #+END_SRC
+
+      Si auparavant vous aviez réglé =DISPLAY= dans votre fichier =~/.bashc=,
+      alors mettez-le à jour avec la commade ci-dessus.
