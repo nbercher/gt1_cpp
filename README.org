@@ -10,6 +10,9 @@
    - [[file:exercices/ex01.org][Exercice 1]]: Créer une classe =MainSDLWindow= en C++
    - [[file:exercices/ex02.org][Exercice 2]]: Premier diagramme de classes en UML
    - [[file:exercices/ex03.org][Exercice 3]]: (SDL2) Dessiner un carré, le déplacer par contrôle au clavier, frame rate
+ - [[file:coaching_03.org][Coaching 3]]
+   - Exercice 4: Faites évoluer votre diagrame UML
+   - Exercice 5: Commencez à coder vos classes pour la gestion de la logique du jeu
 
 ** Installation de votre environnement de travail
 Ces étapes sont à faire dans l'ordre:

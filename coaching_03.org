@@ -5,11 +5,11 @@
 - [[#organisation][Organisation]]
   - [[#githubcom-en-mode-privé][Github.com en mode privé]]
 - [[#cours-c--programmation-orientée-objet-suite][Cours: C++ & Programmation orientée objet (suite)]]
-- [[#wip-snake-principes-du-jeu][WIP Snake: Principes du jeu]]
+- [[#snake-principes-du-jeu][Snake: Principes du jeu]]
   - [[#approche-du-développement-logique-puis-graphique][Approche du développement: "logique, puis graphique"]]
   - [[#éléments-du-jeu][Éléments du jeu]]
   - [[#gestion-logique-du-jeu][Gestion logique du jeu]]
-  - [[#wip-rendu-graphique-du-jeu][WIP Rendu graphique du jeu]]
+  - [[#rendu-graphique-du-jeu][Rendu graphique du jeu]]
 #+END_QUOTE
 
 * Organisation                                                   :TODOélèves:
@@ -22,7 +22,7 @@
 * Cours: C++ & Programmation orientée objet (suite)
  - Groupe A: [[file:coaching_02.org::*Exemple%20de%20classe][Exemple de classe]]
 
-* WIP Snake: Principes du jeu
+* Snake: Principes du jeu
 ** Approche du développement: "logique, puis graphique"
 
  - *On pensera d'abord aux aspects logiques pour la gestion du jeu*, on fera les aspect graphiques ensuite
@@ -126,7 +126,7 @@
 
  - Classe =GSnake= : affichage graphique du =Snake=
 
-** WIP Rendu graphique du jeu
+** Rendu graphique du jeu
 
  - Structure de l'application:
    - =MainSDLWindow=
