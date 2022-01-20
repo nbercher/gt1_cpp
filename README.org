@@ -1,6 +1,6 @@
 #+title: Projet#7 -- C++ sous Linux / Git
 
-* Coachings :QUOTE:
+** Coachings
  - [[file:coaching_01.org][Coaching 1 / KO]]
    1. [[file:howto-wsl-env.org][Howto install WSL/Debian]]
    2. [[file:howto-vscode+wsl.org][Howto install VS Code for WSL]]
@@ -11,7 +11,7 @@
    - [[file:exercices/ex02.org][Exercice 2]]: Premier diagramme de classes en UML
    - [[file:exercices/ex03.org][Exercice 3]]: (SDL2) Dessiner un carré, le déplacer par contrôle au clavier, frame rate
 
-* Installation de votre environnement de travail
+** Installation de votre environnement de travail
 Ces étapes sont à faire dans l'ordre:
 
  1. [[file:howto-wsl-env.org][Howto install WSL/Debian]]
@@ -19,7 +19,7 @@ Ces étapes sont à faire dans l'ordre:
  3. [[file:howto-git-workflow.org][Howto setup your Git Workflow]]
  4. [[file:howto-xserver.org][Howto install XServer]]
 
-* Aides diverses
+** Aides diverses
  - *[[file:howto-problems.org][Résolution des problèmes]]*
  - [[file:howto-plantuml.org][PlantUML]]
  - [[file:howto-git-everyday.org][Git everyday]]
