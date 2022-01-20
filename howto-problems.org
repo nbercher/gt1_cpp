@@ -1,3 +1,9 @@
+* Résolution des problèmes                                         :noexport:
+#+BEGIN_QUOTE
+- [[#mv-cannot-move-folder2-to-folder1-permission-denied]["mv: cannot move 'folder2/' to 'folder1/: Permission denied"]]
+- [[#error-cant-open-display-0]["Error: Can't open display: :0"]]
+#+END_QUOTE
+
 * "mv: cannot move 'folder2/' to 'folder1/: Permission denied"
 
  - Problème: Impossible de déplacer/renommer un dossier
