@@ -20,6 +20,7 @@ Ces étapes sont à faire dans l'ordre:
  4. [[file:howto-xserver.org][Howto install XServer]]
 
 ** Aides diverses
+ - *[[file:howto-problems.org][Résolution des problèmes]]*
  - [[file:howto-plantuml.org][PlantUML]]
  - [[file:howto-git-everyday.org][Git everyday]]
  - [[file:howto-emacs.org][Emacs]]

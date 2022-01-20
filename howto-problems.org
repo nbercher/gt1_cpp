@@ -1,0 +1,49 @@
+* "mv: cannot move 'folder2/' to 'folder1/: Permission denied"
+
+ - Problème: Impossible de déplacer/renommer un dossier
+
+   Par exemple: =mv folder2/ folder1/=
+
+ - Diagnostique: Le moteur WSL de votre Windows comporte un bug: les
+   fichiers ouverts par VS Code empêchent tout changement les
+   concernant, ceci inclut leur(s) dossier(s) parent(s).
+
+ - Solutions:
+
+   Il y a plusieurs solutions:
+
+   1. *Solution temporaire*: "Copier puis supprimer"
+      1. Copiez le dossier: =cp -rl folder2/ folder1=
+      2. Supprimez le dossier source: =rm -r folder2/=
+
+   2. *Solution temporaire*: "Fermer VS Code"
+
+      1. Fermer VS Code
+      2. Relancez la commande de déplacement
+      3. Relancez VS Code
+
+      Source: https://github.com/microsoft/WSL/issues/3738
+
+   3. *Solution permanente*: Mettre à jour WSL et le noyau Linux
+      1. Activer la mise à jour de WSL via *Windows Update*
+
+         Dans Windows Update, réglages avancés, activez l'option
+         "Recevoir les mises à jour d'autres produits Microsoft lorsque vous mettez à jour Windows":
+
+         [[file:img/windows_update_enable_wsl_auto_updates.png]]
+
+      2. Mettre à jour le Noyau Linux utilisé par WSL:
+
+         Dans PowerShell Administrateur: =wsl --update=
+
+* "Error: Can't open display: :0"
+
+ - Problème: Impossible de lancer une application graphique Linux
+
+ - Solutions:
+
+   1. Vérifiez que vous avez bien lancé le Xserveur Windows =VcxSrv=
+      (via le raccourci "X Launcher" présent sur le bureau Windows).
+
+   2. Vérifiez que vous avez lancé la commande Linux avec la variable
+      d'environnement =DISPLAY= [[file:howto-xserver.org][correctement réglée]].
