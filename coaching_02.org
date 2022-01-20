@@ -1,7 +1,6 @@
 #+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
-* Projet #7 - Coaching 2                                           :noexport:
-** Table of Contents                                      :TOC:QUOTE:
+* Table of Contents                                               :TOC:QUOTE:
 #+BEGIN_QUOTE
 - [[#organisation][Organisation]]
   - [[#urgence-absolue-élèves-bloqués-avec-leur-compte-windows-non-admin][*URGENCE ABSOLUE*: Élèves bloqués avec leur compte Windows non-admin]]

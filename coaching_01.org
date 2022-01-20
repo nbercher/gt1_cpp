@@ -1,4 +1,4 @@
-#+title: Projet#7 -- C++ sous Linux / Git
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
 * Table of Contents                                              :TOC:QUOTE:
 #+BEGIN_QUOTE
