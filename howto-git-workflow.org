@@ -105,7 +105,7 @@ Choisir qui sera élève1 et qui sera élève2.
  - Pour élève1 et élève2: je clone simplement le dépôt github.com sur ma machine @G.Tech1:
    =mkdir -p ~/proj7/ && cd ~/proj7/=
 
-   Je clone mon dépôt Github:
+   Je clone mon dépôt Github (en mode SSH):
    =git clone git@github.com:MON_COMPTE_GITHUB/gtech1-bXX-snake.git snake=
 
  - Notes/Rappels:
