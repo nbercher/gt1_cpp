@@ -19,11 +19,11 @@ Ces étapes sont à faire dans l'ordre:
  3. [[file:howto-git-workflow.org][Howto setup your Git Workflow]]
  4. [[file:howto-xserver.org][Howto install XServer]]
 
-** Aides diverses
- - *[[file:howto-problems.org][Résolution des problèmes]]*
- - [[file:howto-plantuml.org][PlantUML]]
- - [[file:howto-git-everyday.org][Git everyday]]
- - [[file:howto-emacs.org][Emacs]]
+** Howto
+ - *[[file:howto-problems.org][Howto Résolution des problèmes]]*
+ - [[file:howto-plantuml.org][Howto PlantUML]]
+ - [[file:howto-git-everyday.org][Howto Git everyday]]
+ - [[file:howto-emacs.org][Howto Emacs]]
 
 ** Ressources
 *** Langage C++
