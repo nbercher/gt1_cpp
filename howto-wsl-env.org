@@ -1,3 +1,9 @@
+* Configuration minimale
+Pour que WSL soit disponible qur votre machine Windows, vous devez avoir l'une de ces versions:
+
+ - Windows 10 version 2004 and higher (Build 19041 and higher)
+ - Windows 11
+
 * Installer WSL/Debian + outils Linux
 
  1. En premier lieu, vérifiez que la fonctionnalité "WSL" est bien activée sur votre Windows:
@@ -33,3 +39,4 @@
       sudo apt-get update
       sudo apt-get install man make g++ git openssh-client libsdl2-dev
     #+END_SRC
+
