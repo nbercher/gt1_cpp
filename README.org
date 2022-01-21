@@ -31,7 +31,7 @@ Ces étapes sont à faire dans l'ordre:
 ** Ressources
 *** Langage C++
  - Les bases: https://www.w3schools.com/cpp/
- - Wikibook: [[https://fr.wikibooks.org/wiki/Programmation_C%252B%252B][https://fr.wikibooks.org/wiki/Programmation_C++]]
+ - Wikibook: [[https://fr.wikibooks.org/wiki/Programmation_C++][https://fr.wikibooks.org/wiki/Programmation_C++]]
  - Référence: https://en.cppreference.com/w/
 
 *** Librairie SDL2
