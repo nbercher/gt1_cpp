@@ -201,6 +201,7 @@ Simple et efficace:
        // ...
        if (obj2 != NULL)
          delete obj2;  // <- Appelle le Destructeur de l'objet
+         // NE PAS FAIRE: =obj2->~MaClasse();=
      } // <- Au delà de ce bloc, obj1a et obj1b sont détruits ainsi que obj2
        // automatiquement car "statiques", ce n'est pas le cas de *obj2
    #+END_SRC
@@ -298,7 +299,7 @@ Quand on appelle =g++ main.cpp snake.cpp -lSDL2 -o snake=, il se passe trois cho
       (Les fichiers =.o= sont parfois créés dans une zone temporaire, avec =g++= ça se passe dans
       =/tmp/...=)
 
- 3. L'Édition de liens:
+ 3. L'Édition de liens (linkage effectué sous Linux =ld=):
 
     - Rassemble les fichiers =.o= (un par =.cpp=) et les assemble en un exécutable (ex: =./snake=)
 
@@ -313,15 +314,19 @@ Alors, vous aurez une erreur d'édition de lien car vos fonctions auront été c
 
 =g++ main.cpp snake.cpp -lSDL2 -o snake=:
 
- 1. Preprocessing de: =main.cpp=, =snake.cpp=, =snake.hpp=, =SDL.h=, etc.
+ 1. Preprocessing des fichiers : =main.cpp=, =snake.cpp=, =snake.hpp=, =SDL.h=, etc.
 
- 2. Traduction des fichiers =main.cpp=, =snake.cpp= --> =main.o=, =snake.o=
+ 2. Traduction des fichiers
 
- 3. Édition de liens =main.o=, =snake.o=, =libSDL2= --> =./snake= (exécutable)
+     =main.cpp=, =snake.cpp= --> =main.o=, =snake.o=
+
+ 3. Édition de liens
+
+    =main.o=, =snake.o=, =libSDL2= --> =./snake= (exécutable)
 
 ** NEW Séparation du code =.hpp= et =.cpp=
 
- - On met *les déclarations* dans les =.hpp=, ex: =int Maclasse::GetValue();=
+ - On met *les déclarations* dans les =.hpp=: =class= *sans le code des méthodes*
 
  - On entoure le contenu de chaque fichier =.hpp= avec =#ifndef=, =#define= et =#endif=:
    #+BEGIN_SRC C++
@@ -331,6 +336,9 @@ Alors, vous aurez une erreur d'édition de lien car vos fonctions auront été c
    // Mon contenu:
    #include <SDL2/SDL.h>
    // ...
+
+   class ... {
+   }
 
    #endif
    #+END_SRC
@@ -358,7 +366,7 @@ Alors, vous aurez une erreur d'édition de lien car vos fonctions auront été c
     ~MaClasse();
     void MyMeth();
     int *MyMeth2(int a);
-  }
+  };
 
   #endif
 #+END_SRC
@@ -392,10 +400,10 @@ Alors, vous aurez une erreur d'édition de lien car vos fonctions auront été c
 #include <...> // D'abord les include externes/système (=ceux qui ne sont pas à nous)
 #include "maclasse.hpp"
 
-int main(void() {
+int main(void) {
   MaClasse obj;
 
-  obj.MyMeth()
+  obj.MyMeth();
   int *c = obj.MyMeth2(4);
 }
 #+END_SRC
