@@ -62,3 +62,12 @@
 
       Si auparavant vous aviez réglé =DISPLAY= dans votre fichier =~/.bashc=,
       alors mettez-le à jour avec la commade ci-dessus.
+
+* "libGL error: failed to load driver: swrast"
+Installez les paquets Debian suivants:
+
+#+BEGIN_SRC sh
+  sudo apt update
+  sudo apt install -y mesa-utils libgl1-mesa-glx
+#+END_SRC
+
