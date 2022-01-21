@@ -52,17 +52,20 @@
 
  - Demander à Git de *suivre un fichier*:
 
-   =git add fichier=  -> 1. Avant cela Git ne se préoccupait pas de ce fichier
-                      -> 2. Rajoute le fichier à l'Index *pour constituer le futur commit*
+   =git add fichier=
+
+   1. Avant cela Git ne se préoccupait pas de ce fichier
+
+   2. Rajoute le fichier à l'Index *pour constituer le futur commit*
 
  - *Sceller les modifications* par un commit (ou "Commiter"):
 
-   =git commit=       -> Tout le contenu de l'Index est rajouté à l'histoire du dépôt *dans un nouveau commit*
+   =git commit=       → Tout le contenu de l'Index est rajouté à l'histoire du dépôt *dans un nouveau commit*
 
    Une fois un fichier suivi par Git (=git add=), on peut faire directement:
 
-   =git commit fichier= -> Toutes les modifications depuis son dernier commit sont rajoutées
-                           à l'histoire du dépôt, cela "saute" l'étape de l'Index
+   =git commit fichier= → Toutes les modifications depuis son dernier commit sont rajoutées
+                          à l'histoire du dépôt, cela "saute" l'étape de l'Index
 
  - Mais alors pourquoi l'Index?  Car on peut y rajouter des modifications de plusieurs
    fichiers et *vérifier son FUTUR commit* (avec =git diff --cached=)
@@ -101,11 +104,10 @@
 
    (Nous n'utiliserons probablement pas les branches...)
 
-   (Néanmoins sachez que c'est très puissant et permet de travailler
-   sur plusieurs fonctionnalités d'un projet en parallèle.
-   Par ailleurs, passer d'une branche à l'autre dans votre "working
-   tree" modifie les fichiers de manière à ce qu'ils correspondent à
-   leur état dans la-dite branche, tout en s'assurant de rien casser.)
+   (Néanmoins sachez que c'est très puissant et permet de travailler sur plusieurs fonctionnalités d'un
+   projet en parallèle.  Par ailleurs, passer d'une branche à l'autre dans votre "working tree" modifie
+   les fichiers de manière à ce qu'ils correspondent à leur état dans la-dite branche, tout en s'assurant
+   de rien casser.)
 
  - Histoire d'une branche du dépôt = *liste ordonnée de commits*
 
@@ -117,14 +119,15 @@
 
 ** Trois "univers" dans un dépôt Git: working tree, .git/ et index
 
-   1. *working tree*: "Copie de travail" (ou "Dépôt local") = dossier contenant vos fichiers
-      + sous-dossier =.git/=
+   1. *working tree*
+      - "Copie de travail" (ou "Dépôt local") = dossier contenant vos fichiers sous-dossier =.git/=
 
-   2. =.git/= ("dot git"): Sous-dossier contenant tout ce que Git doit savoir sur votre dépôt:
-      configuration et *histoire des fichiers*
+   2. =.git/= ("dot git")
+      - Sous-dossier contenant tout ce que Git doit savoir sur votre dépôt:
+        configuration et *histoire des fichiers*
 
-   3. *Index* (ou "staging" ou "cache"): Ceci est votre futur *commit*
-      (il est matérialisé quelque part dans =.git/=)
+   3. *Index* (ou "staging" ou "cache")
+      - Ceci est votre futur *commit* (il est matérialisé quelque part dans =.git/=)
 
 ** Dépôts nus (bare clones)
 
