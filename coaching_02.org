@@ -13,6 +13,9 @@
   - [[#vie-et-mort-dun-object][Vie et mort d'un object]]
   - [[#accès-aux-membres-et-méthodes-dun-objet][Accès aux membres et méthodes d'un objet]]
   - [[#droits-daccès-public-et-private][Droits d'accès: =public= et =private=]]
+  - [[#new-les-3-étapes-de-la-compilation-avec-g-et-gcc][NEW Les 3 étapes de la compilation avec =g++= (et =gcc=)]]
+  - [[#new-séparation-du-code-hpp-et-cpp][NEW Séparation du code =.hpp= et =.cpp=]]
+  - [[#new-qui-va-où-dans-mes-fichiers-hpp-cpp-et-maincpp][NEW Qui va où dans mes fichiers =.hpp=, =.cpp= et =main.cpp=?]]
 - [[#cours-révision-git-add-commit-push-etc][Cours: Révision Git (add, commit, push, etc.)]]
 - [[#exercices][Exercices]]
 - [[#objectifs-pour-le-prochain-coaching][Objectifs pour le prochain coaching]]
@@ -88,6 +91,7 @@ WSL/Debian!)
 
  - Les Noms Des Classes Sont Prennent En Général Une Majuscule, Tout Comme Un Nom Propre.
    Ex: =MaClasse=, =Animal=, etc.
+
 ** Exemple de classe
 
 =MaClasse= contient:
@@ -272,6 +276,129 @@ Dans une classe C++, on peut définir les droits d'accès aux membres et méthod
 
 Note: Il existe également =protected= qui s'utilise prend son sens lorsqu'il y a héritage de classes,
 nous le verrons plus tard.
+** NEW Les 3 étapes de la compilation avec =g++= (et =gcc=)
+
+Quand on appelle =g++ main.cpp snake.cpp -lSDL2 -o snake=, il se passe trois choses:
+
+ 1. Le Preprocessing:
+
+    - Modifie (en mémoire) les fichiers =.hpp= et =.cpp= avant la compilation (en étape 2)
+
+    - Utilise les directives du type: =#include=, =#define=, =#ifndef=, =#endif=, etc.
+
+      Par exemple: =#define SIZE 3= a l'effet d'un Search/ReplaceAll sur les fichiers source dans
+      lesquels on remplace tous les occurrences de =SIZE= par =3=
+
+ 2. Compilation code source:
+
+    - Analyse le code source --> Le *transforme en code machine*
+
+    - Génère *un fichier =.o= pour chaque fichier =.cpp=*
+
+      (Les fichiers =.o= sont parfois créés dans une zone temporaire, avec =g++= ça se passe dans
+      =/tmp/...=)
+
+ 3. L'Édition de liens:
+
+    - Rassemble les fichiers =.o= (un par =.cpp=) et les assemble en un exécutable (ex: =./snake=)
+
+ATTENTION: Si:
+ 1. vous écrivez le code des fonctions/méthodes un =fichier.hpp=
+ 2. vous incluez =#include "fichier.hpp"= dans plusieurs fichiers =.cpp=
+ 3. vous compilez ces fichiers =.cpp=
+Alors, vous aurez une erreur d'édition de lien car vos fonctions auront été comilées en langage machine
+(présentes dans les =.o=) autant de fois que vous aurez fait de =#include "fichier.hpp"=
+
+*** Synthèse
+
+=g++ main.cpp snake.cpp -lSDL2 -o snake=:
+
+ 1. Preprocessing de: =main.cpp=, =snake.cpp=, =snake.hpp=, =SDL.h=, etc.
+
+ 2. Traduction des fichiers =main.cpp=, =snake.cpp= --> =main.o=, =snake.o=
+
+ 3. Édition de liens =main.o=, =snake.o=, =libSDL2= --> =./snake= (exécutable)
+
+** NEW Séparation du code =.hpp= et =.cpp=
+
+ - On met *les déclarations* dans les =.hpp=, ex: =int Maclasse::GetValue();=
+
+ - On entoure le contenu de chaque fichier =.hpp= avec =#ifndef=, =#define= et =#endif=:
+   #+BEGIN_SRC C++
+   #ifndef NOM_UNIQUE_TYPIQUEMENT_CELUI_DE_MON_FICHIER_HPP // Par exemple MAINSDLWINDOW_HPP pour le fichier "MainSDLWindow.hpp"
+   #define NOM_UNIQUE_TYPIQUEMENT_CELUI_DE_MON_FICHIER_HPP
+
+   // Mon contenu:
+   #include <SDL2/SDL.h>
+   // ...
+
+   #endif
+   #+END_SRC
+
+ - On met *le code* dans les =.cpp=, ex: =int Maclasse::GetValue() { return this->value; }=
+
+ - On =#include "..."= tous nos fichiers =.hpp= dans nos =.cpp=
+
+ - On compile en passant tous les =.cpp= à =g++=
+
+** NEW Qui va où dans mes fichiers =.hpp=, =.cpp= et =main.cpp=?
+*** Dans mon fichier =maclasse.hpp=
+
+*=.hpp= = que du déclaratif*
+
+#+BEGIN_SRC C++
+  #ifndef MACLASSE_HPP
+  #define MACLASSE_HPP
+
+  #include <...>
+  #include "..." // Mes autres includes du projet si besoin
+
+  class MaClasse {
+    MaClasse();
+    ~MaClasse();
+    void MyMeth();
+    int *MyMeth2(int a);
+  }
+
+  #endif
+#+END_SRC
+
+*** Dans mon fichier =maclasse.cpp=
+
+#+BEGIN_SRC C++
+  #include <...> // D'abord les include externes/système (=ceux qui ne sont pas à nous)
+  #include "maclasse.hpp"
+
+  MaClasse::MaClasse() {
+    // ...
+  }
+
+  MaClasse::~MaClasse() {
+    // ...
+  }
+
+  void MaClasse::MyMeth() {
+    // ...
+  }
+
+  int *MaClasse::MyMeth2(int a) {
+    // ...
+  }
+#+END_SRC
+
+*** Dans mon fichier =main.cpp=
+
+#+BEGIN_SRC C++
+#include <...> // D'abord les include externes/système (=ceux qui ne sont pas à nous)
+#include "maclasse.hpp"
+
+int main(void() {
+  MaClasse obj;
+
+  obj.MyMeth()
+  int *c = obj.MyMeth2(4);
+}
+#+END_SRC
 
 * Cours: Révision Git (add, commit, push, etc.)
 Voir fichier [[file:howto-git-everyday.org::*Git%20basics][howto-git-everyday.org]].
