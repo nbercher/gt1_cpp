@@ -99,6 +99,7 @@ WSL/Debian!)
      public:
        int add(int b)  // méthode publique car définie dans le bloc 'public:'
        {
+         // return a + b; // Accès implicite à =a=, on préfèrera =this->a=
          return this->a + b; // "this" est un pointeur sur l'objet lui-même, "->" permet d'accéder à ses membres
        }
      private:
@@ -129,22 +130,24 @@ Le parallèle entre C et C++ est relativement simple:
 
  - Exemple concrêt: (Vu avec Groupe A seulement)
    #+BEGIN_SRC C++
-   class Rect {
-   public:
-     void move(int horiz, int vert) {
-       this->c += horiz;
-       this->l += vert;
-       if (this->l <0) {
-         ...;
-       }
-     };
-   private:
-     int l, c; // coordonnées ligne, colonne
-     uint8 R, V, B, ALPHA;
-   };
+     class Rect {
+     public:
+       void move(int horiz, int vert) {
+         this->c += horiz;
+         this->l += vert;
+         if (this->l < 0) {
+           ...;
+         }
+       };
 
-   Rect r;
-   r.move(5, 3);
+     private:
+       int l, c; // coordonnées ligne, colonne
+       uint8 R, V, B, ALPHA;
+     };
+
+     Rect r;
+     r.move(5, 3);
+     // r.V = 255; // Interdit car le membre V de la classe Rect est private!
    #+END_SRC
 
 ** Méthodes spéciales: Constructeur et Destructeur
@@ -171,10 +174,8 @@ Le parallèle entre C et C++ est relativement simple:
    #+END_SRC
 
 Simple et efficace:
- - Le Constructeur est appelé quand un objet est créé
- - Le Destructeur est appelé quand un objet est détruit
-
-Les deux permettent d'effectuer des opérations spécifique *juste après création* et *juste avant suppression*.
+ - Le Constructeur est appelé *juste après* que l'objet ait été *créé en mémoire*
+ - Le Destructeur est appelé *juste avant* que l'objet ne soit *détruit en mémoire*
 
 ** Vie et mort d'un object
 
@@ -189,12 +190,15 @@ Les deux permettent d'effectuer des opérations spécifique *juste après créat
        int valeur = 5;
        MaClasse obj1b(valeur); // Fait ceci: "obj1b.a = 5";
 
-       MaClasse *obj2 = new MaClasse(); // Objet dynamique qu'il faudra détruire
-
+       MaClasse *obj2;
+       obj2 = NULL;
+       // ...
+       obj2 = new MaClasse(); // Objet dynamique qu'il faudra détruire
+       // ...
        if (obj2 != NULL)
          delete obj2;  // <- Appelle le Destructeur de l'objet
-     } // <- Au delà de ce bloc, obj1a et obj1b sont détruits
-       // automatiquement car "statiques", ce n'est pas le cas de obj2
+     } // <- Au delà de ce bloc, obj1a et obj1b sont détruits ainsi que obj2
+       // automatiquement car "statiques", ce n'est pas le cas de *obj2
    #+END_SRC
 
  - Nous venons de voir les deux opérateurs:
@@ -217,16 +221,16 @@ Les deux permettent d'effectuer des opérations spécifique *juste après créat
   };
 
   // Cas avec objet "statique":
-  MaClasse obj1();
-  obj1.a = 1; // <- OK si a est publique dans la classe MaClasse
+  MaClasse obj1;
+  obj1.a = 1; // <- Accès OK si a est publique dans la classe MaClasse
   int c = obj1.add(5);
 
-  // Cas avec objet "statique":
+  // Cas avec objet "dynamique":
   MaClasse *obj2 = new MaClasse();
-  obj2->a = 2;
+  obj2->a = 2; // Notation =obj2->a= équivalente à =(*obj2).a=
   int d = obj2->add(3);
 
-  // Remarques:
+  // Remarques: Un bon réflexe à avoir:
   // objDyn->objStatique.a
   // objDyn->objDyn->a
 #+END_SRC
