@@ -100,6 +100,6 @@
 
    2. Relancez-le en décochant "Native opengl" (3ème fenêtre du lanceur):
 
-      [[file:img/xserver_VxXsrv_disable_native_opengl.png]]
+      [[file:img/xserver_VcxSrv_disable_native_opengl.png]]
 
    3. Testez à nouveau l'affichage d'une fenêtre graphique SDL2 depuis WSL.
