@@ -60,8 +60,7 @@
         export DISPLAY=$(cat /etc/resolv.conf | grep "^nameserver" | awk 'NR == 1 {print $2}'):0
       #+END_SRC
 
-      Si auparavant vous aviez réglé =DISPLAY= dans votre fichier =~/.bashc=,
-      alors mettez-le à jour avec la commade ci-dessus.
+      *Si auparavant vous aviez réglé =DISPLAY= dans votre fichier =~/.bashc=, alors mettez-le à jour avec la commade ci-dessus.*
 
 * "libGL error: failed to load driver: swrast"
 
@@ -87,7 +86,7 @@
    1. Rajoutez ceci dans votre fichier =~/.bashrc=
 
       #+BEGIN_SRC sh
-        export LIBGL_ALWAYS_INDIRECT=1 >>~/.bashrc
+        echo 'export LIBGL_ALWAYS_INDIRECT=1' >>~/.bashrc
       #+END_SRC
 
 * "Couldn't not find matching render driver"
