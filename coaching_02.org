@@ -328,10 +328,9 @@ Alors, vous aurez une erreur d'édition de lien car vos fonctions auront été c
 
  - On met *les déclarations* dans les =.hpp=: =class= *sans le code des méthodes*
 
- - On entoure le contenu de chaque fichier =.hpp= avec =#ifndef=, =#define= et =#endif=:
+ - On protège le contenu de chaque fichier =.hpp= avec =#pragma once=:
    #+BEGIN_SRC C++
-   #ifndef NOM_UNIQUE_TYPIQUEMENT_CELUI_DE_MON_FICHIER_HPP // Par exemple MAINSDLWINDOW_HPP pour le fichier "MainSDLWindow.hpp"
-   #define NOM_UNIQUE_TYPIQUEMENT_CELUI_DE_MON_FICHIER_HPP
+   #pragma once # Permet de ne charger le fichier hpp qu'une seule fois
 
    // Mon contenu:
    #include <SDL2/SDL.h>
@@ -339,8 +338,6 @@ Alors, vous aurez une erreur d'édition de lien car vos fonctions auront été c
 
    class ... {
    }
-
-   #endif
    #+END_SRC
 
  - On met *le code* dans les =.cpp=, ex: =int Maclasse::GetValue() { return this->value; }=
