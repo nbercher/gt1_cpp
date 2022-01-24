@@ -64,18 +64,42 @@
       alors mettez-le à jour avec la commade ci-dessus.
 
 * "libGL error: failed to load driver: swrast"
-Installez les paquets Debian suivants:
 
-#+BEGIN_SRC sh
-  sudo apt update
-  sudo apt install -y mesa-utils libgl1-mesa-glx
-#+END_SRC
+ - Problème: Erreur "libGL error: failed to load driver: swrast" quand on essaie de lancer une application SDL2
 
-Puis retestez l'affiche d'une fenêtre graphique.
+ - Solution:
+
+   1. Installez les paquets Debian suivants:
+
+      #+BEGIN_SRC sh
+        sudo apt update
+        sudo apt install -y mesa-utils libgl1-mesa-glx
+      #+END_SRC
+
+   2. Testez à nouveau l'affichage d'une fenêtre graphique SDL2 depuis WSL.
 
 * "libGL error: No matching fbConfigs or visuals found"
-Rajoutez ceci dans votre fichier =~/.bashrc=
 
-#+BEGIN_SRC sh
-  export LIBGL_ALWAYS_INDIRECT=1 >>~/.bashrc
-#+END_SRC
+ - Problème: Erreur "libGL error: No matching fbConfigs or visuals found"
+
+ - Solution:
+
+   1. Rajoutez ceci dans votre fichier =~/.bashrc=
+
+      #+BEGIN_SRC sh
+        export LIBGL_ALWAYS_INDIRECT=1 >>~/.bashrc
+      #+END_SRC
+
+* "Couldn't not find matching render driver"
+
+ - Problème: Erreur "Couldn't not find matching render driver"
+
+ - Solution:
+
+   1. Stoppez le Xserver VcxSrv s'il est déjà lancé.
+
+   2. Relancez-le en décochant "OpenGL native" (3ème fenêtre du lanceur):
+
+      [[file:img/xserver_VxXsrv_disable_native_opengl.png]]
+
+   3. Testez à nouveau l'affichage d'une fenêtre graphique SDL2 depuis WSL.
