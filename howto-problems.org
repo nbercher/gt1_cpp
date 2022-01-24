@@ -73,3 +73,10 @@ Installez les paquets Debian suivants:
 
 Puis retestez l'affiche d'une fenêtre graphique.
 
+* "libGL error: No matching fbConfigs or visuals found"
+Rajoutez ceci dans votre fichier =~/.bashrc=
+
+#+BEGIN_SRC sh
+  export LIBGL_ALWAYS_INDIRECT=1
+#+END_SRC
+
