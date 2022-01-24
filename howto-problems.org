@@ -77,6 +77,5 @@ Puis retestez l'affiche d'une fenêtre graphique.
 Rajoutez ceci dans votre fichier =~/.bashrc=
 
 #+BEGIN_SRC sh
-  export LIBGL_ALWAYS_INDIRECT=1
+  export LIBGL_ALWAYS_INDIRECT=1 >>~/.bashrc
 #+END_SRC
-
