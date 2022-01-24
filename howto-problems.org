@@ -71,3 +71,5 @@ Installez les paquets Debian suivants:
   sudo apt install -y mesa-utils libgl1-mesa-glx
 #+END_SRC
 
+Puis retestez l'affiche d'une fenêtre graphique.
+
