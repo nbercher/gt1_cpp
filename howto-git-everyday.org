@@ -46,7 +46,9 @@
  - INFO: Nous avons déjà crée notre dépôt via Github.com, mais nous aurions pu le faire en local:
    - Créer un dépôt tout neuf:
 
-     =git init= ou =git init NOM_DOSSIER=  -> Ce dépôt ne contient aucune histoire
+     =git init= ou =git init NOM_DOSSIER=
+
+   → Ce dépôt ne contient aucune histoire
 
 ** Ajouter, commiter
 
@@ -74,9 +76,9 @@
 
  - Liste des modifications (non-commitées) faites sur le dépôt:
 
-   =git status=     -> Pas super lisible...
+   =git status=     → Pas super lisible...
 
-   =git status -s=  -> Super lisible, organisé en deux colonnes:
+   =git status -s=  → Super lisible, organisé en deux colonnes:
 
    A  Makefile                    _Légende_:
     M puis4.c                     A pour Added
@@ -95,8 +97,9 @@
 
  - Voir les modifications (non-commitées) faites sur les fichiers:
 
-   =git diff=         -> Voir le =diff -Nu fichier1 fichier2= des fichiers par rapport au dernier commit
-   =git diff fichier= -> Restreindre le =diff= à un (ou plusieurs) fichier(s)
+   =git diff=         → Voir le =diff -Nu fichier1 fichier2= des fichiers par rapport au dernier commit
+
+   =git diff fichier= → Restreindre le =diff= à un (ou plusieurs) fichier(s)
 
 ** Voir l'histoire du dépôt, d'un fichier (et survol des branches)
 
@@ -113,9 +116,9 @@
 
    A---B---C---D---E = =main=
 
-   =git log=         -> Affiche la liste des commits (de la branche courante)
+   =git log=         → Affiche la liste des commits (de la branche courante)
 
-   =git log fichier= -> Affiche la liste des commits concernant seulement =fichier=
+   =git log fichier= → Affiche la liste des commits concernant seulement =fichier=
 
 ** Trois "univers" dans un dépôt Git: working tree, .git/ et index
 
@@ -143,8 +146,9 @@
 
  - On peut créer un dépôt nu à partir d'un dépôt local:
 
-   =git clone --bare DÉPÔT/ DÉPÔT.git= -> Ceci créé un dossier =DÉPÔT.git/=,
-                                          ça ne vous rappelle rien ce =.git/=?
+   =git clone --bare DÉPÔT/ DÉPÔT.git=
+
+   → Ceci créé un dossier =DÉPÔT.git/= (ça ne vous rappelle rien ce =.git/=?)
 
 ** Dépôt nu: Pousser (push) et tirer (pull)
 
@@ -172,9 +176,9 @@
 
  - L'opération =git pull ...= fait deux choses:
 
-   1. =git fetch ...= -> récupérer les modifications SANS les appliquer à votre histoire
+   1. =git fetch ...= → récupérer les modifications SANS les appliquer à votre histoire
 
-   2. =git merge=     -> appliquer les modifications en les fusionnant dans votre histoire
+   2. =git merge=     → appliquer les modifications en les fusionnant dans votre histoire
 
    On imaginera aisément que =git merge= est très puissant...
 
