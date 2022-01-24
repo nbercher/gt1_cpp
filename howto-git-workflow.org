@@ -134,8 +134,10 @@ Pour tout le monde: depuis ma machine @G.Tech1:
 
    - Pour *chacun de mes camarades du binôme* (= 1 pour les binômes, = 2 pour les trinômes):
 
-     =cd ~/proj7/snake/=
-     =git remote add ALIAS_AUTRE_ELEVE URL_HTTPS_AUTRE_ELEVE=
+     #+BEGIN_SRC sh
+       cd ~/proj7/snake/
+       git remote add ALIAS_AUTRE_ELEVE URL_HTTPS_AUTRE_ELEVE
+     #+END_SRC
 
      Avec:
 
