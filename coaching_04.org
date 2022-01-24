@@ -1,0 +1,46 @@
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
+
+* Table of Contents                                               :TOC:QUOTE:
+#+BEGIN_QUOTE
+- [[#divers][Divers]]
+#+END_QUOTE
+
+* Divers
+
+ - C++: =Utiliser #pragma once=
+   - [[file:coaching_02.org::#pragma%20once]]
+
+ - Aujourd'hui: Exercices 1 à 3 doivent être terminés pour tous!
+
+ - Ceux qui avancent:
+
+   - Coder les classes de gestion du jeu:
+
+     *pas de graphismes à ce niveau!*
+
+     - Snake
+       #+BEGIN_SRC C++
+         class Snake {
+         public:
+           void Move(int dir);
+           void Eat();
+           void Print();
+         private:
+           Segment* head;
+         }
+       #+END_SRC
+
+     - Segment: liste chaînée:
+       #+BEGIN_SRC C++
+         class Segment {
+         private:
+           Segment* next;
+         }
+       #+END_SRC
+
+* settings                                                          :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:
