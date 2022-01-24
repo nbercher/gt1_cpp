@@ -62,6 +62,20 @@
 
       *Si auparavant vous aviez réglé =DISPLAY= dans votre fichier =~/.bashc=, alors mettez-le à jour avec la commade ci-dessus.*
 
+* "libGL error: No matching fbConfigs or visuals found"
+
+ - Problème: Erreur "libGL error: No matching fbConfigs or visuals found"
+
+ - Solution:
+
+   1. Rajoutez ceci dans votre fichier =~/.bashrc=
+
+      #+BEGIN_SRC sh
+        echo 'export LIBGL_ALWAYS_INDIRECT=1' >>~/.bashrc
+      #+END_SRC
+
+   2. Quittez et redémarrez vos Terminaux Linux (WSL et/ou dans VS Code) ou rechargez la config dans chaque Terminal avec: =source ~/.bashrc=
+
 * "libGL error: failed to load driver: swrast"
 
  - Problème: Erreur "libGL error: failed to load driver: swrast" quand on essaie de lancer une application SDL2
@@ -76,18 +90,6 @@
       #+END_SRC
 
    2. Testez à nouveau l'affichage d'une fenêtre graphique SDL2 depuis WSL.
-
-* "libGL error: No matching fbConfigs or visuals found"
-
- - Problème: Erreur "libGL error: No matching fbConfigs or visuals found"
-
- - Solution:
-
-   1. Rajoutez ceci dans votre fichier =~/.bashrc=
-
-      #+BEGIN_SRC sh
-        echo 'export LIBGL_ALWAYS_INDIRECT=1' >>~/.bashrc
-      #+END_SRC
 
 * "Couldn't not find matching render driver"
 
