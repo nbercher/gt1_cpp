@@ -386,7 +386,7 @@ Dans la pratique, vous allez utiliser:
 
  4. *Familiarisez-vous* avec le Shell Bash, Git, etc.
 
-* settings                                                          :ARCHIVE:noexport:
+* COMMENT settings                                                :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:

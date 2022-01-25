@@ -38,7 +38,7 @@
          }
        #+END_SRC
 
-* settings                                                          :ARCHIVE:noexport:
+* COMMENT settings                                                          :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:

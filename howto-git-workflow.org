@@ -191,7 +191,7 @@ En résumé:
 
    =machine1 <- pull,push -> Github.com <- push,pull -> machine2=
 
-* settings                                                          :ARCHIVE:noexport:
+* COMMENT settings                                         :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:

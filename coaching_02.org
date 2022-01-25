@@ -424,7 +424,7 @@ Voir les [[file:README.org::*Ressources][Ressources]].
 
  2. *Terminez les exercices 1 à 3*
 
-* settings                                                          :ARCHIVE:noexport:
+* COMMENT settings                                                          :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:

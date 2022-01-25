@@ -145,7 +145,7 @@
 
    - Score: Utiliser l'affichage de texte inclut dans la SDL2
 
-* settings                                                          :ARCHIVE:noexport:
+* COMMENT settings                                                          :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:
