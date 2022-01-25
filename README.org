@@ -11,12 +11,19 @@
    - [[file:exercices/ex02.org][Exercice 2]]: Premier diagramme de classes en UML
    - [[file:exercices/ex03.org][Exercice 3]]: (SDL2) Dessiner un carré, le déplacer par contrôle au clavier, frame rate
  - [[file:coaching_03.org][Coaching 3]]
+   - Suite cours C++ (voir [[file:coaching_02.org][fichier Coaching 2]])
+   - Snake: Principes du jeu
  - FAQ 1:
    - [[file:coaching_02.org::*Cours:%20C++%20&%20Programmation%20orient%C3%A9e%20objet][Cours C++]] : "Les 3 étapes de la compilation", "Séparation du code =.hpp= et =.cpp="
    - Sujets libres
  - [[file:coaching_04.org][Coaching 4]]:
    - Exercice 4: Faites évoluer votre diagrame UML
    - Exercice 5: Commencez à coder vos classes pour la gestion de la logique du jeu
+ - Coaching 5:
+   - Éléments de design du jeu:
+     - Apparence du jeu
+     - Design du programme
+     - Logique du jeu versus Rendu graphique
 
 ** Installation de votre environnement de travail
 Ces étapes sont à faire dans l'ordre:
