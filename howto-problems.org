@@ -60,7 +60,7 @@
         export DISPLAY=$(cat /etc/resolv.conf | grep "^nameserver" | awk 'NR == 1 {print $2}'):0
       #+END_SRC
 
-      *Si auparavant vous aviez réglé =DISPLAY= dans votre fichier =~/.bashc=, alors mettez-le à jour avec la commade ci-dessus.*
+      *IMPORTANT*: Mettez à jour =DISPLAY= dans votre fichier =~/.bashrc= !
 
 * "libGL error: No matching fbConfigs or visuals found"
 
