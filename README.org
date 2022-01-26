@@ -20,7 +20,7 @@
    - Exercice 4: Faites évoluer votre diagrame UML
    - Exercice 5: Commencez à coder vos classes pour la gestion de la logique du jeu
  - Coaching 5:
-   - Éléments de design du jeu:
+   - Éléments de design du jeu (voir fichier [[file:coaching_03.org][Coaching 3]])
      - Apparence du jeu
      - Design du programme
      - Logique du jeu versus Rendu graphique
