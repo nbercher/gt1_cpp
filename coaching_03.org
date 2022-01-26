@@ -10,6 +10,8 @@
   - [[#éléments-du-jeu][Éléments du jeu]]
   - [[#gestion-logique-du-jeu][Gestion logique du jeu]]
   - [[#rendu-graphique-du-jeu][Rendu graphique du jeu]]
+  - [[#structure-de-lapplication-classes][Structure de l'application (classes)]]
+  - [[#conseils-divers][Conseils divers]]
 #+END_QUOTE
 
 * Organisation                                                   :TODOélèves:
@@ -69,6 +71,7 @@
  - Le serpent *avance tout seul* selon sa *direction de déplacement*
 
  - On peut *changer la direction de déplacement du serpent* avec le clavier (flèches ← → ↑ ↓)
+   (Il ne peut pas aller dans la direction opposée à sa direction de déplacement courante)
 
  - Le serpent *s'allonge d'un segment* quand il mange un fruit
 
@@ -89,21 +92,25 @@
    - Plusieurs approches possibles, à vous d'y réfléchir
 
 ** Gestion logique du jeu
-*** TODO Logique
+*** Logique
 
- - Le serpent est composé de 1 à N segments
+ - Le serpent est composé de 1 à N segments:
 
-   - Comment gérer le délacement du serpent?
+   - Comment gérer le déplacement des segments du serpent?
+
+   - Comment gérer l'information de direction:
+     - Du clavier vers un/des valeurs
+     - Des valeurs vers des changements de position des segments
 
  - Le serpent doit manger des fruits:
 
-   - Comment rallonger le serpent?
+   - Comment rallonger le serpent avec un nouveau segment?
 
  - Collisions du serpent, =head= ne doit pas percuter:
 
-   - les limites du playground
+   - Les limites du playground
 
-   - les autres segments
+   - Les autres segments
 
 *** Classes
 
@@ -128,15 +135,13 @@
 
 ** Rendu graphique du jeu
 
- - Structure de l'application:
-   - =MainSDLWindow=
-     - =SDL_Renderer=
-       - Zone de score
-       - Zone de jeu
-         - =Playground=
-           - =Snake=
-             - =Segment=, ...
-           - =Fruit=
+ - La fenêtre =MainSDLWindow= utilise un =SDL_Renderer=
+   - Le =SDL_Renderer= contient:
+     - La zone de score
+     - La zone de jeu dans laquelle:
+       - On dessine le serpent
+       - On dessine le fruit
+     - On utilise le type =SDL_Rect= pour dessiner des rectangles
 
  - Apparence:
 
@@ -144,6 +149,45 @@
      - Commencez avec des choses simples: on dessinera des carrés de N×N pixels de large
 
    - Score: Utiliser l'affichage de texte inclut dans la SDL2
+
+** Structure de l'application (classes)
+
+Le code pourra être organisé ainsi:
+
+ - La classe de plus haut niveau:
+
+   =class Application=
+
+   - Partie "graphique": effectue le rendu graphique de la partie logique
+
+     - =class MainSDLWindow=
+       - =SDL_Window *=
+       - =SDL_Renderer *=
+       - Utilise =SDL_Rect=, etc. pour dessiner à l'écran
+
+   - Partie "logique" du jeu (peut et doit être indépendante de la SDL!):
+
+     - =class Playground=
+       - =class Snake=
+         - =class Segment=
+       - =class Fruit=
+
+   - Partie *boucle du jeu*: (peut aussi être dans le =main()=)
+     - Possibilité de quitter le jeu
+     - Récupère les *évènements du clavier*
+     - Gère le *Frame Rate*
+
+ - Le point d'entrée du programme:
+
+   - =main.cpp=:
+
+     - =int main(void)=: créé une instance (=objet) de la classe =Application=
+
+** Conseils divers
+
+ - Évitez de nommer vos fonctions =SDL_XXXXX()=
+
+ - Essayez d'écrire le code le plus simple possible
 
 * COMMENT settings                                                          :ARCHIVE:noexport:
 #+startup: overview
