@@ -5,12 +5,12 @@
 - [[#organisation][Organisation]]
   - [[#githubcom-en-mode-privé][Github.com en mode privé]]
 - [[#cours-c--programmation-orientée-objet-suite][Cours: C++ & Programmation orientée objet (suite)]]
-- [[#snake-principes-du-jeu][Snake: Principes du jeu]]
+- [[#snake-principes--design-du-jeu][Snake: Principes & design du jeu]]
   - [[#approche-du-développement-logique-puis-graphique][Approche du développement: "logique, puis graphique"]]
   - [[#éléments-du-jeu][Éléments du jeu]]
+  - [[#structure-de-lapplication-code][Structure de l'application (code)]]
   - [[#gestion-logique-du-jeu][Gestion logique du jeu]]
   - [[#rendu-graphique-du-jeu][Rendu graphique du jeu]]
-  - [[#structure-de-lapplication-classes][Structure de l'application (classes)]]
   - [[#conseils-divers][Conseils divers]]
 #+END_QUOTE
 
@@ -24,7 +24,7 @@
 * Cours: C++ & Programmation orientée objet (suite)
  - Groupe A: [[file:coaching_02.org::*Exemple%20de%20classe][Exemple de classe]]
 
-* Snake: Principes du jeu
+* Snake: Principes & design du jeu
 ** Approche du développement: "logique, puis graphique"
 
  - *On pensera d'abord aux aspects logiques pour la gestion du jeu*, on fera les aspect graphiques ensuite
@@ -85,78 +85,21 @@
 
 *** Les fruits
 
- - Les fruits *apparaissent de manière aléatoire* (et jamais à l'endroit d'un segment du serpent)
+ - Les fruits *apparaissent de manière aléatoire*
 
    - Utiliser un générateur de nombres aléatoires (initialisé avec le temps courant)
 
    - Plusieurs approches possibles, à vous d'y réfléchir
 
-** Gestion logique du jeu
-*** Logique
+   - ATTENTION: un fruit ne pourra pas apparaître à l'endroit d'un segment du serpent!
 
- - Le serpent est composé de 1 à N segments:
-
-   - Comment gérer le déplacement des segments du serpent?
-
-   - Comment gérer l'information de direction:
-     - Du clavier vers un/des valeurs
-     - Des valeurs vers des changements de position des segments
-
- - Le serpent doit manger des fruits:
-
-   - Comment rallonger le serpent avec un nouveau segment?
-
- - Collisions du serpent, =head= ne doit pas percuter:
-
-   - Les limites du playground
-
-   - Les autres segments
-
-*** Classes
-
- - Classe =Snake= : gestion logique du serpent
-
-   Membres:
-   - =Segment *head;= : la tête du serpent
-
-   Méthodes:
-   - =Snake::Move(int dir)= : pour les déplacements du serpent selon la direction souhaitée
-   - =Snake::Eat()= : pour faire grandir le serpent quand il mange un fruit
-
- - Classe =Segment= : pour la gestion des segments qui composent le serpent
-
-   Membres:
-   - =Segment *next;= : pointeur vers l'objet =Segment= suivant
-
-   Méthodes:
-   - À vous de réfléchir au déplacement des segments *sous la forme d'une liste chaînée*
-
- - Classe =GSnake= : affichage graphique du =Snake=
-
-** Rendu graphique du jeu
-
- - La fenêtre =MainSDLWindow= utilise un =SDL_Renderer=
-   - Le =SDL_Renderer= contient:
-     - La zone de score
-     - La zone de jeu dans laquelle:
-       - On dessine le serpent
-       - On dessine le fruit
-     - On utilise le type =SDL_Rect= pour dessiner des rectangles
-
- - Apparence:
-
-   - Serpent et du fruit:
-     - Commencez avec des choses simples: on dessinera des carrés de N×N pixels de large
-
-   - Score: Utiliser l'affichage de texte inclut dans la SDL2
-
-** Structure de l'application (classes)
+** Structure de l'application (code)
 
 Le code pourra être organisé ainsi:
 
- - La classe de plus haut niveau:
+ - La classe de plus haut niveau: =class Application=
 
-   =class Application=
+   *Regroupe les aspects "graphique" et "logique"*:
 
    - Partie "graphique": effectue le rendu graphique de la partie logique
 
@@ -183,11 +126,79 @@ Le code pourra être organisé ainsi:
 
      - =int main(void)=: créé une instance (=objet) de la classe =Application=
 
+** Gestion logique du jeu
+*** Éléments de logique du jeu
+
+ - Le serpent est composé de 1 à N segments:
+
+   - Comment gérer le déplacement des segments du serpent?
+
+   - Comment gérer l'information de direction:
+     - Du clavier vers un/des valeurs
+     - Des valeurs vers des changements de position des segments
+
+ - Le serpent doit manger des fruits:
+
+   - Comment rallonger le serpent avec un nouveau segment?
+
+ - Collisions du serpent, =head= ne doit pas percuter:
+
+   - Les limites du playground
+
+   - Les autres segments
+
+*** Classes pour la gestion logique du jeu
+
+ - Classe =Snake= : gestion logique du serpent
+
+   Membres:
+   - =Segment *head;= : la tête du serpent
+
+   Méthodes:
+   - =Snake::Move(int dir)= : pour les déplacements du serpent selon la direction souhaitée
+   - =Snake::Eat()= : pour faire grandir le serpent quand il mange un fruit
+
+ - Classe =Segment= : pour la gestion des segments qui composent le serpent
+
+   Membres:
+   - =Segment *next;= : pointeur vers l'objet =Segment= suivant
+
+   Méthodes:
+   - À vous de réfléchir au déplacement des segments *sous la forme d'une liste chaînée*
+
+ - Classe =GSnake= : affichage graphique du =Snake=
+
+** Rendu graphique du jeu
+
+ - La fenêtre =MainSDLWindow= utilise un =SDL_Renderer=
+   - Le =SDL_Renderer= permet de dessiner:
+     - La zone de score
+     - La zone de jeu dans laquelle:
+       - On dessine le serpent
+       - On dessine le fruit
+     - On utilise le type =SDL_Rect= pour dessiner des rectangles
+
+ - Apparence:
+
+   - Serpent et du fruit:
+     - Commencez avec des choses simples: *on dessinera des carrés de N×N pixels de large*
+
+   - Score: Utiliser l'affichage de texte inclut dans la SDL2
+
 ** Conseils divers
 
  - Évitez de nommer vos fonctions =SDL_XXXXX()=
 
  - Essayez d'écrire le code le plus simple possible
+
+ - Déboguez votre serpent en mode textuel?
+
+   - Ex: avec =Snake::Print()= qui affiche les coordonnées et infos des segments de votre serpent:
+
+     #+BEGIN_EXAMPLE
+       Head:(9,6):(8,6):(7,6):(7,5):(7,4)
+       Direction: 8
+     #+END_EXAMPLE
 
 * COMMENT settings                                                          :ARCHIVE:noexport:
 #+startup: overview
