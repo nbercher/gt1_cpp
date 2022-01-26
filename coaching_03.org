@@ -58,7 +58,8 @@
 
  - Il y a toujours *un serpent et un fruit* dans le playground
 
- - *Attention*: le "playground" utilisé pour la logique du jeu et son rendu graphique sont *deux choses différentes!*
+ - *Attention*: le "playground" utilisé pour la logique du jeu et son rendu graphique sont *deux choses
+   différentes!*
 
 *** Le serpent
 
@@ -165,8 +166,6 @@ Le code pourra être organisé ainsi:
 
    Méthodes:
    - À vous de réfléchir au déplacement des segments *sous la forme d'une liste chaînée*
-
- - Classe =GSnake= : affichage graphique du =Snake=
 
 ** Rendu graphique du jeu
 
