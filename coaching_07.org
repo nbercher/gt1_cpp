@@ -90,6 +90,9 @@
 
  - L'utilité de la touche =TAB= dans le Shell
 
+* Outils de génération automatisé du diagrame UML
+Cf. [[file:howto-uml-setup.org][howto-uml-setup.org]].
+
 * COMMENT settings                                                :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables

@@ -19,11 +19,13 @@
  - [[file:coaching_04.org][Coaching 4]]:
    - Exercice 4: Faites évoluer votre diagrame UML
    - Exercice 5: Commencez à coder vos classes pour la gestion de la logique du jeu
- - Coaching 5:
+ - Coaching 5-6:
    - Éléments de design du jeu (voir fichier [[file:coaching_03.org][Coaching 3]])
      - Apparence du jeu
      - Design du programme
      - Logique du jeu versus Rendu graphique
+ - Coaching 7:
+   - [[file:howto-uml-setup.org][Howto setup your UML tools]]
 
 ** Installation de votre environnement de travail
 Ces étapes sont à faire dans l'ordre:
@@ -32,6 +34,7 @@ Ces étapes sont à faire dans l'ordre:
  2. [[file:howto-vscode+wsl.org][Howto install VS Code for WSL]]
  3. [[file:howto-git-workflow.org][Howto setup your Git Workflow]]
  4. [[file:howto-xserver.org][Howto install XServer]]
+ 5. *NEW* [[file:howto-uml-setup.org][Howto setup your UML tools]]
 
 ** Howto
  - *[[file:howto-problems.org][Howto Résolution des problèmes]]*
