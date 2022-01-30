@@ -62,6 +62,14 @@
 
       *IMPORTANT*: Mettez à jour =DISPLAY= dans votre fichier =~/.bashrc= !
 
+* "XDG_RUNTIME_DIR not set in the environment"
+
+ - Problème: Impossible de lancer une application graphique Linux
+
+ - Solutions:
+
+   Appliquer les solutions du problème "Error: Can't open display: :0"
+
 * "libGL error: No matching fbConfigs or visuals found"
 
  - Problème: Erreur "libGL error: No matching fbConfigs or visuals found"
