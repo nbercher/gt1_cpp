@@ -24,6 +24,7 @@
      - Apparence du jeu
      - Design du programme
      - Logique du jeu versus Rendu graphique
+   - Utilisation de la librairie SDL2
  - Coaching 7:
    - [[file:howto-uml-setup.org][Howto setup your UML tools]]
 
