@@ -1,0 +1,207 @@
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
+
+* Table of Contents                                               :TOC:QUOTE:
+#+BEGIN_QUOTE
+- [[#organisation][Organisation]]
+  - [[#githubcom-en-mode-privé][Github.com en mode privé]]
+- [[#cours-c--programmation-orientée-objet-suite][Cours: C++ & Programmation orientée objet (suite)]]
+- [[#snake-principes--design-du-jeu][Snake: Principes & design du jeu]]
+  - [[#approche-du-développement-logique-puis-graphique][Approche du développement: "logique, puis graphique"]]
+  - [[#éléments-du-jeu][Éléments du jeu]]
+  - [[#structure-de-lapplication-code][Structure de l'application (code)]]
+  - [[#gestion-logique-du-jeu][Gestion logique du jeu]]
+  - [[#rendu-graphique-du-jeu][Rendu graphique du jeu]]
+  - [[#conseils-divers][Conseils divers]]
+#+END_QUOTE
+
+* Organisation                                                   :TODOélèves:
+** Github.com en mode privé                                      :TODOélèves:
+
+ - *Mon dépôt Github.com* va passer en mode privé
+   - [ ] Qui n'a pas reçu mon invitation?
+     - Envoyées 52/55, certains comptes fournis sont incorrects!
+
+* Cours: C++ & Programmation orientée objet (suite)
+ - Groupe A: [[file:coaching_02.org::*Exemple%20de%20classe][Exemple de classe]]
+
+* Snake: Principes & design du jeu
+** Approche du développement: "logique, puis graphique"
+
+ - *On pensera d'abord aux aspects logiques pour la gestion du jeu*, on fera les aspect graphiques ensuite
+
+   -> Raisonner comme en HTML/CSS: *on sépare le fond et la forme!*
+
+ - Conseils:
+
+   1. Le serpent évolue dans une grille avec un *pas de déplacement égal à 1*
+
+      - Cette grille "logique" est *indépendante du rendu graphique* et de la taille des pixels!
+
+      - Le code n'en sera que plus simple et lisible
+
+** Éléments du jeu
+*** La fenêtre principale & Renderer SDL2
+
+ - La fenêtre principale est de type =MainSDLWindow= (cf. [[file:exercices/ex01.org][exercice 1]]), créée avec la SDL2
+
+   - Elle contient un =SDL_Renderer= dans lequel on dessine les éléments du jeu
+
+ - Le =SDL_Renderer= contient les zones suivants:
+
+   1. *Score*: zone de score simple, affiche le nombre de fruits mangés par le serpent depuis le début de la partie
+
+   2. *Playground*: zone où le serpent évolue + fruit à manger
+
+*** Le playground
+
+ - Le *playground* est la zone du jeu dans laquelle se déplace le serpent
+
+ - Il y a toujours *un serpent et un fruit* dans le playground
+
+ - *Attention*: le "playground" utilisé pour la logique du jeu et son rendu graphique sont *deux choses
+   différentes!*
+
+*** Le serpent
+
+ - Le *serpent* est composé de 1 ou plusieurs *segments*
+
+   - Au départ, le serpent est composé d'un seul segment, sa tête "=head="
+
+   - Le serpent a *toujours le segment =head= au minimum*
+
+ - Le serpent *avance tout seul* selon sa *direction de déplacement*
+
+ - On peut *changer la direction de déplacement du serpent* avec le clavier (flèches ← → ↑ ↓)
+   (Il ne peut pas aller dans la direction opposée à sa direction de déplacement courante)
+
+ - Le serpent *s'allonge d'un segment* quand il mange un fruit
+
+ - Le serpent *se déplace d'une case à la fois* et ses segments *se suivent les uns après les autres*
+
+ - Le serpent peut entrer en collision avec:
+
+   1. Les limites du *playground* (les murs)
+
+   2. Lui-même
+
+*** Les fruits
+
+ - Les fruits *apparaissent de manière aléatoire*
+
+   - Utiliser un générateur de nombres aléatoires (initialisé avec le temps courant)
+
+   - Plusieurs approches possibles, à vous d'y réfléchir
+
+   - ATTENTION: un fruit ne pourra pas apparaître à l'endroit d'un segment du serpent!
+
+** Structure de l'application (code)
+
+Le code pourra être organisé ainsi:
+
+ - La classe de plus haut niveau: =class Application=
+
+   *Regroupe les aspects "graphique" et "logique"*:
+
+   - Partie "graphique": effectue le rendu graphique de la partie logique
+
+     - =class MainSDLWindow=
+       - =SDL_Window *=
+       - =SDL_Renderer *=
+       - Utilise =SDL_Rect=, etc. pour dessiner à l'écran
+
+   - Partie "logique" du jeu (peut et doit être indépendante de la SDL!):
+
+     - =class Playground=
+       - =class Snake=
+         - =class Segment=
+       - =class Fruit=
+
+   - Partie *boucle du jeu*: (peut aussi être dans le =main()=)
+     - Possibilité de quitter le jeu
+     - Récupère les *évènements du clavier*
+     - Gère le *Frame Rate*
+
+ - Le point d'entrée du programme:
+
+   - =main.cpp=:
+
+     - =int main(void)=: créé une instance (=objet) de la classe =Application=
+
+** Gestion logique du jeu
+*** Éléments de logique du jeu
+
+ - Le serpent est composé de 1 à N segments:
+
+   - Comment gérer le déplacement des segments du serpent?
+
+   - Comment gérer l'information de direction:
+     - Du clavier vers un/des valeurs
+     - Des valeurs vers des changements de position des segments
+
+ - Le serpent doit manger des fruits:
+
+   - Comment rallonger le serpent avec un nouveau segment?
+
+ - Collisions du serpent, =head= ne doit pas percuter:
+
+   - Les limites du playground
+
+   - Les autres segments
+
+*** Classes pour la gestion logique du jeu
+
+ - Classe =Snake= : gestion logique du serpent
+
+   Membres:
+   - =Segment *head;= : la tête du serpent
+
+   Méthodes:
+   - =Snake::Move(int dir)= : pour les déplacements du serpent selon la direction souhaitée
+   - =Snake::Eat()= : pour faire grandir le serpent quand il mange un fruit
+
+ - Classe =Segment= : pour la gestion des segments qui composent le serpent
+
+   Membres:
+   - =Segment *next;= : pointeur vers l'objet =Segment= suivant
+
+   Méthodes:
+   - À vous de réfléchir au déplacement des segments *sous la forme d'une liste chaînée*
+
+** Rendu graphique du jeu
+
+ - La fenêtre =MainSDLWindow= utilise un =SDL_Renderer=
+   - Le =SDL_Renderer= permet de dessiner:
+     - La zone de score
+     - La zone de jeu dans laquelle:
+       - On dessine le serpent
+       - On dessine le fruit
+     - On utilise le type =SDL_Rect= pour dessiner des rectangles
+
+ - Apparence:
+
+   - Serpent et du fruit:
+     - Commencez avec des choses simples: *on dessinera des carrés de N×N pixels de large*
+
+   - Score: Utiliser l'affichage de texte inclut dans la SDL2
+
+** Conseils divers
+
+ - Évitez de nommer vos fonctions =SDL_XXXXX()=
+
+ - Essayez d'écrire le code le plus simple possible
+
+ - Déboguez votre serpent en mode textuel?
+
+   - Ex: avec =Snake::Print()= qui affiche les coordonnées et infos des segments de votre serpent:
+
+     #+BEGIN_EXAMPLE
+       Head:(9,6):(8,6):(7,6):(7,5):(7,4)
+       Direction: 8
+     #+END_EXAMPLE
+
+* COMMENT settings                                                          :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:

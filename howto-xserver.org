@@ -4,7 +4,7 @@ On utilisera le même serveur que pour le projet-2 "Langage C".
 
  - Un serveur Xorg permet d'afficher une fenêtre graphique Linux sous Windows.
 
- - Sous Windows, installation du server "Xorg" VcxSrv:
+ - Sous Windows, installation du Xserver VcxSrv:
 
    - Installer https://sourceforge.net/projects/vcxsrv/ en cliquant sur "Suivant" à chaque étape.
 

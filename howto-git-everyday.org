@@ -46,23 +46,28 @@
  - INFO: Nous avons déjà crée notre dépôt via Github.com, mais nous aurions pu le faire en local:
    - Créer un dépôt tout neuf:
 
-     =git init= ou =git init NOM_DOSSIER=  -> Ce dépôt ne contient aucune histoire
+     =git init= ou =git init NOM_DOSSIER=
+
+   → Ce dépôt ne contient aucune histoire
 
 ** Ajouter, commiter
 
  - Demander à Git de *suivre un fichier*:
 
-   =git add fichier=  -> 1. Avant cela Git ne se préoccupait pas de ce fichier
-                      -> 2. Rajoute le fichier à l'Index *pour constituer le futur commit*
+   =git add fichier=
+
+   1. Avant cela Git ne se préoccupait pas de ce fichier
+
+   2. Rajoute le fichier à l'Index *pour constituer le futur commit*
 
  - *Sceller les modifications* par un commit (ou "Commiter"):
 
-   =git commit=       -> Tout le contenu de l'Index est rajouté à l'histoire du dépôt *dans un nouveau commit*
+   =git commit=       → Tout le contenu de l'Index est rajouté à l'histoire du dépôt *dans un nouveau commit*
 
    Une fois un fichier suivi par Git (=git add=), on peut faire directement:
 
-   =git commit fichier= -> Toutes les modifications depuis son dernier commit sont rajoutées
-                           à l'histoire du dépôt, cela "saute" l'étape de l'Index
+   =git commit fichier= → Toutes les modifications depuis son dernier commit sont rajoutées
+                          à l'histoire du dépôt, cela "saute" l'étape de l'Index
 
  - Mais alors pourquoi l'Index?  Car on peut y rajouter des modifications de plusieurs
    fichiers et *vérifier son FUTUR commit* (avec =git diff --cached=)
@@ -71,9 +76,9 @@
 
  - Liste des modifications (non-commitées) faites sur le dépôt:
 
-   =git status=     -> Pas super lisible...
+   =git status=     → Pas super lisible...
 
-   =git status -s=  -> Super lisible, organisé en deux colonnes:
+   =git status -s=  → Super lisible, organisé en deux colonnes:
 
    A  Makefile                    _Légende_:
     M puis4.c                     A pour Added
@@ -92,8 +97,9 @@
 
  - Voir les modifications (non-commitées) faites sur les fichiers:
 
-   =git diff=         -> Voir le =diff -Nu fichier1 fichier2= des fichiers par rapport au dernier commit
-   =git diff fichier= -> Restreindre le =diff= à un (ou plusieurs) fichier(s)
+   =git diff=         → Voir le =diff -Nu fichier1 fichier2= des fichiers par rapport au dernier commit
+
+   =git diff fichier= → Restreindre le =diff= à un (ou plusieurs) fichier(s)
 
 ** Voir l'histoire du dépôt, d'un fichier (et survol des branches)
 
@@ -101,30 +107,30 @@
 
    (Nous n'utiliserons probablement pas les branches...)
 
-   (Néanmoins sachez que c'est très puissant et permet de travailler
-   sur plusieurs fonctionnalités d'un projet en parallèle.
-   Par ailleurs, passer d'une branche à l'autre dans votre "working
-   tree" modifie les fichiers de manière à ce qu'ils correspondent à
-   leur état dans la-dite branche, tout en s'assurant de rien casser.)
+   (Néanmoins sachez que c'est très puissant et permet de travailler sur plusieurs fonctionnalités d'un
+   projet en parallèle.  Par ailleurs, passer d'une branche à l'autre dans votre "working tree" modifie
+   les fichiers de manière à ce qu'ils correspondent à leur état dans la-dite branche, tout en s'assurant
+   de rien casser.)
 
  - Histoire d'une branche du dépôt = *liste ordonnée de commits*
 
    A---B---C---D---E = =main=
 
-   =git log=         -> Affiche la liste des commits (de la branche courante)
+   =git log=         → Affiche la liste des commits (de la branche courante)
 
-   =git log fichier= -> Affiche la liste des commits concernant seulement =fichier=
+   =git log fichier= → Affiche la liste des commits concernant seulement =fichier=
 
 ** Trois "univers" dans un dépôt Git: working tree, .git/ et index
 
-   1. *working tree*: "Copie de travail" (ou "Dépôt local") = dossier contenant vos fichiers
-      + sous-dossier =.git/=
+   1. *working tree*
+      - "Copie de travail" (ou "Dépôt local") = dossier contenant vos fichiers sous-dossier =.git/=
 
-   2. =.git/= ("dot git"): Sous-dossier contenant tout ce que Git doit savoir sur votre dépôt:
-      configuration et *histoire des fichiers*
+   2. =.git/= ("dot git")
+      - Sous-dossier contenant tout ce que Git doit savoir sur votre dépôt:
+        configuration et *histoire des fichiers*
 
-   3. *Index* (ou "staging" ou "cache"): Ceci est votre futur *commit*
-      (il est matérialisé quelque part dans =.git/=)
+   3. *Index* (ou "staging" ou "cache")
+      - Ceci est votre futur *commit* (il est matérialisé quelque part dans =.git/=)
 
 ** Dépôts nus (bare clones)
 
@@ -140,8 +146,9 @@
 
  - On peut créer un dépôt nu à partir d'un dépôt local:
 
-   =git clone --bare DÉPÔT/ DÉPÔT.git= -> Ceci créé un dossier =DÉPÔT.git/=,
-                                          ça ne vous rappelle rien ce =.git/=?
+   =git clone --bare DÉPÔT/ DÉPÔT.git=
+
+   → Ceci créé un dossier =DÉPÔT.git/= (ça ne vous rappelle rien ce =.git/=?)
 
 ** Dépôt nu: Pousser (push) et tirer (pull)
 
@@ -169,9 +176,9 @@
 
  - L'opération =git pull ...= fait deux choses:
 
-   1. =git fetch ...= -> récupérer les modifications SANS les appliquer à votre histoire
+   1. =git fetch ...= → récupérer les modifications SANS les appliquer à votre histoire
 
-   2. =git merge=     -> appliquer les modifications en les fusionnant dans votre histoire
+   2. =git merge=     → appliquer les modifications en les fusionnant dans votre histoire
 
    On imaginera aisément que =git merge= est très puissant...
 
@@ -195,7 +202,7 @@
 
  3. La journée continue et *ce cycle se reproduit aussi souvent que nécessaire*
 
-* settings                                                          :ARCHIVE:noexport:
+* COMMENT settings                                         :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:

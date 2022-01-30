@@ -1,4 +1,4 @@
-* G.Tech1 / C++
+#+title: Projet#7 -- C++ sous Linux / Git
 
 ** Coachings
  - [[file:coaching_01.org][Coaching 1 / KO]]
@@ -10,6 +10,25 @@
    - [[file:exercices/ex01.org][Exercice 1]]: Créer une classe =MainSDLWindow= en C++
    - [[file:exercices/ex02.org][Exercice 2]]: Premier diagramme de classes en UML
    - [[file:exercices/ex03.org][Exercice 3]]: (SDL2) Dessiner un carré, le déplacer par contrôle au clavier, frame rate
+ - [[file:coaching_03.org][Coaching 3]]
+   - Suite cours C++ (voir [[file:coaching_02.org][fichier Coaching 2]])
+   - Snake: Principes du jeu
+ - FAQ 1:
+   - [[file:coaching_02.org::*Cours:%20C++%20&%20Programmation%20orient%C3%A9e%20objet][Cours C++]] : "Les 3 étapes de la compilation", "Séparation du code =.hpp= et =.cpp="
+   - Sujets libres
+ - [[file:coaching_04.org][Coaching 4]]:
+   - Exercice 4: Faites évoluer votre diagrame UML
+   - Exercice 5: Commencez à coder vos classes pour la gestion de la logique du jeu
+ - Coaching 5-6:
+   - Éléments de design du jeu (voir fichier [[file:coaching_03.org][Coaching 3]])
+     - Apparence du jeu
+     - Design du programme
+     - Logique du jeu versus Rendu graphique
+   - Utilisation de la librairie SDL2
+ - Coaching 7:
+   - [[file:coaching_07.org::*%C3%89valuation%20Git%20&%20Bash][Évaluation Git et Bash: Connaissances à maîtriser]]
+   - [[file:howto-uml-setup.org][Howto setup your UML tools]]
+   - [[file:coaching_07.org::*Librairie%20SDL2:%20Frame%20rate%20et%20%C3%A9v%C3%A8nements%20clavier][Librairie SDL2: Frame rate et évènements clavier]]
 
 ** Installation de votre environnement de travail
 Ces étapes sont à faire dans l'ordre:
@@ -18,8 +37,33 @@ Ces étapes sont à faire dans l'ordre:
  2. [[file:howto-vscode+wsl.org][Howto install VS Code for WSL]]
  3. [[file:howto-git-workflow.org][Howto setup your Git Workflow]]
  4. [[file:howto-xserver.org][Howto install XServer]]
+ 5. *NEW* [[file:howto-uml-setup.org][Howto setup your UML tools]]
 
-** Aides diverses
- - [[file:howto-plantuml.org][PlantUML]]
- - [[file:howto-git-everyday.org][Git everyday]]
- - [[file:howto-emacs.org][Emacs]]
+** Howto
+ - *[[file:howto-problems.org][Howto Résolution des problèmes]]*
+ - [[file:howto-plantuml.org][Howto PlantUML]]
+ - [[file:howto-git-everyday.org][Howto Git everyday]]
+ - [[file:howto-emacs.org][Howto Emacs]]
+
+** Ressources
+*** Langage C++
+ - Les bases: https://www.w3schools.com/cpp/
+ - Wikibook: [[https://fr.wikibooks.org/wiki/Programmation_C++][https://fr.wikibooks.org/wiki/Programmation_C++]]
+ - Référence: https://en.cppreference.com/w/
+
+*** Librairie SDL2
+ - Homepage SDL2: http://libsdl.org/
+
+ - Cours en ligne:
+   - [[https://fr.wikibooks.org/wiki/Programmation_avec_la_SDL][fr.wikibooks.org:]] "Programmation avec la SDL"
+
+ - Tutoriels:
+   - https://lazyfoo.net/tutorials/SDL/
+   - [[https://github.com/joachim-gabin/gtech1-b23-pong][Jeu Pong]], écrit en Langage C par le binome 23 du projet-2
+     
+ - Liens utiles [[https://wiki.libsdl.org/][wiki]] SDL2:
+   - [[https://wiki.libsdl.org/SDL_Rect][SDL_Rect]]: Structure C pour dessiner un rectangle
+   - [[https://wiki.libsdl.org/SDL_RenderDrawRect][SDL_RenderDrawRect]]: Fonction SDL2 pour dessiner un SDL_Rect
+   - [[https://wiki.libsdl.org/SDL_GetKeyboardState][SDL_GetKeyboardState]]: État des touches du clavier
+   - [[https://wiki.libsdl.org/SDL_GetTicks][SDL_GetTicks]]: "Get the *number of milliseconds* since SDL library initialization."
+   - [[https://wiki.libsdl.org/SDL_Delay][SDL_Delay]]: "Wait a specified number of milliseconds before returning."

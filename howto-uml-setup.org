@@ -1,0 +1,99 @@
+* Outils pour la génération automatisée d'un diagrame UML des classes C++
+
+Vous avez vu lors de l'exercice 2 comment écrire un simple code en langage PlantUML puis vous avez généré
+une image =classes.png= représentant un diagramme UML.
+
+Nous allons maintenant automatiser la création du diagramme UML des classes de tout votre projet Snake
+avec une série d'outils.
+
+Les outils vont permettre de:
+
+ 1. Convertir vos fichiers =*.hpp= (et aussi =*.h=) en un seul fichier au format =.puml=
+
+ 2. Convertir fichier =.puml= en une image =.png=
+
+Tout ceci se fera en une seule commande, avec l'outil =make= (voir la section Utilisation ci-dessous).
+
+** Installation des dépendances
+
+Installez les outils nécessaires avec les commandes suivantes dans le
+terminal WSL:
+
+#+BEGIN_SRC sh
+  sudo apt update
+  sudo apt install make plantuml python3-pip wget
+#+END_SRC
+
+Puis:
+
+#+BEGIN_SRC sh
+  sudo pip3 install hpp2plantuml
+#+END_SRC
+
+** Installation du fichier =Makefile= et du script Bash =mk_uml.sh=
+
+Vous allez télécharger les fichiers =Makefile= et =mk_uml.sh= depuis le dépôt Git du coach.
+
+Le plus simple est de procéder ainsi:
+
+ 1. Rendez-vous dans votre dossier de travail sur le code de Snake:
+
+    #+BEGIN_SRC sh
+      cd ~/proj7/snake/
+    #+END_SRC
+
+ 2. Téléchargez le fichier =Makefile= depuis le dépôt Git du coach:
+
+    #+BEGIN_SRC sh
+      wget https://github.com/nbercher/gt1_cpp/blob/main/snake/Makefile
+    #+END_SRC
+
+    Vérifiez que le fichier =Makefile= est bien là avec =ls=.
+
+ 3. Créez le sous-dossier =uml/= (s'il n'existe pas déjà) et allez dedans:
+
+    #+BEGIN_SRC sh
+      mkdir -p uml
+      cd uml/
+    #+END_SRC
+
+ 4. Téléchargez le fichier =mk_uml.sh= depuis le dépôt Git du coach:
+
+    #+BEGIN_SRC sh
+      wget https://github.com/nbercher/gt1_cpp/blob/main/snake/uml/mk_uml.sh
+    #+END_SRC
+
+    Vérifiez que le fichier =mk_uml.sh= est bien là avec =ls=.
+
+ 5. Activez les droits d'exécution sur le fichier =mk_uml.sh=:
+
+    #+BEGIN_SRC sh
+      chmod a+x mk_uml.sh
+    #+END_SRC
+
+    Vérifiez que ceci vous affiche une aide en anglais:
+
+    #+BEGIN_SRC sh
+      ./mk_uml.sh
+    #+END_SRC
+
+** Utilisation
+
+Depuis votre dossier =~/proj7/snake/=, lancez simplement la commande:
+
+#+BEGIN_SRC sh
+  make uml/classes.png
+#+END_SRC
+
+Ceci va créer, ou mettre à jour, les fichiers suivants:
+
+ 1. =uml/classes.puml=: Contient le code en langage PlantUML
+
+ 2. =uml/classes.png=: Est l'image =*.png= du diagramme UML des classes de tout votre projet Snake.
+
+* COMMENT settings                                                :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 102
+# End:

@@ -1,4 +1,4 @@
-#+title: Projet#7 -- C++ sous Linux / Git
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
 * Table of Contents                                              :TOC:QUOTE:
 #+BEGIN_QUOTE
@@ -386,7 +386,7 @@ Dans la pratique, vous allez utiliser:
 
  4. *Familiarisez-vous* avec le Shell Bash, Git, etc.
 
-* settings                                                          :ARCHIVE:noexport:
+* COMMENT settings                                                :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:

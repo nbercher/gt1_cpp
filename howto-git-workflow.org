@@ -81,8 +81,11 @@ Choisir qui sera élève1 et qui sera élève2.
 
    =mkdir -p ~/.ssh && cd ~/.ssh && ssh-keygen -t ed25519 -C MON_EMAIL=
 
-   Note: Vous demande une "passphrase", *il est préférable de la laisser vide*
-   (appuyer sur ENTRÉE sans rien répondre à la question)
+   IMPORTANT: =ssh-keygen= va vous poser plusieurs questions, répondez par ENTER à chaque fois.
+
+   - Note: Parmi ces questions, on vous demande une "passphrase" qui est le mot de passe qui protégè
+     votre clé privée, dans notre cas *il est préférable de la laisser vide* (appuyer sur ENTRÉE sans
+     rien répondre à la question)
 
    IMPORTANT:
    - La commande ci-dessus créé une paire de fichiers (dans le dossier courant, ici ~/.ssh):
@@ -131,8 +134,10 @@ Pour tout le monde: depuis ma machine @G.Tech1:
 
    - Pour *chacun de mes camarades du binôme* (= 1 pour les binômes, = 2 pour les trinômes):
 
-     =cd ~/proj7/snake/=
-     =git remote add ALIAS_AUTRE_ELEVE URL_HTTPS_AUTRE_ELEVE=
+     #+BEGIN_SRC sh
+       cd ~/proj7/snake/
+       git remote add ALIAS_AUTRE_ELEVE URL_HTTPS_AUTRE_ELEVE
+     #+END_SRC
 
      Avec:
 
@@ -186,3 +191,9 @@ En résumé:
 
    =machine1 <- pull,push -> Github.com <- push,pull -> machine2=
 
+* COMMENT settings                                         :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:
