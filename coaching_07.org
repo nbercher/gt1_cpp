@@ -95,9 +95,6 @@
 
  - L'utilité de la touche =TAB= dans le Shell
 
-* Outils de génération automatisé du diagrame UML
-Cf. [[file:howto-uml-setup.org][howto-uml-setup.org]].
-
 * Librairie SDL2: Frame rate et évènements clavier
 ** Notion de "Frame rate"
 Le frame rate est la vitesse, ou le taux, de rafraîchissement de l'écran d'un jeu.
@@ -199,6 +196,9 @@ Par exemple chez moi:
  - =frame_rate_ms= = 20
 
  - =snake_speed_fpc= = 7 (le jeu évolue toutes les 7 frames)
+
+* Outils de génération automatisé du diagrame UML des classes
+Cf. [[file:howto-uml-setup.org][howto-uml-setup.org]].
 
 * COMMENT settings                                                :ARCHIVE:noexport:
 #+startup: overview
