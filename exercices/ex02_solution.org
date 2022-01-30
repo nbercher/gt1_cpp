@@ -1,0 +1,14 @@
+* Solution exercice 2
+
+#+BEGIN_EXAMPLE
+  @startuml
+  class MainSDLWindow {
+    +MainSDLWindow()
+    +~MainSDLWindow()
+    +GetRenderer() : SDL_Renderer*
+    -renderer : SDL_Renderer*
+    -window : SDL_Window*
+    +Init(const char* winname, int width, int height) : int
+  }
+  @enduml
+#+END_EXAMPLE
