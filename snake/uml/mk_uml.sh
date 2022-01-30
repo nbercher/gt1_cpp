@@ -28,7 +28,7 @@ fi
 if ! [ -x "$(which hpp2plantuml)" ]; then
     if ! [ -x "$(which pip3)" ]; then
         echo " - pip3 is NOT INSTALLED, please install it with:" 1>&2
-        echo "   sudo apt install pip3" 1>&2
+        echo "   sudo apt install python3-pip" 1>&2
         echo 1>&2
     fi
     echo " - hpp2plantuml is NOT INSTALLED, please install it with:" 1>&2
