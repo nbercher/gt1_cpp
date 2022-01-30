@@ -1,0 +1,98 @@
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
+
+* Évaluation Git & Bash
+** WIP Git
+*** WIP Vocabulaire
+
+ - "Dépôt"
+   1. Dépôt nu
+   2. Dépôt avec copie de travail
+
+ - "Working tree" / "Copie de travail" / "Dossier de travail"
+
+ - "Index"
+
+ - "Commit"
+
+ - "Log"
+
+ - "Diff"
+
+ - "Remote"
+
+*** Commandes initiales
+
+ - =git init NOUVEAU_DOSSIER=
+
+ - =git clone URL NOUVEAU_DOSSIER=
+
+*** Commandes récurrentes locales
+
+ - =git add FICHIER=
+
+ - =git commit=
+
+ - =git commit FICHIER=
+
+ - =git status -s=
+
+ - =git diff=
+ - =git diff --cached=
+
+ - =git diff FICHIER=
+ - =git diff --cached FICHIER=
+
+ - =git log=
+ - =git log FICHIER=
+
+*** Commandes pour intéregir avec d'autres dépôts
+
+ - =git push=
+ - =git pull=
+
+ - =git pull REMOTE BRANCH=
+
+** Bash
+
+ - Comprendre et maîtriser les commandes de base (et leurs options):
+   - =pwd=
+   - =cd= et son option =-=
+   - =ls= et ses options =-l= et -a=
+   - =mkdir=
+   - =cat=
+   - =echo=
+
+ - Comprendre la signification des éléments de contruction des chemins vers fichiers et dossiers:
+   - =/= en début de chemin
+   - =/= ailleurs dans un chemin
+   - =~=
+   - =.= ou =./=
+   - =..= ou =../=
+   - =*=
+
+ - Et leurs usages couplés tels que:
+   - =cd ~= ou =cd=
+   - =cd ../=
+   - =cd -=
+
+   - =mkdir dossier=
+   - =cd dossier/=
+   - =mkdir dossier && cd dossier/=
+
+   - =ls=
+   - =ls -l=
+   - =ls -a=
+   - =ls -al=
+   - =ls ~=
+   - =ls ../=
+   - =ls ../dossier/=
+   - =ls *.cpp=
+
+ - L'utilité de la touche =TAB= dans le Shell
+
+* COMMENT settings                                                :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:
