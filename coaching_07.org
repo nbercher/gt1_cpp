@@ -1,8 +1,8 @@
 #+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
 
 * Évaluation Git & Bash
-** WIP Git
-*** WIP Vocabulaire
+** Git
+*** Vocabulaire
 
  - "Dépôt"
    1. Dépôt nu
@@ -59,6 +59,8 @@
    - =cd= et son option =-=
    - =ls= et ses options =-l= et -a=
    - =mkdir=
+   - =rmdir=
+   - =rm=
    - =cat=
    - =echo=
 
@@ -78,6 +80,9 @@
    - =mkdir dossier=
    - =cd dossier/=
    - =mkdir dossier && cd dossier/=
+
+   - =rmdir dossier/=
+   - =rm -r dossier/=
 
    - =ls=
    - =ls -l=
