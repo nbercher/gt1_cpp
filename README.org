@@ -26,7 +26,9 @@
      - Logique du jeu versus Rendu graphique
    - Utilisation de la librairie SDL2
  - Coaching 7:
+   - [[file:coaching_07.org::*%C3%89valuation%20Git%20&%20Bash][Évaluation Git et Bash: Connaissances à maîtriser]]
    - [[file:howto-uml-setup.org][Howto setup your UML tools]]
+   - [[file:coaching_07.org::*Librairie%20SDL2:%20Frame%20rate%20et%20%C3%A9v%C3%A8nements%20clavier][Librairie SDL2: Frame rate et évènements clavier]]
 
 ** Installation de votre environnement de travail
 Ces étapes sont à faire dans l'ordre:

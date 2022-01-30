@@ -93,6 +93,108 @@
 * Outils de génération automatisé du diagrame UML
 Cf. [[file:howto-uml-setup.org][howto-uml-setup.org]].
 
+* Librairie SDL2: Frame rate et évènements clavier
+** Notion de "Frame rate"
+Le frame rate est la vitesse, ou le taux, de rafraîchissement de l'écran d'un jeu.
+
+Il s'exprime soit
+
+ - en Hz: par exemple 50Hz pour 50 images par secondes
+
+ - en ms (millisecondes): par exemple 20ms (= 1/50Hz)
+
+** Contrôle du Frame Rate dans une boucle de jeu
+*** Principe
+
+#+BEGIN_SRC C++
+  #include <SDL2/SDL.h>
+
+  ... func(int frame_rate_ms, ...) {
+
+    int frame_delay;
+    Uint32 frame_start;
+
+    // Start the main game loop:
+    do {
+      // Begin of current frame:
+      frame_start = SDL_GetTicks();
+
+      // Check for pressed keyboard keys:
+      ...
+
+      // Next iteration of the game:
+      ...
+
+      // Render the game:
+      ...
+
+      // Compute elapsed time since the begin of current frame:
+      frame_delay = frame_rate_ms - (SDL_GetTicks() - frame_start);
+
+      // Wait for some time in order to stabilise frame rate to ~20ms:
+      if (frame_delay > 0)
+        SDL_Delay(frame_delay);
+
+    } while (...);
+    ...
+  }
+#+END_SRC
+
+*** Vitesse de déplacement du Snake = "Nb frames / case"
+
+#+BEGIN_SRC C++
+  #include <SDL2/SDL.h>
+
+  ... func(int frame_rate_ms, int snake_speed_fpc, ...) {
+
+    int frame_delay;
+    Uint32 frame_start;
+
+    // Start the main game loop:
+    Uint32 iter = 0;
+    do {
+      // Begin of current frame:
+      frame_start = SDL_GetTicks();
+
+      // Check for pressed keyboard keys:  <--- IMPORTANT: Le claier est toujours "lu" à 50Hz!
+      ...
+
+      // Make the game to evolve / snake to move, only every =snake_speed_fpc= frames:
+      if (iter % snake_speed_fpc == 0) {
+        // Next iteration of the game:
+        ...
+      }
+
+      // Render the game:
+      this->Draw();
+
+      // Compute elapsed time since the begin of current frame:
+      frame_delay = frame_rate_ms - (SDL_GetTicks() - frame_start);
+
+      // Wait for some time in order to stabilise frame rate to ~20ms:
+      if (frame_delay > 0)
+        SDL_Delay(frame_delay);
+
+      // Print a warning if the game is too slow with respect to the frame rate:
+      if (frame_delay > frame_rate_ms)
+        printf("WARNING: frame rate drop: %d ms\n", frame_delay - frame_rate_ms);
+
+      // Check for Quit event:
+      SDL_PollEvent(&event);
+      iter++;
+    } while (!(event.type == SDL_QUIT));
+    ...
+  }
+#+END_SRC
+
+*** Valeurs typiques pour un premier test
+
+Par exemple chez moi:
+
+ - =frame_rate_ms= = 20
+
+ - =snake_speed_fpc= = 7 (le jeu évolue toutes les 7 frames)
+
 * COMMENT settings                                                :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
