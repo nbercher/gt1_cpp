@@ -45,7 +45,7 @@ Le plus simple est de procéder ainsi:
  2. Téléchargez le fichier =Makefile= depuis le dépôt Git du coach:
 
     #+BEGIN_SRC sh
-      wget https://github.com/nbercher/gt1_cpp/blob/main/snake/Makefile
+      wget https://raw.githubusercontent.com/nbercher/gt1_cpp/main/snake/Makefile
     #+END_SRC
 
     Vérifiez que le fichier =Makefile= est bien là avec =ls=.
@@ -60,7 +60,7 @@ Le plus simple est de procéder ainsi:
  4. Téléchargez le fichier =mk_uml.sh= depuis le dépôt Git du coach:
 
     #+BEGIN_SRC sh
-      wget https://github.com/nbercher/gt1_cpp/blob/main/snake/uml/mk_uml.sh
+      wget https://raw.githubusercontent.com/nbercher/gt1_cpp/main/snake/uml/mk_uml.sh
     #+END_SRC
 
     Vérifiez que le fichier =mk_uml.sh= est bien là avec =ls=.
