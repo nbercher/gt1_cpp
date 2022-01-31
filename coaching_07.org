@@ -158,7 +158,7 @@ Il s'exprime soit
       // Begin of current frame:
       frame_start = SDL_GetTicks();
 
-      // Check for pressed keyboard keys:  <--- IMPORTANT: Le claier est toujours "lu" à 50Hz!
+      // Check for pressed keyboard keys:  <--- IMPORTANT: Le clavier est toujours "lu" à 50Hz!
       ...
 
       // Make the game to evolve / snake to move, only every =snake_speed_fpc= frames:
