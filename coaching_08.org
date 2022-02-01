@@ -1,0 +1,68 @@
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
+
+* Commande =make= et =Makefile=
+** Principe
+
+ - La commande =make= sert à exécuter des tâches dépendantes les unes des autres:
+
+   Exemples:
+
+   - Exécuter le jeu nécessite que l'exécutable =snake= soit créé
+
+     - L'exécutable =snake= doit être compilé si les fichiers =*.cpp= et =*.hpp= sont plus récents que lui
+
+       - etc.
+
+ - La commande =make= utilise par défaut le fichier =Makefile= du dossier courant
+
+ - Un fichier =Makefile= peut définir plusieurs cibles: =snake=, =uml/classes.png=, etc.
+
+** Example de fichier =Makefile= "manuel"
+
+#+BEGIN_SRC makefile
+  snake: *.cpp *.hpp
+          g++ *.cpp -lSDL2 -o snake
+#+END_SRC
+
+Avec:
+
+ - =snake= (dans =snake:=): la cible (/target/)
+
+ - =*.cpp *.hpp=: les prérequis (/prerequisites/) -> Ce sont les dépendances nécessaires à la création de la cible (=snake=)
+
+ - =g++ *.cpp *.hpp -lSDL2 -o snake=: la commande à exécuter pour créer la cible (=snake=)
+
+** Example de fichier =Makefile= "automatisé"
+
+#+BEGIN_SRC makefile
+  snake: *.cpp *.hpp
+          g++ *.cpp -lSDL2 -o $@
+#+END_SRC
+
+Avec:
+
+ - =$@= la valeur de la cible (ici =snake=)
+
+Note: Il existe aussi =$@= la valeurs des prérequis (ici =*.cpp *.hpp=).
+
+** Example de fichier =Makefile= "automatisé" avec variables de configuration
+
+#+BEGIN_SRC makefile
+  CC=g++
+  EXE=snake
+  CPP=*.cpp
+  HPP=*.hpp
+
+  $(EXE): $(CPP) $(HPP)
+          $(CC) $(CPP) -lSDL2 -o $(EXE)
+#+END_SRC
+
+** Snake: Fichier =Makefile= mis à jour pour compiler
+Cf. fichier [[file:snake/Makefile][snake/Makefile]].
+
+* COMMENT settings                                                :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:
