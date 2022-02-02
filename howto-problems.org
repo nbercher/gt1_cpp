@@ -82,7 +82,11 @@
         echo 'export LIBGL_ALWAYS_INDIRECT=1' >>~/.bashrc
       #+END_SRC
 
-   2. Quittez et redémarrez vos Terminaux Linux (WSL et/ou dans VS Code) ou rechargez la config dans chaque Terminal avec: =source ~/.bashrc=
+   2. Quittez et redémarrez vos Terminaux Linux (WSL et/ou dans VS Code) *ou* rechargez la config dans chaque Terminal déjà ouvert avec:
+
+      #+BEGIN_SRC sh
+        source ~/.bashrc
+      #+END_SRC
 
 * "libGL error: failed to load driver: swrast"
 
