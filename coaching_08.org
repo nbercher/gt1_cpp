@@ -9,7 +9,8 @@
 
    - Exécuter le jeu nécessite que l'exécutable =snake= soit créé
 
-     - L'exécutable =snake= doit être compilé si les fichiers =*.cpp= et =*.hpp= sont plus récents que lui
+     - L'exécutable =snake= doit être compilé si les fichiers =*.cpp= et =*.hpp= sont plus récents que
+       lui
 
        - etc.
 
@@ -28,7 +29,8 @@ Avec:
 
  - =snake= (dans =snake:=): la cible (/target/)
 
- - =*.cpp *.hpp=: les prérequis (/prerequisites/) -> Ce sont les dépendances nécessaires à la création de la cible (=snake=)
+ - =*.cpp *.hpp=: les prérequis (/prerequisites/) -> Ce sont les dépendances nécessaires à la création de
+   la cible (=snake=)
 
  - =g++ *.cpp *.hpp -lSDL2 -o snake=: la commande à exécuter pour créer la cible (=snake=)
 
@@ -43,7 +45,7 @@ Avec:
 
  - =$@= la valeur de la cible (ici =snake=)
 
-Note: Il existe aussi =$@= la valeurs des prérequis (ici =*.cpp *.hpp=).
+Note: Il existe aussi =$^= la valeurs des prérequis (ici =*.cpp *.hpp=).
 
 ** Example de fichier =Makefile= "automatisé" avec variables de configuration
 
