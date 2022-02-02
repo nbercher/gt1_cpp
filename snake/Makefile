@@ -9,7 +9,7 @@ default: $(EXE)
 
 # The executable file must be rebuilt if source files changed:
 $(EXE): $(CPP) $(HPP)
-	$(CC) -lSDL2 $(CPP) -o $(EXE)
+	$(CC) $(CPP) -lSDL2 -o $(EXE)
 
 # Run of the (always up-to-date) executable:
 run: $(EXE)
