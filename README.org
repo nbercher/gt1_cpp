@@ -59,9 +59,12 @@ Ces étapes sont à faire dans l'ordre:
  - Cours en ligne:
    - [[https://fr.wikibooks.org/wiki/Programmation_avec_la_SDL][fr.wikibooks.org:]] "Programmation avec la SDL"
 
- - Tutoriels:
+ - Tutoriels SDL2:
    - https://lazyfoo.net/tutorials/SDL/
    - [[https://github.com/joachim-gabin/gtech1-b23-pong][Jeu Pong]], écrit en Langage C par le binome 23 du projet-2
+   - *NEW* Pour aller plus loin sur la gestion du "Frame Rate":
+     - [[https://thenumbat.github.io/cpp-course/sdl2/08/08.html][github.io]]: "Timing: Frame Rate, Physics, Animation"
+     - [[https://stackoverflow.com/questions/23258650/sleep1-and-sdl-delay1-takes-15-ms/23258702][stackoverflow.com]]: "Sleep(1) and SDL_Delay(1) takes 15 ms"
      
  - Liens utiles [[https://wiki.libsdl.org/][wiki]] SDL2:
    - [[https://wiki.libsdl.org/SDL_Rect][SDL_Rect]]: Structure C pour dessiner un rectangle
