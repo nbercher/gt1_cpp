@@ -28,6 +28,25 @@
      - *Si vous l'avez testé*, vous pouvez mentionner que votre code doit aussi pouvoir se compiler sur
        d'autres plateformes (Mac/Intel, Mac/ARM64, Windows?, etc.) .
 
+* Projet finalisé
+
+ - Votre projet final devra avoir ses sources dans =~/proj7/snake/= = racine du dépôt Git
+
+ - Placez votre fichier =Makefile= à la racine du dépôt avec les sources afin que la commande =make=
+   fonctionne:
+
+ - Exemple:
+
+   #+BEGIN_SRC sh
+      README.md
+      Makefile
+      MainSDLWindow.cpp
+      MainSDLWindow.hpp
+      main.cpp
+      snake.cpp
+      snake.hpp
+   #+END_SRC
+
 * COMMENT settings                                                :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
