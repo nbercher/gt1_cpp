@@ -2,7 +2,7 @@
 
 * Le README.md de votre dépôt Github.com
 
- - *README.md est la fiche de pésentation de votre dépôt sur Github.com!*
+ - *README.md est la fiche de présentation de votre dépôt sur Github.com!*
 
  - Il doit contenir toutes les infos nécessaires pour jouer au jeu:
 
@@ -30,10 +30,10 @@
 
 * Projet finalisé
 
- - Votre projet final devra avoir ses sources dans =~/proj7/snake/= = racine du dépôt Git
+ - Votre projet final devra avoir ses sources à la racine du dépôt Git (sur vos PC = =~/proj7/snake/=)
 
  - Placez votre fichier =Makefile= à la racine du dépôt avec les sources afin que la commande =make=
-   fonctionne:
+   fonctionne correctement.
 
  - Exemple:
 
@@ -46,8 +46,7 @@
       snake.cpp
       snake.hpp
    #+END_SRC
-
-* COMMENT settings                                                :ARCHIVE:noexport:
+* COMMENT settings                                         :ARCHIVE:noexport:
 #+startup: overview
 ** Local variables
 # Local Variables:
