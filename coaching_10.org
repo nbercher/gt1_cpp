@@ -1,0 +1,36 @@
+#+title: G.Tech 1 -- Projet#7 -- C++ sous Linux / Git
+
+* Le README.md de votre dépôt Github.com
+
+ - *README.md est la fiche de pésentation de votre dépôt sur Github.com!*
+
+ - Il doit contenir toutes les infos nécessaires pour jouer au jeu:
+
+   1. Comment le compiler:
+
+      - Les librairies et outils nécessaires à la compilation (ex: libsedl2-dev, make)
+
+      - La commande de compilation (=make, =g++ ...=)
+
+   2. Comment lancer le jeu (ex: =make run= ou encore =./snake=)
+
+   3. Comment jouer au jeu / notice d'utilisation: à vous de détailler votre jeu avec ses spécificités,
+      d'expliquer le rôle de chaque touche, etc.
+
+ - IMPORTANT: Contexte Linux:
+
+   - Votre programme est un programme pour Linux!  Vous vous adressez donc avant tout à des utilisateurs
+     Linux.
+
+     - On ne parlera donc pas des éléments de l'environnement propre à Windows
+       (PowerShell, WSL, VS Code, etc.)
+
+     - *Si vous l'avez testé*, vous pouvez mentionner que votre code doit aussi pouvoir se compiler sur
+       d'autres plateformes (Mac/Intel, Mac/ARM64, Windows?, etc.) .
+
+* COMMENT settings                                                :ARCHIVE:noexport:
+#+startup: overview
+** Local variables
+# Local Variables:
+# fill-column: 105
+# End:

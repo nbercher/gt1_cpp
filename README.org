@@ -31,6 +31,8 @@
    - [[file:coaching_07.org::*Librairie%20SDL2:%20Frame%20rate%20et%20%C3%A9v%C3%A8nements%20clavier][Librairie SDL2: Frame rate et évènements clavier]]
  - [[file:coaching_07.org][Coaching 8]]:
    - [[file:coaching_08.org::*%20Commande%20=make=%20et%20=Makefile=][La commande =make= et le fichier =Makefile=]]
+ - [[file:coaching_10.org][Coaching 10]]:
+   - [[file:coaching_10.org::*Le%20README.md%20de%20votre%20d%C3%A9p%C3%B4t%20Github.com][Le README.md de votre dépôt Github.com]]
 
 ** Installation de votre environnement de travail
 Ces étapes sont à faire dans l'ordre:
